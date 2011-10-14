@@ -1,0 +1,551 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: basics\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-09 10:39+0100\n"
+"PO-Revision-Date: 2011-10-09 10:40+0100\n"
+"Last-Translator: Bruno Bichet <infographiste@gmail.com>\n"
+"Language-Team: Bruno Bichet <infographiste@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_c;_n;_x\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n>1\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7\n"
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:14
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:23
+msgid "Enter the comments area."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:25
+#, php-format
+msgid "One response to %2$s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:32
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:42
+msgid "Comment navigation"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:33
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:43
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:34
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:44
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:56
+msgid "Comments are closed."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/comments.php:61
+msgid "Want to say some word? Let's stay in touch with the \"Contact\" page."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/content-404.php:22
+msgid "Recent Posts"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/content-404.php:24
+msgid "Most Used Categories"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/content-404.php:30
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/content-news.php:44
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/content.php:57
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/content.php:62
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/content.php:58
+msgid "Pages:"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:18
+msgid "Widget Area 11"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:24
+msgid "Colophon"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:27
+msgid "&copy;"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:29
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:35
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:38
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:31
+#, php-format
+msgid "<span class=\"%1$s\">%2$s</span>"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:29
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:35
+msgid " &mdash; "
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:32
+msgid "Contact the administrator "
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:37
+msgid "Proudly powered by WordPress"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:39
+msgid " &hearts; "
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:41
+#, php-format
+msgid "Theme: %1$s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/footer.php:44
+#, php-format
+msgid "By %1$s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/header.php:29
+#, php-format
+msgid "Subscribe to %1$s via RSS"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/header.php:47
+msgid "Widget Area 1: try \"First navigation\" in custom menus"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/header.php:55
+msgid "Site navigation"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/header.php:57
+msgid "Skip to content"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/home.php:35
+msgid "Posts not found. Tell the administrator that the category requested not exists."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/home.php:45
+msgid "Do you want to know more?"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/home.php:46
+msgid "Find here all the latest news about Basics"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/search.php:31
+#, php-format
+msgid "No Search Results for: %s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/search.php:32
+msgid "Sorry, but nothing matched your search criteria."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/search.php:37
+msgid "Please try again with some different keywords."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/search.php:38
+msgid "<strong>Just type in, hit &lt;enter&gt; and let me handle it for you.</strong>"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/searchform.php:13
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/searchform.php:18
+msgid "Search in"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/searchform.php:16
+msgid "Search in "
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/searchform.php:17
+msgid "Search in (hit Enter)"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-1.php:13
+msgid "Aside Sidebar 1"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-1.php:16
+msgid "Section widget area 5"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-1.php:21
+msgid "Section widget area 6"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-1.php:24
+msgid "Meta"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-2.php:13
+msgid "Aside Sidebar 2"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-2.php:16
+msgid "Section widget area 7"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-2.php:21
+msgid "Section widget area 8"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-2.php:24
+msgid "Archives"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-3.php:13
+msgid "Aside Sidebar 3"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-3.php:16
+msgid "Section widget area 9"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-3.php:21
+msgid "Section widget area 10"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/sidebar-3.php:24
+msgid "Categories"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:17
+#, php-format
+msgid "%s <span class=\"says\">says:</span>"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:20
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:28
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:31
+msgid " | "
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:32
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:49
+msgid "(Edit)"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:39
+msgid "Reply!"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:49
+msgid "Pingback:"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:75
+msgid "Name"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:76
+msgid "What can we call you?"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:77
+msgid "Email"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:78
+msgid "How can we reach you?"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:79
+msgid "Website"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:80
+msgid "Have you got a website?"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:84
+#, php-format
+msgid "Required fields are marked %s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:88
+msgid "Comment"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:89
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:90
+#, php-format
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:91
+msgid "Your email address will not be published."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:92
+#, php-format
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes: %s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:95
+msgid "Leave a Reply"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:96
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:97
+msgid "Cancel reply"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-comment.php:98
+msgid "Post Comment"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:10
+msgid "Post navigation"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:11
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:12
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:29
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:40
+msgid "404 page not found: fish is gone, try again"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:42
+msgid "No result found: try again!"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:76
+msgid "Hi! What can Basics do for you?"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:77
+msgid "See how Basics could help you as a starter theme for your own developpments with WordPress"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:80
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:84
+#, php-format
+msgid "No description for category %s. Suggest the administrator to fill a helping description."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:88
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:92
+#, php-format
+msgid "No description for tag %s. Suggest the administrator to fill a helping blurb."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:101
+#, php-format
+msgid "Sorry, there is no description for author %s. If it's you, feel free to write a consistent description. It is a gook way to promote yourself."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:107
+msgid "Daily Archives:"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:111
+msgid "Monthly Archives:"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:115
+msgid "Yearly Archives:"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:119
+msgid "Blog Archives"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:120
+msgid "Blog Archives description"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:125
+msgid "Search results for:"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:126
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:130
+msgid "Hi! This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:131
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:142
+#, php-format
+msgid "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:168
+#, php-format
+msgid "Posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark nofollow\">permalink</a>."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:170
+#, php-format
+msgid "Posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark tag nofollow\">permalink</a>."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-display.php:172
+#, php-format
+msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark nofollow\">permalink</a>."
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:73
+msgid "One"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:75
+msgid "Widgets Area One"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:82
+msgid "Two"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:84
+msgid "Widgets Area Two"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:91
+msgid "Three"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:93
+msgid "Widgets Area Three"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:100
+msgid "Four"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:102
+msgid "Widgets Area Four"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:109
+msgid "Five"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:111
+msgid "Widgets Area Five"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:118
+msgid "Six"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:120
+msgid "Widgets Area Six"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:127
+msgid "Seven"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:129
+msgid "Widgets Area Seven"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:136
+msgid "Eight"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:138
+msgid "Widgets Area Eight"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:145
+msgid "Nine"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:147
+msgid "Widgets Area Nine"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:154
+msgid "Ten"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:156
+msgid "Widgets Area Ten"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:163
+msgid "Eleven"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-filter-action.php:165
+msgid "Widgets Area Eleven"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-setup.php:31
+msgid "First navigation"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-setup.php:32
+msgid "Second navigation"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-setup.php:33
+msgid "Third navigation"
+msgstr ""
+
+#: C:/wamp/www/wordpress/wp-content/themes/basics.0.2.7/inc/functions-setup.php:34
+msgid "Fourth navigation"
+msgstr ""
+

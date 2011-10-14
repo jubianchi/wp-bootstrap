@@ -1,0 +1,61 @@
+/* Add additional stylesheets below
+-------------------------------------------------- */
+/*
+  Bootstrap's documentation styles
+  Special styles for presenting Bootstrap's documentation and examples
+*/
+
+/* Body and structure
+-------------------------------------------------- */
+body {
+  background-color: #fff;
+  position: relative;
+}
+section {
+  padding-top: 60px;
+}
+section > .row {
+  margin-bottom: 10px;
+}
+
+/* Footer
+-------------------------------------------------- */
+.footer {
+  background-color: #eee;
+  min-width: 940px;
+  padding: 30px 0;
+  text-shadow: 0 1px 0 #fff;
+  border-top: 1px solid #e5e5e5;
+  -webkit-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+  -moz-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+/*          box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+*/}
+.footer p {
+  color: #555;
+}
+
+/* Special grid styles
+-------------------------------------------------- */
+.show-grid {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.show-grid [class*="span"] {
+  background: #eee;
+  text-align: center;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  min-height: 30px;
+  line-height: 30px;
+}
+.show-grid:hover [class*="span"] {
+  background: #ddd;
+}
+.show-grid .show-grid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.show-grid .show-grid [class*="span"] {
+  background-color: #ccc;
+}
