@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'Dock11';
-	src: url('heavy_dock11.otf') format("opentype");
-	src: url('heavy_dock11-webfont.eot');
-	src: url('heavy_dock11-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('heavy_dock11-webfont.woff') format('woff'),
-		 url('heavy_dock11-webfont.ttf') format('truetype'),
-		 url('heavy_dock11-webfont.svg#DOCK11Heavy') format('svg');			
+	src: url('../fonts/heavy_dock11.otf') format("opentype");
+	src: url('../fonts/heavy_dock11-webfont.eot');
+	src: url('../fonts/heavy_dock11-webfont.eot') format('embedded-opentype'),
+		 url('../fonts/heavy_dock11-webfont.woff') format('woff'),
+		 url('../fonts/heavy_dock11-webfont.ttf') format('truetype'),
+		 url('../fonts/heavy_dock11-webfont.svg#DOCK11Heavy') format('svg');
 	
 	font-weight: normal;
 	font-style: normal;
@@ -62,3 +62,13 @@ h1 {
     font-size: 25px;
 }
 h1 small { font-size: 0.7em; }
+
+.media-grid li a { margin-left: 10px; }
+.media-grid li p, .media-grid li a:hover p { text-decoration: none; color: #404040; }
+
+.modal {
+    max-width: 900px;
+    width: auto;
+    top: 10px;
+    left: 25%;
+}
