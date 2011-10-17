@@ -1,65 +1,34 @@
 <?php
-add_action( 'after_setup_theme', 'bootsrap_setup' );
-if (!function_exists( 'bootsrap_setup')):	
-	function bootsrap_setup() {
-		if (!isset( $content_width)) $content_width = 960;
+add_action('admin_menu', 'bootstrap_admin_menu');
+if (!function_exists( 'bootstrap_admin_menu')) :
+	function bootstrap_admin_menu() {
+        add_theme_page('WPBootstrap Options', 'WPBootstrap Options', 'edit_themes', 'wp-bootstrap', 'bootstrap_admin_render');
+    }
 
-		load_theme_textdomain( 'bootstrap', TEMPLATEPATH . '/languages' );
+    function bootstrap_admin_render() {
+        include __DIR__ . '/../admin/options.php';
+    }
+endif;
+    
+add_action( 'after_setup_theme', 'bootstrap_setup' );
+if (!function_exists( 'bootstrap_setup')):
+	function bootstrap_setup() {
+		global $theme_config;
 
-		$locale = get_locale();
-		$locale_file = TEMPLATEPATH . "/languages/$locale.php";
-		if (is_readable( $locale_file ))
-			require_once( $locale_file );
+        load_theme_textdomain('bootstrap', TEMPLATEPATH . '/languages');
+        $locale      = get_locale();
+		$locale_file = TEMPLATEPATH . '/languages/' . $locale . '.php';
+		if(is_readable( $locale_file )) require_once($locale_file);
 
-		register_nav_menus( array(
+        if(!isset($theme_config['content_width'])) $theme_config['content_width'] = 960;
+
+		register_nav_menus(array(
 			'toolbar'	=> __( 'Toolbar navigation', 'bootstrap' ),
 			'home'		=> __( 'Home navigation', 'bootstrap' )
-		) );
+		));
 
-		add_theme_support( 'automatic-feed-links' );
-
-
-		add_theme_support( 
-			'post-formats', array( 
-				'aside', 
-				'gallery', 
-				'link', 
-				'image', 
-				'quote', 
-				'status', 
-				'video', 
-				'audio', 
-				'chat' 
-			)
-		);
-
-		/*
-		register_post_type('aside',
-			array(
-				'labels' => array(
-					'name' => __( 'Discography' ),
-					'singular_name' => __( 'Discography' ),
-					'add_new' => __( 'Add New' ),
-					'add_new_item' => __( 'Add New Discography' ),
-					'edit' => __( 'Edit' ),
-					'edit_item' => __( 'Edit Discography' ),
-					'new_item' => __( 'New Discography' ),
-					'view' => __( 'View Discography' ),
-					'view_item' => __( 'View Discography' ),
-					'search_items' => __( 'Search Discographys' ),
-					'not_found' => __( 'No Discographys found' ),
-					'not_found_in_trash' => __( 'No Discographys found in Trash' ),
-					'parent' => __( 'Parent Discography' ),
-				),
-				'public' => true,
-				'show_ui' => true,
-				'exclude_from_search' => true,
-				'hierarchical' => true,
-				'supports' => array( 'title', 'editor', 'thumbnail' ),
-				'query_var' => true
-			)
-		);
-		 */
+		add_theme_support('automatic-feed-links');
+		add_theme_support('post-formats', $theme_config['formats']);
 	}
 endif;
 
@@ -67,45 +36,45 @@ add_action( 'widgets_init', 'bootstrap_widgets_init' );
 if (!function_exists( 'bootstrap_widgets_init' ) ) :
 	function bootstrap_widgets_init() {
 		register_sidebar( array (
-			'name' => __( 'One', 'basics' ),
+			'name' => __('One', 'bootstrap'),
 			'id' => 'war-1',
-			'description' => __( 'Widgets Area One', 'basics' ),
+			'description' => __('Widgets Area One', 'bootstrap'),
 			'before_widget' => '<div id="%1$s" class="%2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h2>',
 			'after_title' => '</h2>',
 		) );
 		register_sidebar( array (
-			'name' => __( 'First Footer Column', 'basics' ),
+			'name' => __( 'First Footer Column', 'bootstrap' ),
 			'id' => 'foot-col-1',
-			'description' => __( 'Widgets Area Two', 'basics' ),
+			'description' => __( 'First Footer Column', 'bootstrap' ),
 			'before_widget' => '<div id="%1$s" class="%2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h2>',
 			'after_title' => '</h2>',
 		) );
 		register_sidebar( array (
-			'name' => __( 'Second Footer Column', 'basics' ),
+			'name' => __('Second Footer Column', 'bootstrap'),
 			'id' => 'foot-col-2',
-			'description' => __( 'Widgets Area Three', 'basics' ),
+			'description' => __('Second Footer Column', 'bootstrap'),
 			'before_widget' => '<div id="%1$s" class="%2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h2>',
 			'after_title' => '</h2>',
 		) );
 		register_sidebar( array (
-			'name' => __( 'Third Footer Column', 'basics' ),
+			'name' => __('Third Footer Column', 'bootstrap'),
 			'id' => 'foot-col-3',
-			'description' => __( 'Widgets Area Four', 'basics' ),
+			'description' => __('Third Footer Column', 'bootstrap'),
 			'before_widget' => '<div id="%1$s" class="%2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h2>',
 			'after_title' => '</h2>',
 		) );
 		register_sidebar( array (
-			'name' => __( 'Fourth Footer Column', 'basics' ),
-			'id' => 'foot-col-4',
-			'description' => __( 'Widgets Area Five', 'basics' ),
+			'name' => __('Second Footer Row', 'bootstrap'),
+			'id' => 'foot-row-2',
+			'description' => __( 'Second Footer Row', 'bootstrap' ),
 			'before_widget' => '<div id="%1$s" class="%2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h2>',
