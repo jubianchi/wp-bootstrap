@@ -14,11 +14,7 @@
 	<title><?php echo bootstrap_title(); ?></title>
 	
 	<link href="<?php echo get_template_directory_uri(); ?>/style.css" rel="stylesheet">
-    <style type="text/css">
-	body {
-        padding-top: 60px;
-	}
-    </style>	
+	
 	<?php echo bootstrap_favicons(); ?>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="alternate" type="application/rss+xml" title="<?php printf( __( 'Subscribe to %1$s via RSS', 'basics' ), get_bloginfo( 'name' ) ); ?>" href="<?php echo home_url( '/feed/' ); ?>" />
@@ -48,7 +44,6 @@
 					<a class="brand<?php if($menu) : ?> dropdown-toggle<?php endif; ?>" href="<?php echo home_url( '/' ); ?>">JUBIANCHI.FR</a>
 					<?php echo $menu ?>
 				</li>
-				<li><a href="<?php echo home_url( '/' ); ?>"><?php echo __('Home') ?></a></li>
 			</ul>			
 			<?php wp_nav_menu( 
 				array( 
@@ -57,12 +52,19 @@
 					'menu_class' => 'nav'
 				) 
 			); ?>
-			<?php get_search_form(); ?>
+			<?php if(!is_user_logged_in) : ?>
+				<ul class="nav secondary-nav">
+					<li class="dropdown" data-dropdown="dropdown">
+						<a href="/wp-login.php" class="dropdown-toggle" data-controls-modal="modal-login" data-backdrop="static"><?php echo __('Login', 'bootstrap'); ?></a>
+					</li>
+				</ul>
+			<?php endif; ?>
+            <?php get_search_form(); ?>
 		</div>
 	</div>
-</div>	
-	
-<div class="container" role="document">
+</div>
+
+<div class="container" role="document">		
 	<div class="hero-unit">
 		<h1><a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<p class="sub"><?php bloginfo( 'description' ); ?></p>

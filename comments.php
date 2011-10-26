@@ -53,7 +53,9 @@
 		<?php endif; ?>
 
 		<?php if (comments_open()) : ?>			
-			<div class="alert-message block-message default"><?php comment_form(); ?></div>
+			<div class="alert-message block-message default"><?php comment_form(array(
+                'cancel_reply_link' => '<span class="btn small danger">' . __( 'Cancel reply' ) . '</span>'
+            )); ?></div>
 		<?php else : ?>
 			<div class="alert-message block-message notice"><?php _e( 'Comments are closed for this post', 'bootstrap' ); ?></div>
 		<?php endif; ?>

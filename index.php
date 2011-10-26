@@ -36,7 +36,8 @@ For Those About to Rock. Fire!
 				array(
 					'taxonomy' => 'post_format',
 					'field' => 'slug',
-					'terms' => 'post-format-aside'
+					'terms' => array('post-format-aside', 'post-format-quote'),
+                    'operator' => 'IN'
 				)
 			),
 			'showposts' => 3
@@ -58,18 +59,30 @@ For Those About to Rock. Fire!
 				array(
 					'taxonomy' => 'post_format',
 					'field' => 'slug',
-					'terms' => 'post-format-aside',
+					'terms' => array('post-format-aside', 'post-format-quote'),
 					'operator' => 'NOT IN'
 				)
 			)
 		);
-		$wp_query = new WP_Query( $args );
+        $args = array_merge($wp_query -> query, $args);
+        query_posts($args);
 		?>
 	<?php endif; ?>
 
 	
 	<?php while ( have_posts() ) : the_post(); ?>
-		<?php get_template_part('content'); ?>
+		<?php if(is_singular()) : ?>
+            <?php switch(get_post_format()) {
+                case 'gallery':
+                    get_template_part('content', get_post_format());
+                    break;
+                default:
+                    get_template_part('content');
+                    break;
+            } ?>
+        <?php else : ?>
+            <?php get_template_part('content'); ?>
+        <?php endif; ?>
 	<?php endwhile; ?>	
 		
 	<?php bootstrap_content_nav( 'nav-below', 'menu' ); ?>

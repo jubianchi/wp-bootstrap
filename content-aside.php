@@ -1,16 +1,10 @@
-<article id="post-<?php the_ID(); ?>" class="span-one-third">
+<article id="post-<?php the_ID(); ?>" class="aside span-one-third">
 	<header class="page-header">		
 		<?php if(!is_singular()) : ?>
 			<h2>
 				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'basics' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 					<?php the_title(); ?>
-				</a>				
-				
-				<?php if(comments_open() || (!comments_open() && get_comments_number() > 0)) : ?>
-					<span class="pull-right label" style="font-size: 1em; height: 1.3em;">
-						<?php echo get_comments_number() ?>
-					</span>
-				<?php endif; ?>
+				</a>											
 			</h2>
 		<?php else : ?>
 			<h1>
@@ -28,14 +22,13 @@
 		<?php endif; ?>
 	</header>
 	
-	<div class="row" style="height: 100px;">
+	<div class="row" style="height: 200px;">
 		<div class="span-one-third">
-			<?php if (is_singular()) : ?>			
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap') ); ?>
-				<?php wp_link_pages(array( 'before' => '<div class="page-link">' . __('Pages:', 'bootstrap' ), 'after' => '</div>') ); ?>
+			<?php if (is_singular()) : ?>
+				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap') ); ?>				
 			<?php else : ?>
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap' ) ); ?>			
-			<?php endif; ?>		
+				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap' ) ); ?>
+			<?php endif; ?>
 		</div>
 	</div>
 

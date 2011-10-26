@@ -11,7 +11,7 @@
 	font-style: normal;
 }
 
-.hero-unit h1, .hero-unit h1 a {
+.hero-unit h1, .hero-unit h1 a, .masthead h1, .masthead a {
 	font-family: 'Dock11', 'Arial Black', 'Arial'; 
 	text-transform: uppercase;
 	color: #FC7D3B;
@@ -22,6 +22,11 @@
 	text-transform: uppercase;
 	font-size: 2em;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.masthead a, .masthead a:hover {
+	color: white;
+	text-decoration: none;
 }
 
 .page-header ul { margin: 0; }
@@ -66,9 +71,66 @@ h1 small { font-size: 0.7em; }
 .media-grid li a { margin-left: 10px; }
 .media-grid li p, .media-grid li a:hover p { text-decoration: none; color: #404040; }
 
-.modal {
-    max-width: 900px;
-    width: auto;
-    top: 10px;
-    left: 25%;
+.footer {
+	background-color: #eee;
+	min-width: 940px;
+	padding: 30px 0;
+	text-shadow: 0 1px 0 #fff;
+	border-top: 1px solid #e5e5e5;
+	-webkit-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+	-moz-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+	box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+}
+.footer p {
+  color: #555;
+}
+
+/* Jumbotrons
+-------------------------------------------------- */
+.jumbotron {
+  min-width: 940px;
+  padding-top: 40px;
+}
+.jumbotron .inner {
+  padding: 45px 0;
+  -webkit-box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
+     -moz-box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
+/*          box-shadow: inset 0 10px 30px rgba(0,0,0,.3);
+*/}
+.jumbotron h1,
+.jumbotron p {
+  margin-bottom: 9px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.jumbotron h1 {
+  font-size: 54px;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.jumbotron p {
+  font-weight: 300;
+}
+.jumbotron .lead {
+  font-size: 20px;
+  line-height: 27px;
+}
+.jumbotron p a {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Specific jumbotrons
+------------------------- */
+/* main docs page */
+.masthead {
+  background-color: #049cd9;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
+  background-image: -webkit-linear-gradient(#004D9F, #049cd9);
+  background-image: -moz-linear-gradient(#004D9F, #049cd9);
+  background-image: -o-linear-gradient(top, #004D9F, #049cd9);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); /* IE8 and down */
 }

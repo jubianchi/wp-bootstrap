@@ -1,71 +1,116 @@
 <?php
-if ( ! function_exists( 'bootstrap_comments' ) ) :
-function bootstrap_comments( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	switch ( $comment->comment_type ) :
-		case '' :
-	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<article id="comment-<?php comment_ID(); ?>" class="alert-message block-message default comment">
-			<div class="row">
-				<div class="pull-left span1">
-					<?php echo get_avatar( $comment, 40 ); ?>					
-				</div><!-- eo .comment-author .vcard -->				
-				<div class="pull-right span10">
-					<div class="comment-meta commentmetadata">
-						<p><?php printf( __( '%s <span class="says">says:</span>', 'bootstrap' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></p>
-						<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-							<time datetime="<?php comment_time( 'c' ); ?>">
-								<?php printf( __( '%1$s at %2$s', 'bootstrap' ), get_comment_date(),  get_comment_time() ); ?>
-							</time>
-						</a>
-						<?php if ( $comment->comment_approved == '0' ) : ?>
-							<p class="alert-message notice"><?php _e( 'Your comment is awaiting moderation.', 'bootstrap' ); ?></p>
-						<?php endif; ?>
-						<?php edit_comment_link( __( '(Edit)', 'bootstrap' ), ' ' ); ?>
-					</div><!-- eo .comment-meta .commentmetadata -->
-					
-					<div class="comment-content"><?php comment_text(); ?></div>
-					
-					<?php if ( $comment->comment_approved != '0' ) : ?>
-						<div class="reply">
-							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply!', 'bootstrap' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-						</div><!-- eo .reply -->
-					<?php endif; ?>
-			</div>			
-		</article><!-- eo #comment-##  -->
+if(!function_exists('bootstrap_comments')) :
+	function bootstrap_comments($comment, $args, $depth) {
+		$GLOBALS['comment'] = $comment;
+		
+		switch($comment->comment_type) :
+			case '' :
+				?>
+				<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+					<article id="comment-<?php comment_ID(); ?>" class="alert-message block-message default comment">
+						<div class="row">
+							<div class="pull-left span1">
+								<?php echo get_avatar($comment, 40); ?>					
+							</div>			
+							<div class="pull-right span14">
+								<div class="comment-meta commentmetadata">
+									<p>
+										<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+											<time datetime="<?php comment_time('c'); ?>">
+												<?php 
+												printf( 
+													__('On %s at %s', 'bootstrap'), 
+													get_comment_date(),  
+													get_comment_time() 
+												);
+												?>
+											</time>
+										</a>,
+										<?php 
+										printf(
+											__('%s <span class="says">says:</span>', 'bootstrap'), 
+											sprintf(
+												'<cite class="fn">%s</cite>', 
+												get_comment_author_link() 
+											) 
+										); 
+										?>
+									</p>
+									
+									<?php if($comment->comment_approved == '0') : ?>
+										<p class="alert-message notice">
+											<?php _e('Your comment is awaiting moderation.', 'bootstrap'); ?>
+										</p>
+									<?php endif; ?>
+								</div><!-- eo .comment-meta .commentmetadata -->
 
-	<?php
+								<div class="comment-content"><?php comment_text(); ?></div>
+
+								<?php if ( $comment->comment_approved != '0' ) : ?>
+									<div class="reply">
+										<?php 
+										comment_reply_link(array_merge(
+											$args, 
+											array(
+												'depth' => $depth, 
+												'max_depth' => $args['max_depth']
+											)
+										)); 
+										?>
+										<?php edit_comment_link(__('Edit', 'bootstrap')); ?>
+									</div><!-- eo .reply -->
+								<?php endif; ?>
+						</div>			
+					</article><!-- eo #comment-##  -->
+				</li>
+				<?php
 				break;
-		case 'pingback'  :
-		case 'trackback' :
-	?>
-	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'bootstrap' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)', 'bootstrap'), ' ' ); ?></p>
-	<?php
+			case 'pingback'  :
+			case 'trackback' :
+				?>
+				<li class="post pingback">
+					<p><?php _e('Pingback:', 'bootstrap'); ?> <?php comment_author_link(); ?></p>
+				</li>
+				<?php
 				break;
-	endswitch;
-}
-endif; // ends check for basics_comments()
+		endswitch;
+	}
+endif;
 
 add_filter('comment_reply_link', 'bootstrap_comment_reply_link');
 function bootstrap_comment_reply_link($link, $args, $comment, $post) {
-	global $user_ID;
-
+	global $user_ID;	
+	
 	$comment = get_comment($comment);
-	if ( empty($post) )
-		$post = $comment->comment_post_ID;
+	if (empty($post)) $post = $comment->comment_post_ID;
+	
 	$post = get_post($post);
-
-	if ( !comments_open($post->ID) )
-		return false;
+	if (!comments_open($post->ID)) return false;
 
 	$link = '';
 
-	if ( get_option('comment_registration') && !$user_ID )
+	if (get_option('comment_registration') && !$user_ID) {
 		$link = '<a rel="nofollow" class="btn small default comment-reply-login" href="' . esc_url( wp_login_url( get_permalink() ) ) . '">' . $login_text . '</a>';
-	else
+	} else {
 		$link = "<a class='btn small default comment-reply-link' href='" . esc_url( add_query_arg( 'replytocom', $comment->comment_ID ) ) . "#respond' onclick='return addComment.moveForm(\"$add_below-$comment->comment_ID\", \"$comment->comment_ID\", \"$respond_id\", \"$post->ID\")'>" . __( 'Reply!', 'bootstrap' ) . "</a>";
+	}
+	
+	return $link;
+}
+
+add_filter('edit_comment_link', 'bootstrap_comment_edit_link');
+function bootstrap_comment_edit_link($link) {
+	global $user_ID;	
+	
+	$comment = get_comment($comment);
+	if (empty($post)) $post = $comment->comment_post_ID;
+	
+	$post = get_post($post);
+	if (!comments_open($post->ID)) return false;
+
+	$link = '';
+		
+	$link = '<a class="btn small default comment-reply-link" href="' . esc_url( add_query_arg(array('c'=>$comment->comment_ID,  'action'=>'editcomment'), '/wp-admin/comment.php')) . '">' . __( 'Edit', 'bootstrap' ) . '</a>';
 	
 	return $link;
 }
