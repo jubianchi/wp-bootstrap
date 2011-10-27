@@ -36,10 +36,10 @@
 	<div class="row">
 		<div class="span16">
 			<?php if (is_singular()) : ?>			
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap') ); ?>
-				<?php wp_link_pages(array( 'before' => '<div class="page-link">' . __('Pages:', 'bootstrap' ), 'after' => '</div>') ); ?>
+				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap') ); ?>
+				<?php wp_link_pages(array( 'before' => '<div class="page-link">' . __('Pages:', 'wpbootstrap' ), 'after' => '</div>') ); ?>
 			<?php else : ?>
-				<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap' ) ); ?>			
+				<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap' ) ); ?>			
 			<?php endif; ?>		
 		</div>
 	</div>

@@ -52,13 +52,26 @@
 					'menu_class' => 'nav'
 				) 
 			); ?>
-			<?php if(!is_user_logged_in) : ?>
+			<?php if(!is_user_logged_in()) : ?>
 				<ul class="nav secondary-nav">
-					<li class="dropdown" data-dropdown="dropdown">
-						<a href="/wp-login.php" class="dropdown-toggle" data-controls-modal="modal-login" data-backdrop="static"><?php echo __('Login', 'bootstrap'); ?></a>
+					<li class="dropdown" data-dropdown="dropdown">					
+						<a href="/wp-login.php" class="dropdown-toggle" data-controls-modal="modal-login" data-backdrop="static"><?php echo __('Login', 'wpbootstrap'); ?></a>					
 					</li>
 				</ul>
-			<?php endif; ?>
+			<?php else : ?>
+				<?php 
+				global $current_user;
+				$user_identity = get_currentuserinfo();	
+				?>
+				<ul class="nav secondary-nav">
+					<li>
+						<a href="<?php echo wp_logout_url(apply_filters('the_permalink', get_permalink($post_id))); ?>">
+							<?php echo __('Logout', 'wpbootstrap'); ?>
+						</a>
+					</li>
+				</ul>
+			<?php endif; ?>				
+			
             <?php get_search_form(); ?>
 		</div>
 	</div>

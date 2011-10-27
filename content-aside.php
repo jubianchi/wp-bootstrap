@@ -25,9 +25,9 @@
 	<div class="row" style="height: 200px;">
 		<div class="span-one-third">
 			<?php if (is_singular()) : ?>
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap') ); ?>				
+				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap') ); ?>				
 			<?php else : ?>
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap' ) ); ?>
+				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap' ) ); ?>
 			<?php endif; ?>
 		</div>
 	</div>

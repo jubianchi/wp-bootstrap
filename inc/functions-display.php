@@ -4,18 +4,18 @@ function bootstrap_content_nav($nav_id, $nav_class) {
 	global $wp_query;
 
 	if ( $wp_query->max_num_pages > 1 ) : ?>
-		<div class="pagination <?php echo $nav_class; ?>" id="<?php echo $nav_id; ?>" role="navigation">
+		<div class="pagination <?php echo $nav_class; ?>" id="<?php echo $nav_id; ?>">
 			<?php
-				$prev_link = get_previous_posts_link(__('&larr; Newer Posts', 'bootstrap'));
+				$prev_link = get_previous_posts_link(__('&larr; Newer Posts', 'wpbootstrap'));
 				if($prev_link == '') {
 					$prev_class = 'class="disabled"';
-					$prev_link = '<a href="#" onclick="return false;">' . __('&larr; Newer Posts', 'bootstrap') . '</a>';
+					$prev_link = '<a href="#" onclick="return false;">' . __('&larr; Newer Posts', 'wpbootstrap') . '</a>';
 				}
 
-				$next_link = get_next_posts_link(__('Older Posts &rarr;', 'bootstrap'));
+				$next_link = get_next_posts_link(__('Older Posts &rarr;', 'wpbootstrap'));
 				if($next_link == '') {
 					$next_class = 'class="disabled"';
-					$next_link = '<a href="#" onclick="return false;">' . __('Older Posts &rarr;', 'bootstrap') . '</a>';
+					$next_link = '<a href="#" onclick="return false;">' . __('Older Posts &rarr;', 'wpbootstrap') . '</a>';
 				}
 			?>
 			<ul>
@@ -47,7 +47,7 @@ function bootstrap_title() {
 	bloginfo( 'name' );
 	// Add a page number if necessary:
 	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', 'bootstrap' ), max( $paged, $page ) );
+		echo ' | ' . sprintf( __( 'Page %s', 'wpbootstrap' ), max( $paged, $page ) );
 }
 endif;
 
@@ -58,9 +58,9 @@ if ( ! function_exists( 'bootstrap_description' ) ) :
 function bootstrap_description() {
 	global $post, $wp_query;
 	if ( is_404() ) {
-		$basics_description = __('404 page not found: fish is gone, try again');
+		$basics_description = __('404 page not found: fish is gone, try again', 'wpbootstrap');
 	} else if ( is_search() && '' != $wp_query->found_posts ) {
-		$basics_description = __('No result found: try again!');
+		$basics_description = __('No result found: try again!', 'wpbootstrap');
 	} else if ( is_home() || is_front_page() ) {
 		$basics_description = get_bloginfo( 'description', 'display' );
 	} else if ( '' !== $post->post_excerpt ) { 
@@ -94,41 +94,41 @@ function bootstrap_section_heading() {
 	);
 	
 	if ( is_author() ) {
-		$section['section_title'] = sprintf( esc_attr__( 'Archives author for: %s', 'bootstrap' ), get_the_author() );
+		$section['section_title'] = sprintf( esc_attr__( 'Archives author for: %s', 'wpbootstrap' ), get_the_author() );
 		
 		if ( ! empty( $author_description ) ) {
 			$section['section_description'] = $author_description;
 		} else {
-			$section['section_description'] = sprintf( __( 'Sorry, there is no description for author %s. If it\'s you, feel free to write a consistent description. It is a gook way to promote yourself.', 'basics' ), '<mark>' . get_the_author() . '</mark>' );
+			$section['section_description'] = sprintf( __( 'Sorry, there is no description for author %s. If it\'s you, feel free to write a consistent description. It is a gook way to promote yourself.', 'wpbootstrap' ), '<mark>' . get_the_author() . '</mark>' );
 		}
 	} 
 	else if (is_date() ) {
 	
 		if ( is_day() ) {
-			$section['section_title'] = __( 'Daily Archives:', 'basics' );
+			$section['section_title'] = __( 'Daily Archives:', 'wpbootstrap' );
 			$section['section_description'] = get_the_date();
 		}
 		elseif ( is_month() ) {
-			$section['section_title'] = __( 'Monthly Archives:', 'basics' );
+			$section['section_title'] = __( 'Monthly Archives:', 'wpbootstrap' );
 			$section['section_description'] = get_the_date('F Y');
 		}
 		elseif ( is_year() ) {
-			$section['section_title'] = __( 'Yearly Archives:', 'basics' );
+			$section['section_title'] = __( 'Yearly Archives:', 'wpbootstrap' );
 			$section['section_description'] = get_the_date('Y');
 		}
 		else {
-			$section['section_title'] = __( 'Blog Archives', 'basics' );
-			$section['section_description'] = __( 'Blog Archives description', 'basics' );
+			$section['section_title'] = __( 'Blog Archives', 'wpbootstrap' );
+			$section['section_description'] = __( 'Blog Archives description', 'wpbootstrap' );
 		}
 	} 
 	else if ( is_search() ) {
-		$section['section_title'] = __('Search results for:', 'bootstrap' );
-		$section['section_description'] = sprintf( __( '%s', 'bootstrap' ), '<mark>' . get_search_query() . '</mark>' );
+		$section['section_title'] = __('Search results for:', 'wpbootstrap' );
+		$section['section_description'] = sprintf( __( '%s', 'wpbootstrap' ), '<mark>' . get_search_query() . '</mark>' );
 
 	}
 	else if ( is_404() ) {
-		$section['section_title'] = __( 'Hi! This is somewhat embarrassing, isn&rsquo;t it?', 'bootstrap' );
-		$section['section_description'] = __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'basics' );
+		$section['section_title'] = __( 'Hi! This is somewhat embarrassing, isn&rsquo;t it?', 'wpbootstrap' );
+		$section['section_description'] = __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'wpbootstrap' );
 	}
 	return $section;
 }
@@ -139,7 +139,7 @@ endif;
  */
 if ( ! function_exists( 'bootstrap_posted_on' ) ) :
 function bootstrap_posted_on() {
-	printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'bootstrap' ),
+	printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'wpbootstrap' ),
 		'meta-prep meta-prep-author',
 		sprintf( '<time title="%1$s published at %2$s" class="%3$s" datetime="%4$s" pubdate>%5$s</time>',
 			'[ ' . get_permalink() . ' ]',
@@ -150,7 +150,7 @@ function bootstrap_posted_on() {
 		),
 		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 			get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'bootstrap' ), get_the_author() ),
+			sprintf( esc_attr__( 'View all posts by %s', 'wpbootstrap' ), get_the_author() ),
 			get_the_author()
 		)
 	);
@@ -165,11 +165,11 @@ function bootstrap_posted_in() {
 	// Retrieves tag list of current post, separated by commas.
 	$tag_list = get_the_tag_list( '', ', ' );
 	if ( $tag_list ) {
-		$posted_in = __( 'Posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark nofollow">permalink</a>. ', 'bootstrap' );
+		$posted_in = __( 'Posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark nofollow">permalink</a>. ', 'wpbootstrap' );
 	} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-		$posted_in = __( 'Posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark tag nofollow">permalink</a>. ', 'bootstrap' );
+		$posted_in = __( 'Posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark tag nofollow">permalink</a>. ', 'wpbootstrap' );
 	} else {
-		$posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark nofollow">permalink</a>. ', 'bootstrap' );
+		$posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark nofollow">permalink</a>. ', 'wpbootstrap' );
 	}
 	// Prints the string, replacing the placeholders.
 	printf(
@@ -181,11 +181,11 @@ function bootstrap_posted_in() {
 	);
 	// Link for comments
 	if ( comments_open() ) {
-		comments_popup_link( __( 'No comments yet', 'bootstrap' ), __( '1 comment', 'bootstrap' ), __( '% comments', 'bootstrap' ), 'comments-link', __( 'Comments are off for this post', 'bootstrap' ) );
-		_e( '<span class="meta-sep"> | </span>', 'bootstrap' );
+		comments_popup_link( __( 'No comments yet', 'wpbootstrap' ), __( '1 comment', 'wpbootstrap' ), __( '% comments', 'wpbootstrap' ), 'comments-link', __( 'Comments are off for this post', 'wpbootstrap' ) );
+		_e( '<span class="meta-sep"> | </span>', 'wpbootstrap' );
 	}
 	// Edit post if user is logged in and allowed
-	edit_post_link( __( '(Edit this post)', 'bootstrap' ) );
+	edit_post_link( __( '(Edit this post)', 'wpbootstrap' ) );
 }
 endif;
 

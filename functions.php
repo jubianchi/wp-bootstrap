@@ -30,7 +30,7 @@ function bootstrap_breadcrumbs() {
 				echo(get_category_parents($parentCat, TRUE, ' ' . $delimiter . ' '));
 			}
 			
-			echo $before . __('Archive by category', 'bootstrap') . ' "' . single_cat_title('', false) . '"' . $after;
+			echo $before . __('Archive by category', 'wpbootstrap') . ' "' . single_cat_title('', false) . '"' . $after;
 		} elseif (is_day()) {
 			echo '<li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . '</li> ';
 			echo '<li><a href="' . get_month_link(get_the_time('Y'),get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . '</li> ';

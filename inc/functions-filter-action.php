@@ -66,7 +66,7 @@ endif;
  */
 if ( ! function_exists( 'bootstrap_continue_reading_link' ) ) :
 function bootstrap_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '" rel="nofollow">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'bootstrap' ) . '</a>';
+	return ' <a href="'. get_permalink() . '" rel="nofollow">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap' ) . '</a>';
 }
 endif;
 
@@ -202,7 +202,7 @@ add_filter('get_search_form', 'bootstrap_searchform');
 if (!function_exists( 'bootstrap_searchform')) :	
 	function bootstrap_searchform() {
 		return '<form class="pull-right" action="' . home_url('/') . '" method="get" role="search">'
-			  .'<input type="text" name="s" placeholder="' . __('Search in (hit Enter)', 'bootstrap') . '">'
+			  .'<input type="text" name="s" placeholder="' . __('Search in (hit Enter)', 'wpbootstrap') . '">'
 		      .'</form>';
 	}    
 endif;
