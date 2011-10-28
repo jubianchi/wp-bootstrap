@@ -7,32 +7,11 @@ Description: A theme based on Twitter's Bootstrap
 Version: 0.1
 License: GNU General Public License
 License URI: license.txt
-Tags: custom-background, custom-menu, editor-style, microformats, translation-ready, sticky-post, threaded-comments, fixed-width
+Tags: custom-menu, editor-style, microformats, translation-ready, sticky-post, fixed-width
 This theme, like WordPress, is licensed under the GPL.
 */
 
-/*
-markup.css -- editor-style.css renamed: 
-- import HTML5 Boilerplate normalize.css
-- set typography and vertical grid
-- set specifics WordPress classes
-*/
-/*@import "markup.css"; */
-
-/** 
- * Grids are great. Or not. 
- */
-/* @import "css/grid.css"; */
-
-/**
- * Give your website its own style! 
- */
 @import "css/bootstrap.css";
-
-
-
 @import "css/facebox.css";
-
-/* We Salute You */
 @import "css/prettify.css";
 @import "css/style.css";

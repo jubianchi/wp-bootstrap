@@ -11,7 +11,7 @@ For Those About to Rock. Fire!
 ?>
 <?php get_header(); ?>
 
-<section role="main">
+<section>
 	<?php if (is_author() || is_search() || is_date()) : ?>
 		<header>					
 			<div class="row">											
@@ -94,5 +94,4 @@ For Those About to Rock. Fire!
 	</section>
 <?php endif; ?>
 
-		
 <?php get_footer(); ?>

@@ -134,3 +134,7 @@ h1 small { font-size: 0.7em; }
   background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); /* IE8 and down */
 }
+
+body > .container {
+	margin-top: 60px;
+}
