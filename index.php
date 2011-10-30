@@ -1,17 +1,55 @@
 <?php
 /*
 @package WordPress
-@subpackage Basics
-@author Bruno Bichet <bruno.bichet@gmail.com>
-@version 0.2.8
-@since Version 0.1.1
-@todo Check the markup http://validator.w3.org/
-For Those About to Rock. Fire!
+@subpackage wp-bootstrap
+@author jubianchi <contact@jubianchi.fr>
+@version 0.1
 */
 ?>
 <?php get_header(); ?>
 
-<section>
+
+<?php if(is_home() || is_front_page()) : ?>
+	<section class="row">
+		<?php 
+		$args = array(
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'post_format',
+					'field' => 'slug',
+					'terms' => array('post-format-aside', 'post-format-quote'),
+					'operator' => 'IN'
+				)
+			),
+			'showposts' => 3
+		);
+		$query = new WP_Query( $args ); 
+		?>
+		<?php if( $query -> have_posts() ) : ?>
+			<?php while ( $query -> have_posts() ) : $query -> the_post(); ?>
+				<?php get_template_part('content', 'aside'); ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
+
+		<?php
+		$args = array(
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'post_format',
+					'field' => 'slug',
+					'terms' => array('post-format-aside', 'post-format-quote'),
+					'operator' => 'NOT IN'
+				)
+			)
+		);
+		$args = array_merge($wp_query -> query, $args);
+		query_posts($args);
+		?>
+	</section>
+<?php endif; ?>
+
+
+<section class="row">
 	<?php if (is_author() || is_search() || is_date()) : ?>
 		<header>					
 			<div class="row">											
@@ -28,47 +66,6 @@ For Those About to Rock. Fire!
 			</div>
 		</header>
 	<?php endif; ?>
-
-	<?php if(is_home() || is_front_page()) : ?>
-		<?php 
-		$args = array(
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'post_format',
-					'field' => 'slug',
-					'terms' => array('post-format-aside', 'post-format-quote'),
-                    'operator' => 'IN'
-				)
-			),
-			'showposts' => 3
-		);
-		$query = new WP_Query( $args ); 
-		?>
-		<?php if( $query -> have_posts() ) : ?>
-			<div class="row">
-				<?php while ( $query -> have_posts() ) : $query -> the_post(); ?>
-					<?php get_template_part('content', 'aside'); ?>
-				<?php endwhile; ?>
-			</div>
-		<?php endif; ?>
-		<br style="clear: both" />
-		
-		<?php
-		$args = array(
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'post_format',
-					'field' => 'slug',
-					'terms' => array('post-format-aside', 'post-format-quote'),
-					'operator' => 'NOT IN'
-				)
-			)
-		);
-        $args = array_merge($wp_query -> query, $args);
-        query_posts($args);
-		?>
-	<?php endif; ?>
-
 	
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php if(is_singular()) : ?>

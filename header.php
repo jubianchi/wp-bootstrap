@@ -13,7 +13,26 @@
 	
 	<title><?php echo bootstrap_title(); ?></title>
 	
-	<link href="<?php echo get_template_directory_uri(); ?>/style.css" rel="stylesheet">
+	<?php 
+	/* 
+	 * Drop these lines if you combined your CSS 
+	 */ 
+	?>
+	<link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet">
+	<link href="<?php echo get_template_directory_uri(); ?>/css/facebox.css" rel="stylesheet">	
+	<link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel="stylesheet">	
+	<style type="text/css">
+		<?php include(get_template_directory() . '/css/prettify.css'); ?>
+	</style>
+	
+	
+	<?php 
+	/* 
+	 * Uncomment this line if you combined your CSS
+	 * 
+	 * <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/wp-bootstrap.css"/>
+	 */ 
+	?>
 	
 	<?php echo bootstrap_favicons(); ?>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -54,8 +73,8 @@
 			); ?>
 			<?php if(!is_user_logged_in()) : ?>
 				<ul class="nav secondary-nav">
-					<li class="dropdown" data-dropdown="dropdown">					
-						<a href="/wp-login.php" class="dropdown-toggle" data-controls-modal="modal-login" data-backdrop="static"><?php echo __('Login', 'wpbootstrap'); ?></a>					
+					<li>					
+						<a href="/wp-login.php" data-controls-modal="modal-login" data-backdrop="static"><?php echo __('Login', 'wpbootstrap'); ?></a>					
 					</li>
 				</ul>
 			<?php else : ?>
@@ -73,12 +92,16 @@
 			<?php endif; ?>				
 			
             <?php get_search_form(); ?>
-		</div>
-	</div>
+		</div>		
+	</div>		
 </div>
-
+	
 <div class="container" role="document">		
-	<div class="hero-unit">
+	<div class="hero-unit" style="position: relative;">		
+		<a href="http://github.com/you">
+			<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
+		</a>
+		
 		<h1><a href="<?php echo home_url( '/' ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<p class="sub"><?php bloginfo( 'description' ); ?></p>
 	</div>

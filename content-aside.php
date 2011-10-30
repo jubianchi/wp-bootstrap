@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" class="aside span-one-third">
+<article id="post-<?php the_ID(); ?>" <?php post_class('aside span-one-third'); ?>>
 	<header class="page-header">		
 		<?php if(!is_singular()) : ?>
 			<h2>
@@ -22,14 +22,12 @@
 		<?php endif; ?>
 	</header>
 	
-	<div class="row" style="height: 200px;">
-		<div class="span-one-third">
-			<?php if (is_singular()) : ?>
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap') ); ?>				
-			<?php else : ?>
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap' ) ); ?>
-			<?php endif; ?>
-		</div>
+	<div class="content">
+		<?php if (is_singular()) : ?>
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap') ); ?>				
+		<?php else : ?>
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap' ) ); ?>
+		<?php endif; ?>
 	</div>
 
 	<footer>

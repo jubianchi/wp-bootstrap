@@ -138,3 +138,76 @@ h1 small { font-size: 0.7em; }
 body > .container {
 	margin-top: 60px;
 }
+
+.content > .row > .breadcrumb { margin: 0 0 18px 25px; }
+
+/*
+article header h2 { height: 40px; }
+article.aside div.content { height: 200px; }
+*/
+
+.comment .content { margin-left: 10px; }
+.comment .avatar { margin-left: 10px; }
+
+.modal { width: 450px; }
+.modal .form-stacked .xxlarge { width: 400px; }
+.modal .form-stacked .input-append .xxlarge { width: 375px; }
+
+table { 
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	border-collapse: collapse; 
+	-webkit-box-shadow: inset 0 1px 0 #ffffff;
+	-moz-box-shadow: inset 0 1px 0 #ffffff; 
+	box-shadow: inset 0 1px 0 #ffffff;
+	zoom: 1;
+}
+
+table thead tr, table tfoot tr {
+	background-color: whiteSmoke;	
+}
+
+table thead th, table tfoot td {
+	padding: 5px;
+	text-align: center;	
+}
+
+table caption {
+	font-weight: bold;
+	color: #404040;
+	margin-bottom: 5px;
+}
+
+table tfoot tr {
+	border-top: 1px solid #DDD;
+}
+
+table tbody td {
+	background-color: white;
+	padding: 5px 5px 5px 5px;
+	text-align: center;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	/*display: inline-block;*/
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+.alignleft { float: left; margin: 10px; }

@@ -9,20 +9,18 @@
 				<div class="clearfix">
 					<label for="username"><?php echo __('Username', 'wpbootstrap'); ?></label>
 					<div class="input">
-						<input type="text" size="50" name="log" id="username" class="xlarge">
+						<input type="text" size="50" name="log" id="username" class="xxlarge">
 					</div>
 				</div>
 				<div class="clearfix">
 					<label for="password"><?php echo __('Password', 'wpbootstrap'); ?></label>
 					<div class="input">
-						<input type="password" size="50" name="pwd" id="password" class="xlarge">
+						<input type="password" size="50" name="pwd" id="password" class="xxlarge">						
 					</div>
 				</div>
-				<div class="clearfix">
-					<label>
-						<input type="checkbox" name="rememberme" value="forever">
-						<span><?php _e('Remember me', 'wpbootstrap'); ?></span>
-					</label>
+				<div class="clearfix">									
+					<label for="rememberme"><?php _e('Remember me', 'wpbootstrap'); ?></label>
+					<input type="checkbox" name="rememberme" id="rememberme" value="forever">			
 				</div>
 			</div>
 			<div class="modal-footer">

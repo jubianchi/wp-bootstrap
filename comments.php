@@ -2,7 +2,7 @@
 	<?php if ( post_password_required() ) : ?>
 		<div class="alert-message block-message error"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'wpbootstrap' ); ?></div>
 	<?php else : ?>
-		<?php if(comments_open()) : ?>
+		<?php if(($comments_open = comments_open())) : ?>
 			<header class="page-header">
 				<h2 class="section-description">
 					<?php _e( 'Write a comment.', 'wpbootstrap' ); ?>
@@ -18,12 +18,12 @@
 					</small>
 				</h2>
 			</header>
-		<? endif; ?>
-
-		<?php if(!($comments_open = comments_open())) : ?>
-			<div class="alert-message block-message notice">
-				<?php _e( 'Comments are closed for this post', 'wpbootstrap' ); ?>
-			</div>
+		<? else : ?>
+			<?php if(!is_page()) : ?>
+				<div class="alert-message block-message notice">
+					<?php _e( 'Comments are closed for this post', 'wpbootstrap' ); ?>
+				</div>
+			<?php endif; ?>
 		<?php endif; ?>
 		
 		<?php if(have_comments()) : ?>					
@@ -55,11 +55,11 @@
 		<?php endif; ?>
 
 		<?php if ($comments_open) : ?>			
-			<div class="alert-message block-message default">
+			<div class="well">
 				<?php 
-				comment_form(/*array(
-					'cancel_reply_link' => '<span class="btn small danger">' . __( 'Cancel reply', 'wpbootstrap') . '</span>'
-				)*/); ?>
+				comment_form(array(
+					'cancel_reply_link' => __( 'Cancel reply', 'wpbootstrap')
+				)); ?>
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>

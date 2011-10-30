@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('span16'); ?>>
 	<?php if(!is_page()) : ?>
         <header class="page-header">
             <?php if(!is_singular()) : ?>
@@ -33,17 +33,15 @@
         </header>
 	<?php endif; ?>
     
-	<div class="row">
-		<div class="span16">
-			<?php if (is_singular()) : ?>			
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap') ); ?>
-				<?php wp_link_pages(array( 'before' => '<div class="page-link">' . __('Pages:', 'wpbootstrap' ), 'after' => '</div>') ); ?>
-			<?php else : ?>
-				<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap' ) ); ?>			
-			<?php endif; ?>		
-		</div>
+	<div class="clearfix">
+		<?php if (is_singular()) : ?>			
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap') ); ?>
+			<?php wp_link_pages(array( 'before' => '<div class="page-link">' . __('Pages:', 'wpbootstrap' ), 'after' => '</div>') ); ?>
+		<?php else : ?>
+			<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap' ) ); ?>			
+		<?php endif; ?>		
 	</div>
-	<br style="clear: both"/>
+
 	<footer>		
 		<?php echo bootstrap_posted_in(); ?>
 	</footer>
