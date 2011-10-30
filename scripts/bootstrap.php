@@ -104,9 +104,20 @@ HELP
 			try {
 				$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($input -> getOption('output'), FilesystemIterator::SKIP_DOTS));					
 
-				foreach($iterator as $path => $file) {										
-					if(!in_array(basename($path), array('css', 'js')) !== false) {
-						if(is_file($path)) unlink($path);
+				foreach($iterator as $path => $file) {																			
+					$include =  array(
+						$input -> getOption('output'),
+						$input -> getOption('output') . DIRECTORY_SEPARATOR . 'admin',
+						$input -> getOption('output') . DIRECTORY_SEPARATOR . 'fonts',
+						$input -> getOption('output') . DIRECTORY_SEPARATOR . 'img',
+						$input -> getOption('output') . DIRECTORY_SEPARATOR . 'inc',				
+						$input -> getOption('output') . DIRECTORY_SEPARATOR . 'languages',				
+					);
+
+					if(in_array(dirname($path), $include)) {		
+						if(is_file($path)) {									
+							unlink($path);
+						}
 					}
 				}
 			} catch(Exception $e) {
@@ -115,7 +126,6 @@ HELP
 				if(!is_dir($input -> getOption('output'))) mkdir($input -> getOption('output'));
 			}
 		}
-
 		$basedir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..');
 		$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($basedir, FilesystemIterator::SKIP_DOTS));							
 		
@@ -136,7 +146,7 @@ HELP
 					mkdir(dirname($dest), 0777, true);
 				}
 
-				copy($path, $dest);
+				if(basename($dest) != '.gitignore') copy($path, $dest);
 			}
 		}
 	});	
