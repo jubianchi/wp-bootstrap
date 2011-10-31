@@ -69,7 +69,6 @@
 		$LAB.script("bootstrap-twipsy.js")
 		$LAB.script("bootstrap-scrollspy.js")
 		$LAB.script("bootstrap-alerts.js")
-		$LAB.script("bootstrap-dropdown.js")
 		$LAB.script("bootstrap-modal.js")
 		$LAB.script("bootstrap-popover.js")
 		$LAB.script("bootstrap-tabs.js")		

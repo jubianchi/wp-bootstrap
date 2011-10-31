@@ -19,8 +19,10 @@
 					</div>
 				</div>
 				<div class="clearfix">									
-					<label for="rememberme"><?php _e('Remember me', 'wpbootstrap'); ?></label>
-					<input type="checkbox" name="rememberme" id="rememberme" value="forever">			
+					<label for="rememberme">
+                        <input type="checkbox" name="rememberme" id="rememberme" value="forever">
+                        <?php _e('Remember me', 'wpbootstrap'); ?>
+                    </label>
 				</div>
 			</div>
 			<div class="modal-footer">
