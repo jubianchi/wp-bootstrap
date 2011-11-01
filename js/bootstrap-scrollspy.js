@@ -20,6 +20,8 @@
 
 !function ( $ ) {
 
+  "use strict"
+
   var $window = $(window)
 
   function ScrollSpy( topbar, selector ) {
@@ -102,4 +104,4 @@
     $('body').scrollSpy('[data-scrollspy] li > a')
   })
 
-}( window.jQuery || window.ender )
+}( window.jQuery || window.ender );
