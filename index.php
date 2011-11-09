@@ -51,19 +51,17 @@
 
 <section class="row">
 	<?php if (is_author() || is_search() || is_date()) : ?>
-		<header>					
-			<div class="row">											
-				<?php $section = bootstrap_section_heading(); ?>
-				<?php if (is_author()) : ?>				
-					<hgroup class="pull-right span14">						
-						<h1 class="section-title"><?php echo $section['section_title']; ?></h1>
-					</hgroup>
-				<?php Else : ?>
-					<hgroup class="span16">	
-						<h1 class="section-title"><?php echo $section['section_title']; ?> <?php echo $section['section_description']; ?></h1>
-					</hgroup>
-				<?php endif; ?>
-			</div>
+		<header class="span16">
+            <?php $section = bootstrap_section_heading(); ?>
+            <?php if (is_author()) : ?>
+                <hgroup>
+                    <h1 class="section-title"><?php echo $section['section_title']; ?></h1>
+                </hgroup>
+            <?php else : ?>
+                <hgroup>
+                    <h1 class="section-title"><?php echo $section['section_title']; ?> <small><?php echo $section['section_description']; ?></small></h1>
+                </hgroup>
+            <?php endif; ?>
 		</header>
 	<?php endif; ?>
 	

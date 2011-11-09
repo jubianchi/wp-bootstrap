@@ -1,5 +1,5 @@
 <div id="comments">
-	<?php if ( post_password_required() ) : ?>
+	<?php if(post_password_required()) : ?>
 		<div class="alert-message block-message error"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'wpbootstrap' ); ?></div>
 	<?php else : ?>
 		<?php if(($comments_open = comments_open())) : ?>
@@ -28,7 +28,7 @@
 		
 		<?php if(have_comments()) : ?>					
 			<ol class="commentlist">
-				<?php wp_list_comments( array( 'callback' => 'bootstrap_comments' ) ); ?>
+				<?php wp_list_comments(array('callback' => 'bootstrap_comments')); ?>
 			</ol>
 		
 			<?php if(get_comment_pages_count() > 1 && get_option('page_comments')) : ?>

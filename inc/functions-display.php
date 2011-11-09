@@ -93,7 +93,7 @@ function bootstrap_section_heading() {
 		'section_description' => ''
 	);
 	
-	if ( is_author() ) {
+	if(is_author()) {
 		$section['section_title'] = sprintf( esc_attr__( 'Archives author for: %s', 'wpbootstrap' ), get_the_author() );
 		
 		if ( ! empty( $author_description ) ) {
@@ -101,9 +101,7 @@ function bootstrap_section_heading() {
 		} else {
 			$section['section_description'] = sprintf( __( 'Sorry, there is no description for author %s. If it\'s you, feel free to write a consistent description. It is a gook way to promote yourself.', 'wpbootstrap' ), '<mark>' . get_the_author() . '</mark>' );
 		}
-	} 
-	else if (is_date() ) {
-	
+	} elseif(is_date() ) {
 		if ( is_day() ) {
 			$section['section_title'] = __( 'Daily Archives:', 'wpbootstrap' );
 			$section['section_description'] = get_the_date();
