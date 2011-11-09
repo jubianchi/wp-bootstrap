@@ -1,8 +1,5 @@
 <!DOCTYPE HTML>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" <?php language_attributes(); ?>> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+<html class="no-js" <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php echo strtolower( get_bloginfo( 'charset' ) ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -18,18 +15,30 @@
 	 * Drop these lines if you combined your CSS 
 	 */ 
 	?>
+    <!--
 	<link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet">
 	<link href="<?php echo get_template_directory_uri(); ?>/css/facebox.css" rel="stylesheet">	
 	<link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel="stylesheet">	
+	-->
+    <link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/less/bootstrap.less">
 	<style type="text/css">
 		<?php include(get_template_directory() . '/css/prettify.css'); ?>
+        <?php include(get_template_directory() . '/css/facebox.css'); ?>
 	</style>
-	
-	
+
+    <script type="text/javascript">
+        less = { env: 'development' };
+        less.watch();
+    </script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/less.js" type="text/javascript"></script>
+
 	<?php 
 	/* 
 	 * Uncomment this line if you combined your CSS
-	 * 
+	 *                  |
+	 *                 _|_
+	 *                \  /
+	 *                 \/
 	 * <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/wp-bootstrap.css"/>
 	 */ 
 	?>
@@ -60,7 +69,9 @@
 				); 							
 				?>
 				<li class="<?php if($menu) : ?>dropdown<?php endif; ?>" data-dropdown="dropdown">										
-					<a class="brand<?php if($menu) : ?> dropdown-toggle<?php endif; ?>" href="<?php echo home_url( '/' ); ?>">JUBIANCHI.FR</a>
+					<a class="brand<?php if($menu) : ?> dropdown-toggle<?php endif; ?>" href="<?php echo home_url( '/' ); ?>">
+                        <?php echo get_bloginfo('name'); ?>
+                    </a>
 					<?php echo $menu ?>
 				</li>
 			</ul>			
@@ -97,7 +108,7 @@
 </div>
 	
 <div class="container" role="document">		
-	<div class="hero-unit" style="position: relative;">		
+	<div class="hero-unit" style="position: relative;">
 		<a href="https://github.com/jubianchi/wp-bootstrap">
 			<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
 		</a>
@@ -106,5 +117,19 @@
 		<p class="sub"><?php bloginfo( 'description' ); ?></p>
 	</div>
 
-	<?php echo bootstrap_breadcrumbs(); ?>
+    <?php if(!is_404()) : ?>
+	    <?php echo bootstrap_breadcrumbs(); ?>
+    <?php else : ?>
+        <div class="hero-unit" style="background-color: transparent; border: none; padding: 40px;">
+            <div class="pull-left span5">
+                <p class="sub">Ooops... this is a</p>
+                <h1 style="font-size: 10em;">404</a></h1>
+            </div>
+            <div class="pull-right span10">
+                <p>
+                    It seems like the page your are lokking for does not exist.
+                </p>
+            </div>
+        </div>
+    <?php endif; ?>
 	
