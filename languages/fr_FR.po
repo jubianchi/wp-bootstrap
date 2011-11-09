@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: wpbootstrap\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-27 19:44+0100\n"
-"PO-Revision-Date: 2011-10-27 20:04+0100\n"
+"PO-Revision-Date: 2011-11-09 19:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: jubianchi <contact@jubianchi.fr>\n"
 "MIME-Version: 1.0\n"
@@ -144,7 +144,7 @@ msgstr "Modifier"
 
 #: /wp-bootstrap/inc/functions-comment.php:72
 msgid "Pingback:"
-msgstr ""
+msgstr "Pingback :"
 
 #: /wp-bootstrap/inc/functions-comment.php:92
 #, fuzzy
@@ -251,15 +251,15 @@ msgstr ""
 
 #: /wp-bootstrap/inc/functions-display.php:108
 msgid "Daily Archives:"
-msgstr "Archives quotidiennes :"
+msgstr "Archives quotidiennes"
 
 #: /wp-bootstrap/inc/functions-display.php:112
 msgid "Monthly Archives:"
-msgstr "Archives mensuelles :"
+msgstr "Archives mensuelles"
 
 #: /wp-bootstrap/inc/functions-display.php:116
 msgid "Yearly Archives:"
-msgstr "Archives annuelles :"
+msgstr "Archives annuelles"
 
 #: /wp-bootstrap/inc/functions-display.php:120
 msgid "Blog Archives"
@@ -289,7 +289,7 @@ msgstr ""
 #: /wp-bootstrap/inc/functions-display.php:142
 #, php-format
 msgid "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
-msgstr ""
+msgstr "<span class=\"%1$s\">Posté le</span> %2$s <span class=\"meta-sep\">par</span> %3$s"
 
 #: /wp-bootstrap/inc/functions-display.php:168
 #, php-format
@@ -304,7 +304,7 @@ msgstr "Publié dans %s. Ajouter le <a href=\"%3$s\" title=\"Permalink to %4$s\"
 #: /wp-bootstrap/inc/functions-display.php:172
 #, php-format
 msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark nofollow\">permalink</a>. "
-msgstr ""
+msgstr "Ajouter <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark nofollow\">le lien</a>. "
 
 #: /wp-bootstrap/inc/functions-display.php:184
 msgid "No comments yet"
@@ -345,25 +345,25 @@ msgstr ""
 
 #: /wp-bootstrap/inc/functions-setup.php:41
 msgid "Widgets Area One"
-msgstr ""
+msgstr "Zone de widgets 1"
 
 #: /wp-bootstrap/inc/functions-setup.php:48
 #: /wp-bootstrap/inc/functions-setup.php:50
 msgid "First Footer Column"
-msgstr ""
+msgstr "Footer : Colonne 1"
 
 #: /wp-bootstrap/inc/functions-setup.php:57
 #: /wp-bootstrap/inc/functions-setup.php:59
 msgid "Second Footer Column"
-msgstr ""
+msgstr "Footer : Colonne 2"
 
 #: /wp-bootstrap/inc/functions-setup.php:66
 #: /wp-bootstrap/inc/functions-setup.php:68
 msgid "Third Footer Column"
-msgstr ""
+msgstr "Footer : Colonne 3"
 
 #: /wp-bootstrap/inc/functions-setup.php:75
 #: /wp-bootstrap/inc/functions-setup.php:77
 msgid "Second Footer Row"
-msgstr ""
+msgstr "Footer : Colonne 2"
 
