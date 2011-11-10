@@ -58,24 +58,24 @@ if ( ! function_exists( 'bootstrap_description' ) ) :
 function bootstrap_description() {
 	global $post, $wp_query;
 	if ( is_404() ) {
-		$basics_description = __('404 page not found: fish is gone, try again', 'wpbootstrap');
+		$description = __('404 page not found: fish is gone, try again', 'wpbootstrap');
 	} else if ( is_search() && '' != $wp_query->found_posts ) {
-		$basics_description = __('No result found: try again!', 'wpbootstrap');
+		$description = __('No result found: try again!', 'wpbootstrap');
 	} else if ( is_home() || is_front_page() ) {
-		$basics_description = get_bloginfo( 'description', 'display' );
+		$description = get_bloginfo( 'description', 'display' );
 	} else if ( '' !== $post->post_excerpt ) { 
-		$basics_description = strip_tags( $post->post_excerpt );
+		$description = strip_tags( $post->post_excerpt );
 	} else if ( is_category() ) {
-		$basics_description = wptexturize( category_description() );
+		$description = wptexturize( category_description() );
 	} else if ( is_tag() ) {
-		$basics_description = wptexturize( tag_description() );
+		$description = wptexturize( tag_description() );
 	} else if ( is_author() ) {
-		$basics_description = wptexturize( get_the_author_meta( 'description' ) );
+		$description = wptexturize( get_the_author_meta( 'description' ) );
 	} else { 
-		$basics_description = wp_html_excerpt( $post->post_content, 200 ); 
+		$description = wp_html_excerpt( $post->post_content, 200 );
 	}
 	//Prevent shortcode to appear "as is"
-	$description = preg_replace('#\[(.+)\]#','', $basics_description);
+	$description = preg_replace('#\[(.+)\]#','', $description);
 	return $description;
 }
 endif;
@@ -187,21 +187,18 @@ function bootstrap_posted_in() {
 }
 endif;
 
-/**
- * Print Meta tags for favicon
- * 
- * Note : instead you can place favicon.ico and apple-touch-icon.png in the root directory
- * In this case, don't forget to remove basics_favicons() in header.php
- */
-if ( ! function_exists( 'bootstrap_favicons' ) ) :
-function bootstrap_favicons() {
-	$favicon1_path = get_stylesheet_directory_uri() . '/img/icons/favicon.ico';
-	$favicon2_path = get_stylesheet_directory_uri() . '/img/icons/apple-touch-icon.png';
-	$favicons = 
-	'<link rel="shortcut icon" href="' . $favicon1_path . '" />' . "\n" . 
-	'<link rel="apple-touch-icon" href="' . $favicon2_path . '" />' . "\n";
-	return $favicons;
-}
+if(!function_exists( 'bootstrap_favicons')) :
+    function bootstrap_favicons() {
+        $dir = get_stylesheet_directory_uri();
+        $favicon = $dir . '/img/icons/favicon.ico';
+        $ifavico = $dir . '/img/icons/apple-touch-icon.png';
+
+        return sprintf(
+            "%s\n%s\n",
+            sprintf('<link rel="shortcut icon" href="%s" />', $favicon),
+            sprintf('<link rel="apple-touch-icon" href="%s" />', $ifavico)
+        );
+    }
 endif;
 
 /**
@@ -212,13 +209,15 @@ endif;
  * Don't forget to fill the "content" attributes, 
  * or duplicate this function in your Child theme functions.php file
  */
-if ( ! function_exists( 'bootstrap_extra_head' ) ) :
+if (!function_exists( 'bootstrap_extra_head')) :
 function bootstrap_extra_head() {
-	$extra_head = 
-	'<meta name="google-site-verification" content="" />' . "\n" . 
-	'<meta name="alexaVerifyID" content="" />' . "\n" .
-	'<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />'. "\n";
-	return $extra_head;
+    global $theme_config;
+    
+	return sprintf(
+        "%s\n%s\n",
+        (isset($theme_config['google-site-verification']) ? sprintf('<meta name="google-site-verification" content="%s" />', $theme_config['google-site-verification']) : ''),
+        '<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />'
+    );
 }
 endif;
 

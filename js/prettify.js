@@ -60,28 +60,29 @@
  * UI events.
  * If set to {@code false}, {@code prettyPrint()} is synchronous.
  */
-window['PR_SHOULD_USE_CONTINUATION'] = true;
+window.PR_SHOULD_USE_CONTINUATION = true;
 
 /** the number of characters between tab columns */
-window['PR_TAB_WIDTH'] = 8;
+window.PR_TAB_WIDTH = 8;
 
 /** Contains functions for creating and registering new language handlers.
   * @type {Object}
   */
-window['PR']
-
 /** Pretty print a chunk of code.
   *
   * @param {string} sourceCodeHtml code as html
   * @return {string} code as html, but prettier
   */
-  = window['prettyPrintOne']
+
 /** Find all the {@code <pre>} and {@code <code>} tags in the DOM with
   * {@code class=prettyprint} and prettify them.
   * @param {Function?} opt_whenDone if specified, called when the last entry
   *     has been finished.
   */
-  = window['prettyPrint'] = void 0;
+window.PR = window.prettyPrintOne = window.prettyPrint = 0;
+
+
+
 
 
 (function () {

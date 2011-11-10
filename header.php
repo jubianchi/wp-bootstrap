@@ -10,42 +10,16 @@
 	
 	<title><?php echo bootstrap_title(); ?></title>
 	
-	<?php 
-	/* 
-	 * Drop these lines if you combined your CSS 
-	 */ 
-	?>
-    <!--
-	<link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet">
-	<link href="<?php echo get_template_directory_uri(); ?>/css/facebox.css" rel="stylesheet">	
-	<link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel="stylesheet">	
-	-->
-    <link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/less/bootstrap.less">
-	<style type="text/css">
-		<?php include(get_template_directory() . '/css/prettify.css'); ?>
-        <?php include(get_template_directory() . '/css/facebox.css'); ?>
-	</style>
-
+    <link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.less">
     <script type="text/javascript">
         less = { env: 'development' };
-        less.watch();
+        //less.watch('<?php echo get_template_directory_uri(); ?>/css/less/bootstrap.less');
     </script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/less.js" type="text/javascript"></script>
 
-	<?php 
-	/* 
-	 * Uncomment this line if you combined your CSS
-	 *                  |
-	 *                 _|_
-	 *                \  /
-	 *                 \/
-	 * <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/wp-bootstrap.css"/>
-	 */ 
-	?>
-	
 	<?php echo bootstrap_favicons(); ?>
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<link rel="alternate" type="application/rss+xml" title="<?php printf( __( 'Subscribe to %1$s via RSS', 'basics' ), get_bloginfo( 'name' ) ); ?>" href="<?php echo home_url( '/feed/' ); ?>" />
+	<link rel="alternate" type="application/rss+xml" title="<?php printf( __( 'Subscribe to %1$s via RSS', 'wpbootstrap' ), get_bloginfo( 'name' ) ); ?>" href="<?php echo home_url( '/feed/' ); ?>" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		
 	<?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>

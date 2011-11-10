@@ -1,33 +1,4 @@
 <?php
-/*
-@package WordPress
-@subpackage Basics
-@author Bruno Bichet <bruno.bichet@gmail.com>
-@version 0.2.8
-@since Version 0.2.7
-For Those About to Rock. Fire!
-*/
-
-/*
-TOC:
-remove_filter()					Remove <p> in category or tag description
-basics_page_menu_args()			Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
-basics_excerpt_length()			Sets the post excerpt length to 52 characters.
-basics_continue_reading_link()	Returns a "Continue Reading" link for excerpts
-basics_auto_excerpt_more()		Replaces "[...]" with an ellipsis and basics_continue_reading_link().
-basics_custom_excerpt_more()	Adds a pretty "Continue Reading" link to custom post excerpts.
-basics_widgets_init()			Register widgetized area and update sidebar with default widgets
-basics_body_class()				Add custom body classes
-basics_img_caption_shortcode()	The Caption shortcode with figure and figcaption.
-basics_change_mce_options()		Add support for iframe element in wysiwyg editor
-basics_jquery()					Load jQuery in footer
-basics_scripts()				Load other Javascripts in footer
-posts_link_rel_next()			Print rel "next" microformats attributes on navivagation links between posts
-posts_link_rel_prev()			Print rel "prev" microformats attributes on navivagation links between posts
-remove_more_jump_link()			Remove link Jumps to the More tag or Top of Page
-basics_searchform()				Display Search Form
-*/
-
 /**
  * Disable the wpautop function so that WordPress makes no attempt to correct your markup.
  * http://nicolasgallagher.com/using-html5-elements-in-wordpress-post-content/
@@ -74,9 +45,9 @@ endif;
  * Replaces "[...]" (appended to automatically generated excerpts) 
  * with an ellipsis and basics_continue_reading_link().
  */
-add_filter( 'excerpt_more', 'basics_auto_excerpt_more' );
-if ( ! function_exists( 'basics_auto_excerpt_more' ) ) :
-function basics_auto_excerpt_more( $more ) {
+add_filter( 'excerpt_more', 'bootstrap_auto_excerpt_more' );
+if ( ! function_exists( 'bootstrap_auto_excerpt_more' ) ) :
+function bootstrap_auto_excerpt_more( $more ) {
 	return ' &hellip;' . bootstrap_continue_reading_link();
 }
 endif;
@@ -103,10 +74,9 @@ endif;
  * Add custom body classes
  */
 add_filter( 'body_class', 'bootstrap_body_class' );
-if ( ! function_exists( 'bootstrap_body_class' ) ) :
+if (!function_exists( 'bootstrap_body_class')) :
 	function bootstrap_body_class($classes) {
-		if (is_singular())
-			$classes[] = 'singular';
+		if(is_singular()) $classes[] = 'singular';
 		return $classes;
 	}
 endif;
@@ -137,8 +107,8 @@ if ( ! function_exists( 'bootstrap_img_caption_shortcode' ) ) :
 		. do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
 	}
 endif;
-add_shortcode('wp_caption', 'basics_img_caption_shortcode');
-add_shortcode('caption', 'basics_img_caption_shortcode');
+add_shortcode('wp_caption', 'bootstrap_img_caption_shortcode');
+add_shortcode('caption', 'bootstrap_img_caption_shortcode');
 
 /**
  * Add support for iframe element in wysiwyg editor 
@@ -205,5 +175,14 @@ if (!function_exists( 'bootstrap_searchform')) :
 			  .'<input type="text" name="s" placeholder="' . __('Search in (hit Enter)', 'wpbootstrap') . '">'
 		      .'</form>';
 	}    
+endif;
+
+add_filter('the_content', 'bootstrap_the_content');
+if (!function_exists( 'bootstrap_the_content')) :
+	function bootstrap_the_content($content) {
+        $content = preg_replace('/(\<p[ ]?(class="([\.|\#]?\w+)")?\>)/', '<p class="$2 clearfix">', $content);
+
+        return $content;
+	}
 endif;
 ?>

@@ -2,7 +2,7 @@
 	<header class="page-header">		
 		<?php if(!is_singular()) : ?>
 			<h2>
-				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'basics' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'wpbootstrap' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 					<?php the_title(); ?>
 				</a>											
 			</h2>

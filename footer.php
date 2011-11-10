@@ -45,12 +45,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lab.js"></script>
-
-<?php 
-/* 
- * Drop these lines if you combined your CSS 
- */ 
-?>
 <script type="text/javascript" async>
 	<?php include(get_template_directory() . '/js/bootstrap-dropdown.js'); ?>
 </script>
@@ -60,13 +54,8 @@
 		$LAB.setGlobalDefaults({
 			BasePath: '<?php echo get_template_directory_uri(); ?>/js/'
 		});
-	
-		<?php 
-		/* 
-		 * Drop these lines if you combined your CSS 
-		 */ 
-		?>
-		$LAB.script("bootstrap-twipsy.js")
+
+		//$LAB.script("bootstrap-twipsy.js")
 		$LAB.script("bootstrap-scrollspy.js")
 		$LAB.script("bootstrap-alerts.js")
 		$LAB.script("bootstrap-modal.js")
@@ -75,13 +64,6 @@
 		$LAB.script("dotdotdot.js")
 		$LAB.script("facebox.js")
 		$LAB.script("prettify.js")
-		<?php 
-		/* 
-		 * Uncomment this line if you combined your CSS
-		 * 
-		 * $LAB.script("wpbootstrap.js")
-		 */ 
-		?>
 			.wait(function() {
 				prettyPrint();
 
