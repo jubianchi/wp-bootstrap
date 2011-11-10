@@ -12,7 +12,9 @@
 
                     <?php if(comments_open() || (!comments_open() && get_comments_number() > 0)) : ?>
                         <span class="pull-right label" style="font-size: 1em; height: 1.3em;">
-                            <?php echo get_comments_number() ?>
+                            <a href="<?php the_permalink(); ?>#comments" title="<?php printf(__('%d comment(s)'), get_comments_number()); ?>">
+                              <?php echo get_comments_number() ?>
+                            </a>
                         </span>
                     <?php endif; ?>
                 </h2>

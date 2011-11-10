@@ -7,12 +7,12 @@ if(!function_exists('bootstrap_comments')) :
 			case '' :
 				?>
 				<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-					<article id="comment-<?php comment_ID(); ?>" class="alert-message block-message default comment">
+					<article id="comment-<?php comment_ID(); ?>" class="well comment">
 						<div class="row">
-							<div class="pull-left span1">
-								<?php echo get_avatar($comment, 40); ?>					
+							<div class="pull-left span2">
+								<?php echo get_avatar($comment, 64); ?>
 							</div>			
-							<div class="pull-right span14">
+							<div class="pull-left contenainer-fluid">
 								<div class="comment-meta commentmetadata">
 									<p>
 										<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">

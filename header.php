@@ -74,6 +74,11 @@
                     </a>
 					<?php echo $menu ?>
 				</li>
+        <li>
+          <a href="<?php echo home_url( '/' ); ?>">
+              <?php echo __('Home'); ?>
+          </a>
+        </li>
 			</ul>			
 			<?php wp_nav_menu( 
 				array( 
