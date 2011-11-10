@@ -27,6 +27,8 @@ article {
 }
 
 .hero-unit {
+    background-color: @grayLighter;
+    
     h1, p {
         font-family: @fontFaceName, 'Arial Black', 'Arial';
 	    text-transform: uppercase;
@@ -46,6 +48,8 @@ article {
 }
 
 .media-grid {
+    margin-left: -(@gridGutterWidth / 2);
+    
     &.pull-left { margin-right: (@gridGutterWidth / 6); }
     
     li {
@@ -58,22 +62,22 @@ article {
 }
 
 .footer {
-	background-color: #eee;
+	background-color: @grayLighter;
 	min-width: (@gridColumns * @gridColumnWidth) - @gridGutterWidth;
 	padding: 30px 0;
 	text-shadow: 0 1px 0 @white;
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid @grayLight;
 	-webkit-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
 	-moz-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
 	box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
 
-    p { color: #555; }
+  p { color: @grayDark; }
 }
 
 .modal {
-    width: @gridColumnWidth * 11;
+  width: (@gridColumnWidth * 11);
 
-    .form-stacked .xxlarge { width: @gridColumnWidth * 10; }
+  .form-stacked .xxlarge { width: (@gridColumnWidth * 10); }
 }
 
 table {
@@ -86,19 +90,19 @@ table {
 	box-shadow: inset 0 1px 0 @white;
 	zoom: 1;
 
-	thead tr, tfoot tr { background-color: whiteSmoke; }
+	thead tr, tfoot tr { background-color: @grayLighter; }
     thead th, tfoot td { padding: 5px; text-align: center; }
-    th, td { border: 1px solid #DDD; }
+    th, td { border: 1px solid @grayLight; }
 
     caption {
         font-weight: bold;
-        color: #404040;
-        margin-bottom: 5px;
+        color: @grayDark;
+        margin-bottom: (@gridGutterHeight / 4);
     }
 
     tbody td {
         background-color: @white;
-        padding: 5px 5px 5px 5px;
+        padding: 5px;
         text-align: center;
     }
 }
@@ -120,17 +124,18 @@ html[xmlns] .clearfix {
 	height: 1%;
 }
 
-body > .container { margin-top: @gridGutterHeight + 40px; }
+body > .container { margin-top: (@gridGutterHeight + 40px); }
 figure { margin: 0; }
 .label a:hover, h2 a:hover { text-decoration: none; }
 .label a { color: @white; }
 .form-stacked { padding-left: 0px; }
-.form-submit { margin-top: 10px; }
-.more-link { display: block; margin-top: 15px;}
+.form-submit { margin-top: (@gridGutterHeight / 2); }
+.more-link { display: block; margin-top: (@gridGutterHeight / 2);}
 .commentlist {margin-left: 0; }
 .commentlist li { list-style-type: none; }
 .breadcrumb { margin-bottom: @gridGutterWidth; }
-.comment .content { margin-left: 10px; }
-.comment .avatar { margin-left: 10px; }
-.alignleft { float: left; margin: 10px; }
+.comment .content { margin-left: (@gridGutterWidth / 4); }
+.comment .avatar { margin-left: (@gridGutterWidth / 4); }
+.alignleft { float: left; margin: (@gridGutterWidth / 4); }
+.topbar .brand { text-transform: uppercase; }
 
