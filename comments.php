@@ -1,6 +1,8 @@
 <div id="comments">
 	<?php if(post_password_required()) : ?>
-		<div class="alert-message block-message error"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'wpbootstrap' ); ?></div>
+		<div class="alert-message block-message error">
+            <?php _e( 'This post is password protected. Enter the password to view any comments.', 'wpbootstrap' ); ?>
+        </div>
 	<?php else : ?>
 		<?php if(($comments_open = comments_open())) : ?>
 			<header class="page-header">

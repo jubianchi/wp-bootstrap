@@ -25,24 +25,13 @@
         -moz-border-radius: 4px;
         border-radius: 4px;
 
-        /* Less does not allow us to do that
-        & > p:first-child{
+        > p:first-child{
             margin-top: 0;
         }
 
-        & > p:last-child{
+        > p:last-child{
             margin-bottom: 0;
         }
-        */
-    }
-
-    /* So I have to do this */
-    .content > p:first-child{
-        margin-top: 0;
-    }
-
-    .content > p:last-child{
-        margin-bottom: 0;
     }
 
     .close{
