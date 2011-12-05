@@ -7,23 +7,23 @@
 */
 ?>
 <?php get_header(); ?>
+<?php global $theme_config; ?>
 
-
-<?php if(is_home() || is_front_page()) : ?>
+<?php if($theme_config['sticky_enabled'] && (is_home() || is_front_page())) : ?>
 	<section class="row">
 		<?php 
 		$args = array(
 			'tax_query' => array(
 				array(
-					'taxonomy' => 'post_format',
-					'field' => 'slug',
-					'terms' => array('post-format-aside', 'post-format-quote'),
-					'operator' => 'IN'
+					'taxonomy'  => 'post_format',
+					'field'     => 'slug',
+					'terms'     => $theme_config['sticky_formats'],
+					'operator'  => 'IN'
 				)
 			),
-			'showposts' => 3
+			'showposts' => 3 * $theme_config['sticky_rows']
 		);
-		$query = new WP_Query( $args ); 
+		$query = new WP_Query($args);
 		?>
 		<?php if( $query -> have_posts() ) : ?>
 			<?php while ( $query -> have_posts() ) : $query -> the_post(); ?>
@@ -31,19 +31,18 @@
 			<?php endwhile; ?>
 		<?php endif; ?>
 
-		<?php
+		<?php               
 		$args = array(
 			'tax_query' => array(
 				array(
-					'taxonomy' => 'post_format',
-					'field' => 'slug',
-					'terms' => array('post-format-aside', 'post-format-quote'),
-					'operator' => 'NOT IN'
+					'taxonomy'  => 'post_format',
+					'field'     => 'slug',
+					'terms'     => $theme_config['sticky_formats'],
+					'operator'  => 'NOT IN'
 				)
 			)
 		);
-		$args = array_merge($wp_query -> query, $args);
-		query_posts($args);
+		query_posts(array_merge($wp_query -> query, $args));
 		?>
 	</section>
 <?php endif; ?>
@@ -84,7 +83,7 @@
 </section>
 			
 <?php if(is_singular()) : ?>
-	<section role="complementary">
+	<section>
 		<?php comments_template(); ?>
 	</section>
 <?php endif; ?>

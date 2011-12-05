@@ -1,20 +1,23 @@
 <?php
 require( dirname( __FILE__ ) . '/inc/config.php' );
 require( dirname( __FILE__ ) . '/inc/functions-setup.php' );
+require( dirname( __FILE__ ) . '/inc/functions-admin.php' );
 require( dirname( __FILE__ ) . '/inc/functions-filter-action.php' );
 require( dirname( __FILE__ ) . '/inc/functions-display.php' );
 require( dirname( __FILE__ ) . '/inc/functions-comment.php' );
 
 //http://dimox.net/wordpress-breadcrumbs-without-a-plugin/
 function bootstrap_breadcrumbs() {
-	global $post, $wp_query;
+	global $post, $wp_query, $theme_config;
 	
 	$delimiter = '<span class="divider">/</span>';
 	$home      = __('Home');				// text for the 'Home' link
 	$before    = '<li class="active">';		// tag before the current crumb
 	$after     = '</li>';					// tag after the current crumb
- 
-	if (!is_home() && !is_front_page() || is_paged()) {
+
+
+
+	if ($theme_config['show_breadcrumb'] > 0 && ($theme_config['show_breadcrumb'] == 1 || ($theme_config['show_breadcrumb'] == 2 && !is_home() && !is_front_page() || is_paged()))) {
 		$homeLink = get_bloginfo('url');
 	
 		echo '<ul class="breadcrumb">';

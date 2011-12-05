@@ -1,3 +1,4 @@
+<?php global $theme_config; ?>
 </div>
 
 <footer class="footer">
@@ -41,7 +42,9 @@
     
 <?php wp_footer(); ?>
 
-<?php get_template_part('login', 'modal'); ?>
+<?php if($theme_config['show_login']) : ?>
+    <?php get_template_part('login', 'modal'); ?>
+<?php endif; ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lab.js"></script>
@@ -55,15 +58,15 @@
 			BasePath: '<?php echo get_template_directory_uri(); ?>/js/'
 		});
 
-		//$LAB.script("bootstrap-twipsy.js")
-		$LAB.script("bootstrap-scrollspy.js")
-		$LAB.script("bootstrap-alerts.js")
-		$LAB.script("bootstrap-modal.js")
-		$LAB.script("bootstrap-popover.js")
-		$LAB.script("bootstrap-tabs.js")		
-		$LAB.script("dotdotdot.js")
-		$LAB.script("facebox.js")
-		$LAB.script("prettify.js")
+		$LAB.script("bootstrap-twipsy.js")
+		    .script("bootstrap-scrollspy.js")
+		    .script("bootstrap-alerts.js")
+		    .script("bootstrap-modal.js")
+		    .script("bootstrap-popover.js")
+		    .script("bootstrap-tabs.js")
+		    .script("dotdotdot.js")
+		    .script("facebox.js")
+		    .script("prettify.js")
 			.wait(function() {
 				prettyPrint();
 
