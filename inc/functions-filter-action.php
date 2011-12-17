@@ -12,9 +12,9 @@ remove_filter('term_description','wpautop');
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
-add_filter( 'wp_page_menu_args', 'basics_page_menu_args' );
-if ( ! function_exists( 'basics_page_menu_args' ) ) :
-function basics_page_menu_args($args) {
+add_filter( 'wp_page_menu_args', 'bootstrap_page_menu_args' );
+if ( ! function_exists( 'bootstrap_page_menu_args' ) ) :
+function bootstrap_page_menu_args($args) {
 	$args['show_home'] = true;
 	return $args;
 }
@@ -41,10 +41,6 @@ function bootstrap_continue_reading_link() {
 }
 endif;
 
-/**
- * Replaces "[...]" (appended to automatically generated excerpts) 
- * with an ellipsis and basics_continue_reading_link().
- */
 add_filter( 'excerpt_more', 'bootstrap_auto_excerpt_more' );
 if ( ! function_exists( 'bootstrap_auto_excerpt_more' ) ) :
 function bootstrap_auto_excerpt_more( $more ) {
@@ -52,22 +48,15 @@ function bootstrap_auto_excerpt_more( $more ) {
 }
 endif;
 
-/**
- * Adds a pretty "Continue Reading" link to custom post excerpts.
- */
-add_filter( 'get_the_excerpt', 'basics_custom_excerpt_more' );
-if ( ! function_exists( 'basics_custom_excerpt_more' ) ) :
-function basics_custom_excerpt_more( $output ) {
+add_filter( 'get_the_excerpt', 'bootstrap_custom_excerpt_more' );
+if ( ! function_exists( 'bootstrap_custom_excerpt_more' ) ) :
+function bootstrap_custom_excerpt_more( $output ) {
 	if ( has_excerpt() && ! is_attachment() ) {
 		$output .= bootstrap_continue_reading_link();
 	}
 	return $output;
 }
 endif;
-
-/**
- * Register widgetized area and update sidebar with default widgets
- */
 
 
 /**
@@ -171,16 +160,25 @@ endif;
 add_filter('get_search_form', 'bootstrap_searchform');
 if (!function_exists( 'bootstrap_searchform')) :	
 	function bootstrap_searchform() {
-		return '<form class="pull-right" action="' . home_url('/') . '" method="get" role="search">'
-			  .'<input type="text" name="s" placeholder="' . __('Search in (hit Enter)', 'wpbootstrap') . '">'
-		      .'</form>';
+		$home_url = home_url('/');
+        $placeholder = __('Search in (hit Enter)', 'wpbootstrap');
+        
+        return <<<HTML
+<form class="search form-stacked" action="$home_url" method="get" role="search">
+<div class="clearfix">
+    <div class="input">
+        <input type="text" name="s" placeholder="$placeholder" required>
+    </div>
+</div>
+</form>
+HTML;
 	}    
 endif;
 
 add_filter('the_content', 'bootstrap_the_content');
 if (!function_exists( 'bootstrap_the_content')) :
 	function bootstrap_the_content($content) {
-        $content = preg_replace('/(\<p[ ]?(class="([\.|\#]?\w+)")?\>)/', '<p class="$2 clearfix">', $content);
+        //$content = preg_replace('/(\<p[ ]?(class="([\.|\#]?\w+)")?\>)/', '<p class="$2 clearfix">', $content);
 
         return $content;
 	}

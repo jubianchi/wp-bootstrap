@@ -79,146 +79,164 @@ function bootstrap_description() {
 	return $description;
 }
 endif;
-/*
- * Return the section heading (title and description) regarding the context.
- */
-if ( ! function_exists( 'bootstrap_section_heading' ) ) :
-function bootstrap_section_heading() {
-	global $post;
-	$category_description = wptexturize( category_description() );
-	$tag_description = wptexturize( tag_description() );
-	$author_description = wptexturize( get_the_author_meta( 'description' ) );
-	$section = array(
-		'section_title' => '',
-		'section_description' => ''
-	);
-	
-	if(is_author()) {
-		$section['section_title'] = sprintf( esc_attr__( 'Archives author for: %s', 'wpbootstrap' ), get_the_author() );
-		
-		if ( ! empty( $author_description ) ) {
-			$section['section_description'] = $author_description;
-		} else {
-			$section['section_description'] = sprintf( __( 'Sorry, there is no description for author %s. If it\'s you, feel free to write a consistent description. It is a gook way to promote yourself.', 'wpbootstrap' ), '<mark>' . get_the_author() . '</mark>' );
-		}
-	} elseif(is_date() ) {
-		if ( is_day() ) {
-			$section['section_title'] = __( 'Daily Archives:', 'wpbootstrap' );
-			$section['section_description'] = get_the_date();
-		}
-		elseif ( is_month() ) {
-			$section['section_title'] = __( 'Monthly Archives:', 'wpbootstrap' );
-			$section['section_description'] = get_the_date('F Y');
-		}
-		elseif ( is_year() ) {
-			$section['section_title'] = __( 'Yearly Archives:', 'wpbootstrap' );
-			$section['section_description'] = get_the_date('Y');
-		}
-		else {
-			$section['section_title'] = __( 'Blog Archives', 'wpbootstrap' );
-			$section['section_description'] = __( 'Blog Archives description', 'wpbootstrap' );
-		}
-	} 
-	else if ( is_search() ) {
-		$section['section_title'] = __('Search results for:', 'wpbootstrap' );
-		$section['section_description'] = sprintf( __( '%s', 'wpbootstrap' ), '<mark>' . get_search_query() . '</mark>' );
 
-	}
-	else if ( is_404() ) {
-		$section['section_title'] = __( 'Hi! This is somewhat embarrassing, isn&rsquo;t it?', 'wpbootstrap' );
-		$section['section_description'] = __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'wpbootstrap' );
-	}
-	return $section;
+
+if(!function_exists('bootstrap_section_heading')) {
+    function bootstrap_section_heading() {
+        global $post;
+
+        $section = array('section_title' => '', 'section_description' => '');
+
+        if(is_author()) {
+            $author = get_user_by('id', $post -> post_author);
+
+            $section['section_title'] = sprintf(esc_attr__('Archives for author: %s', 'wpbootstrap'), $author -> display_name);
+            if(isset($author -> description)) {
+                $section['section_description'] = wptexturize($author -> description);
+            }
+        } elseif(is_category()) {
+            $category = current(get_the_category());
+
+            $section['section_title'] = sprintf(esc_attr__('Archives for category: %s', 'wpbootstrap'), $category -> name);
+            if(isset($category -> description)) {
+                $section['section_description'] = wptexturize($category -> description);;
+            }
+        } elseif(is_tag()) {
+            $tag = current(get_the_tags());
+            
+            $section['section_title'] = sprintf(esc_attr__('Archives for tag: %s', 'wpbootstrap'), $tag -> name);
+            if(isset($tag -> description)) {
+                $section['section_description'] = wptexturize($tag -> description);;
+            }
+        } elseif(is_date() ) {
+            if(is_day()) {
+                $section['section_title'] = __( 'Daily Archives:', 'wpbootstrap' );
+                $section['section_description'] = get_the_date();
+            } elseif(is_month()) {
+                $section['section_title'] = __( 'Monthly Archives:', 'wpbootstrap' );
+                $section['section_description'] = get_the_date('F Y');
+            } elseif(is_year()) {
+                $section['section_title'] = __( 'Yearly Archives:', 'wpbootstrap' );
+                $section['section_description'] = get_the_date('Y');
+            } else {
+                $section['section_title'] = __( 'Blog Archives', 'wpbootstrap' );
+                $section['section_description'] = __( 'Blog Archives description', 'wpbootstrap' );
+            }
+        } else {
+            if(is_search()) {
+                $section['section_title'] = __('Search results for:', 'wpbootstrap' );
+                $section['section_description'] = sprintf( __( '%s', 'wpbootstrap' ), '<mark>' . get_search_query() . '</mark>' );
+            } else {
+                if(is_404()) {
+                    $section['section_title'] = __( 'Hi! This is somewhat embarrassing, isn&rsquo;t it?', 'wpbootstrap' );
+                    $section['section_description'] = __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'wpbootstrap' );
+                }
+            }
+        }
+        
+        return $section;
+    }
 }
-endif;
 
-/*
- * Print the post meta in the post's header
- */
-if ( ! function_exists( 'bootstrap_posted_on' ) ) :
-function bootstrap_posted_on() {
-	printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'wpbootstrap' ),
-		'meta-prep meta-prep-author',
-		sprintf( '<time title="%1$s published at %2$s" class="%3$s" datetime="%4$s" pubdate>%5$s</time>',
-			'[ ' . get_permalink() . ' ]',
-			esc_attr( get_the_time() ),
-			'entry-date',
-			get_the_date('c'),
-			get_the_date()
-		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
-			get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'wpbootstrap' ), get_the_author() ),
-			get_the_author()
-		)
-	);
+if(!function_exists('bootstrap_posted_on' )) {
+    function bootstrap_posted_on() {
+        printf(
+            __('<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'wpbootstrap'),
+            'meta-prep meta-prep-author',
+            sprintf(
+                '<time title="%1$s published at %2$s" class="%3$s" datetime="%4$s" pubdate>%5$s</time>',
+                '[ ' . get_permalink() . ' ]',
+                esc_attr(get_the_time()),
+                'entry-date',
+                get_the_date('c'),
+                get_the_date()
+            ),
+            sprintf(
+                '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
+                get_author_posts_url(get_the_author_meta('ID')),
+                sprintf(esc_attr__('View all posts by %s', 'wpbootstrap'), get_the_author()),
+                get_the_author()
+            )
+        );
+    }
 }
-endif;
 
-/*
- * Print the post meta in the post's footer
- */
-if ( ! function_exists( 'bootstrap_posted_in' ) ) :
-function bootstrap_posted_in() {
-	// Retrieves tag list of current post, separated by commas.
-	$tag_list = get_the_tag_list( '', ', ' );
-	if ( $tag_list ) {
-		$posted_in = __( 'Posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark nofollow">permalink</a>. ', 'wpbootstrap' );
-	} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-		$posted_in = __( 'Posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark tag nofollow">permalink</a>. ', 'wpbootstrap' );
-	} else {
-		$posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark nofollow">permalink</a>. ', 'wpbootstrap' );
-	}
-	// Prints the string, replacing the placeholders.
-	printf(
-		$posted_in,
-		get_the_category_list( ', ' ),
-		$tag_list,
-		get_permalink(),
-		the_title_attribute( 'echo=0' )
-	);
-	// Link for comments
-	if ( comments_open() ) {
-		comments_popup_link( __( 'No comments yet', 'wpbootstrap' ), __( '1 comment', 'wpbootstrap' ), __( '% comments', 'wpbootstrap' ), 'comments-link', __( 'Comments are off for this post', 'wpbootstrap' ) );
-		_e( '<span class="meta-sep"> | </span>', 'wpbootstrap' );
-	}
-	// Edit post if user is logged in and allowed
-	edit_post_link( __( '(Edit this post)', 'wpbootstrap' ) );
+if (!function_exists('bootstrap_posted_in')) {
+    function bootstrap_posted_in() {
+        global $post;
+
+        $tag_list = get_the_tag_list('',', ');
+        if ($tag_list) {
+            $posted_in = __('Posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark nofollow">permalink</a>. ', 'wpbootstrap');
+        } elseif (is_object_in_taxonomy(get_post_type(), 'category')) {
+            $posted_in = __('Posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark tag nofollow">permalink</a>. ', 'wpbootstrap');
+        } else {
+            $posted_in = __('Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark nofollow">permalink</a>. ', 'wpbootstrap');
+        }
+
+        printf(
+            $posted_in,
+            get_categories(),
+            $tag_list,
+            get_permalink(),
+            the_title_attribute('echo=0')
+        );
+
+        if(comments_open()) {
+            comments_popup_link(
+                __('No comments yet', 'wpbootstrap'),
+                __('1 comment', 'wpbootstrap'),
+                __('% comments', 'wpbootstrap'),
+                'comments-link',
+                __('Comments are off for this post', 'wpbootstrap')
+            );
+
+            _e('<span class="meta-sep"> | </span>', 'wpbootstrap');
+        }
+
+        edit_post_link(__('(Edit this post)', 'wpbootstrap'));
+    }
 }
-endif;
 
-if(!function_exists( 'bootstrap_favicons')) :
+if(!function_exists('bootstrap_favicons')) :
     function bootstrap_favicons() {
-        $dir = get_stylesheet_directory_uri();
-        $favicon = $dir . '/img/icons/favicon.ico';
-        $ifavico = $dir . '/img/icons/apple-touch-icon.png';
+        $dir = get_stylesheet_directory();
+        $uri = get_stylesheet_directory_uri();
+
+        $favicon = null;
+        switch(true) {
+            case file_exists($dir . '/../../../favicon.ico');
+                $favicon = '../../../favicon.ico';
+                break;
+            case file_exists($dir . '/img/icons/favicon.ico');
+                $favicon = 'img/icons/favicon.ico';
+                break;
+        }
+
+        $ifavicon = null;
+        switch(true) {
+            case file_exists($dir . '/../../../apple-touch-icon.png');
+                $ifavicon = '../../../apple-touch-icon.png';
+                break;
+            case file_exists($dir . '/img/icons/apple-touch-icon.png');
+                $ifavicon = 'img/icons/apple-touch-icon.png';
+                break;
+        }
 
         return sprintf(
             "%s\n%s\n",
-            sprintf('<link rel="shortcut icon" href="%s" />', $favicon),
-            sprintf('<link rel="apple-touch-icon" href="%s" />', $ifavico)
+            isset($favicon)  ? sprintf('<link rel="shortcut icon" href="%s/%s" />',    $uri, $favicon)  : '',
+            isset($ifavicon) ? sprintf('<link rel="apple-touch-icon" href="%s/%s" />', $uri, $ifavicon) : ''
         );
     }
 endif;
 
-/**
- * Print extra meta tags into <head>
- * Signup on Google Webmaster Tools : https://www.google.com/webmasters/tools/
- * Signup on Alexa : http://www.alexa.com/siteowners/claim
- *
- * Don't forget to fill the "content" attributes, 
- * or duplicate this function in your Child theme functions.php file
- */
-if (!function_exists( 'bootstrap_extra_head')) :
-function bootstrap_extra_head() {
-    global $theme_config;
-    
-	return sprintf(
-        "%s\n%s\n",
-        (isset($theme_config['google-site-verification']) ? sprintf('<meta name="google-site-verification" content="%s" />', $theme_config['google-site-verification']) : ''),
-        '<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />'
-    );
+if(!function_exists( 'bootstrap_extra_head')) {
+    function bootstrap_extra_head() {
+        global $theme_config;
+
+        return '';
+    }
 }
-endif;
 
 ?>

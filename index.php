@@ -49,7 +49,7 @@
 
 
 <section class="row">
-	<?php if (is_author() || is_search() || is_date()) : ?>
+	<?php if (is_author() || is_search() || is_date() || is_category() || is_tag()) : ?>
 		<header class="span16">
             <?php $section = bootstrap_section_heading(); ?>
             <?php if (is_author()) : ?>
@@ -58,7 +58,12 @@
                 </hgroup>
             <?php else : ?>
                 <hgroup>
-                    <h1 class="section-title"><?php echo $section['section_title']; ?> <small><?php echo $section['section_description']; ?></small></h1>
+                    <h1 class="section-title">
+                        <?php echo $section['section_title']; ?>
+                        <?php if(isset($section['section_description'])) : ?>
+                            <small><?php echo $section['section_description']; ?></small>
+                        <?php endif; ?>
+                    </h1>
                 </hgroup>
             <?php endif; ?>
 		</header>
@@ -68,6 +73,7 @@
 		<?php if(is_singular()) : ?>
             <?php switch(get_post_format()) {
                 case 'gallery':
+                case 'audio':
                     get_template_part('content', get_post_format());
                     break;
                 default:
