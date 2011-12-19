@@ -46,3 +46,4 @@
     <?php get_template_part('login', 'modal'); ?>
 <?php endif; ?>
 </body>
+</html>
