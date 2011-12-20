@@ -24,7 +24,9 @@
         var wpbootstrap = {
             template_dir: '<?php echo get_template_directory_uri(); ?>',
             post_format: '<?php echo get_post_format(); ?>',
-            reply_to: <?php echo isset($_GET['replytocom']) ? (int)$_GET['replytocom'] : 0; ?>
+            reply_to: <?php echo isset($_GET['replytocom']) ? (int)$_GET['replytocom'] : 0; ?>,
+            is_home: <?php echo (int)is_home(); ?>,
+            is_front:  <?php echo (int)is_front_page(); ?>
         };
     </script>
     <script data-main="<?php echo get_template_directory_uri(); ?>/js/main" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script>

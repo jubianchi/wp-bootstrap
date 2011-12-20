@@ -45,7 +45,7 @@ function bootstrap_comment_edit_link($link) {
 
 	$link = '';
 		
-	$link = '<a class="btn small default comment-reply-link" href="' . esc_url( add_query_arg(array('c'=>$comment->comment_ID,  'action'=>'editcomment'), '/wp-admin/comment.php')) . '">' . __( 'Edit', 'wpbootstrap' ) . '</a>';
+	$link = '<a class="comment-reply-link" href="' . esc_url( add_query_arg(array('c'=>$comment->comment_ID,  'action'=>'editcomment'), '/wp-admin/comment.php')) . '">' . __( 'Edit', 'wpbootstrap' ) . '</a>';
 	
 	return $link;
 }
