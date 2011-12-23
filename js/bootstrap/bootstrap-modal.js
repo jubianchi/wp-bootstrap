@@ -37,13 +37,13 @@
     })()
 
     // set CSS transition event type
-    if ( $.support.transition ) {
+    if($.support.transition ) {
       transitionEnd = "TransitionEnd"
-      if ( $.browser.webkit ) {
+      if($.browser.webkit ) {
       	transitionEnd = "webkitTransitionEnd"
-      } else if ( $.browser.mozilla ) {
+      } else if($.browser.mozilla ) {
       	transitionEnd = "transitionend"
-      } else if ( $.browser.opera ) {
+      } else if($.browser.opera ) {
       	transitionEnd = "oTransitionEnd"
       }
     }
@@ -59,7 +59,7 @@
     this.$element = $(content)
       .delegate('.close', 'click.modal', $.proxy(this.hide, this))
 
-    if ( this.settings.show ) {
+    if(this.settings.show ) {
       this.show()
     }
 
@@ -104,7 +104,7 @@
     , hide: function (e) {
         e && e.preventDefault()
 
-        if ( !this.isShown ) {
+        if(!this.isShown ) {
           return this
         }
 
@@ -141,17 +141,17 @@
   function backdrop ( callback ) {
     var that = this
       , animate = this.$element.hasClass('fade') ? 'fade' : ''
-    if ( this.isShown && this.settings.backdrop ) {
+    if(this.isShown && this.settings.backdrop ) {
       var doAnimate = $.support.transition && animate
 
       this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
         .appendTo(document.body)
 
-      if ( this.settings.backdrop != 'static' ) {
+      if(this.settings.backdrop != 'static') {
         this.$backdrop.click($.proxy(this.hide, this))
       }
 
-      if ( doAnimate ) {
+      if(doAnimate ) {
         this.$backdrop[0].offsetWidth // force reflow
       }
 
@@ -161,14 +161,14 @@
         this.$backdrop.one(transitionEnd, callback) :
         callback()
 
-    } else if ( !this.isShown && this.$backdrop ) {
+    } else if(!this.isShown && this.$backdrop ) {
       this.$backdrop.removeClass('in')
 
       $.support.transition && this.$element.hasClass('fade')?
         this.$backdrop.one(transitionEnd, $.proxy(removeBackdrop, this)) :
         removeBackdrop.call(this)
 
-    } else if ( callback ) {
+    } else if(callback ) {
        callback()
     }
   }
@@ -180,13 +180,13 @@
 
   function escape() {
     var that = this
-    if ( this.isShown && this.settings.keyboard ) {
+    if(this.isShown && this.settings.keyboard ) {
       $(document).bind('keyup.modal', function ( e ) {
-        if ( e.which == 27 ) {
+        if(e.which == 27 ) {
           that.hide()
         }
       })
-    } else if ( !this.isShown ) {
+    } else if(!this.isShown ) {
       $(document).unbind('keyup.modal')
     }
   }
@@ -211,13 +211,13 @@
       })
     }
 
-    if ( options === true ) {
+    if(options === true ) {
       return modal
     }
 
-    if ( typeof options == 'string' ) {
+    if(typeof options == 'string') {
       modal[options]()
-    } else if ( modal ) {
+    } else if(modal ) {
       modal.toggle()
     }
 
@@ -240,7 +240,7 @@
     $('body').delegate('[data-controls-modal]', 'click', function (e) {
       e.preventDefault()
       var $this = $(this).data('show', true)
-      $('#' + $this.attr('data-controls-modal')).modal( $this.data() )
+      $('#' + $this.attr('data-controls-modal')).modal( $this.data())
     })
   })
 

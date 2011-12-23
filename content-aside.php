@@ -2,14 +2,14 @@
 	<header class="page-header">		
 		<?php if(!is_singular()) : ?>
 			<h2>
-				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'wpbootstrap' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+				<a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'wpbootstrap'), the_title_attribute('echo=0')); ?>" rel="bookmark">
 					<?php the_title(); ?>
 				</a>											
 			</h2>
 		<?php else : ?>
 			<h1>
 				<?php the_title(); ?>
-				<?php if ( 'post' == $post->post_type ) : ?>     
+				<?php if ('post' == $post->post_type) : ?>
 					<small><?php echo bootstrap_posted_on(); ?></small>
 				<?php endif; ?>
 					
@@ -24,14 +24,14 @@
 	
 	<div class="content">
 		<?php if (is_singular()) : ?>
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap') ); ?>				
+			<?php the_content( __('Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap')); ?>
 		<?php else : ?>
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap' ) ); ?>
+			<?php the_content( __('Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap')); ?>
 		<?php endif; ?>
 	</div>
 
 	<footer>
-		<?php if ( 'post' == $post->post_type ) : ?>     
+		<?php if ('post' == $post->post_type) : ?>
 			<small><?php echo bootstrap_posted_on(); ?></small>
 		<?php endif; ?>
 	</footer>

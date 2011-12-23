@@ -89,11 +89,11 @@
       })
     }
 
-    if ( options === true ) {
+    if(options === true ) {
       return scrollspy
     }
 
-    if ( typeof options == 'string' ) {
+    if(typeof options == 'string') {
       scrollspy[options]()
     }
 

@@ -1,20 +1,20 @@
 <div id="comments">
 	<?php if(post_password_required()) : ?>
 		<div class="alert-message block-message error">
-            <?php _e( 'This post is password protected. Enter the password to view any comments.', 'wpbootstrap' ); ?>
+            <?php _e('This post is password protected. Enter the password to view any comments.', 'wpbootstrap'); ?>
         </div>
 	<?php else : ?>
 		<?php if(($comments_open = comments_open())) : ?>
 			<header class="page-header">
 				<h2 class="section-description">
-					<?php _e( 'Write a comment.', 'wpbootstrap' ); ?>
+					<?php _e('Write a comment.', 'wpbootstrap'); ?>
 					<small>
 						<?php comments_popup_link( 
-							__( 'No response yet to', 'wpbootstrap' ), 
-							__( '1 response to', 'wpbootstrap' ), 
-							__( '% responses to', 'wpbootstrap' ), 
+							__('No response yet to', 'wpbootstrap'),
+							__('1 response to', 'wpbootstrap'),
+							__('% responses to', 'wpbootstrap'),
 							'comments-link', 
-							__( 'Comments are off for', 'wpbootstrap' ) 
+							__('Comments are off for', 'wpbootstrap')
 						); ?>
 						<em><?php echo get_the_title(); ?></em>						
 					</small>
@@ -23,7 +23,7 @@
 		<? else : ?>
 			<?php if(!is_page()) : ?>
 				<div class="alert-message block-message notice">
-					<?php _e( 'Comments are closed for this post', 'wpbootstrap' ); ?>
+					<?php _e('Comments are closed for this post', 'wpbootstrap'); ?>
 				</div>
 			<?php endif; ?>
 		<?php endif; ?>
@@ -60,7 +60,7 @@
 			<div class="well">
 				<?php 
 				comment_form(array(
-					'cancel_reply_link' => __( 'Cancel reply', 'wpbootstrap')
+					'cancel_reply_link' => __('Cancel reply', 'wpbootstrap')
 				)); ?>
 			</div>
 		<?php endif; ?>

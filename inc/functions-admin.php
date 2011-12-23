@@ -1,6 +1,6 @@
 <?php
 add_action('admin_menu', 'bootstrap_admin_menu');
-if (!function_exists( 'bootstrap_admin_menu')) {
+if (!function_exists('bootstrap_admin_menu')) {
 	function bootstrap_admin_menu() {
         add_theme_page('wp-bootstrap', 'wp-bootstrap', 'edit_themes', 'wp-bootstrap', 'bootstrap_admin_render');
     }

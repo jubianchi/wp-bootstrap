@@ -12,7 +12,7 @@
 	<title><?php echo bootstrap_title(); ?></title>
 	
     <?php if($theme_config['debug']) : ?>
-        <link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/css/wp-bootstrap.less">
+        <link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/wp-bootstrap.less">
         <script type="text/javascript">
             less = { env: 'development' };
         </script>

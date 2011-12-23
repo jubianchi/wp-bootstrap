@@ -37,13 +37,13 @@
      })()
 
      // set CSS transition event type
-     if ( $.support.transition ) {
+     if($.support.transition ) {
        transitionEnd = "TransitionEnd"
-       if ( $.browser.webkit ) {
+       if($.browser.webkit ) {
        	transitionEnd = "webkitTransitionEnd"
-       } else if ( $.browser.mozilla ) {
+       } else if($.browser.mozilla ) {
        	transitionEnd = "transitionend"
-       } else if ( $.browser.opera ) {
+       } else if($.browser.opera ) {
        	transitionEnd = "oTransitionEnd"
        }
      }
@@ -84,14 +84,14 @@
 
   $.fn.alert = function ( options ) {
 
-    if ( options === true ) {
+    if(options === true ) {
       return this.data('alert')
     }
 
     return this.each(function () {
       var $this = $(this)
 
-      if ( typeof options == 'string' ) {
+      if(typeof options == 'string') {
         return $this.data('alert')[options]()
       }
 

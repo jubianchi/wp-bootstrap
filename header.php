@@ -53,4 +53,4 @@
 		<p class="sub"><?php bloginfo('description'); ?></p>
 	</header>
 
-    <?php echo bootstrap_breadcrumbs(); ?>
+    <?php echo bootstrap_breadcrumb(); ?>

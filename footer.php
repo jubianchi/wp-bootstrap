@@ -12,22 +12,22 @@
 						</div>
 					<?php endif; ?>
 
-					<?php if (is_active_sidebar( 'foot-col-2' ) ) : ?>
+					<?php if (is_active_sidebar('foot-col-2')) : ?>
 						<div id="foot-col-2" class="span-one-third">
-							<?php dynamic_sidebar( 'foot-col-2' ); ?>
+							<?php dynamic_sidebar('foot-col-2'); ?>
 						</div>
 					<?php endif; ?>
 
-					<?php if (is_active_sidebar( 'foot-col-3' ) ) : ?>
+					<?php if (is_active_sidebar('foot-col-3')) : ?>
 						<div id="foot-col-3" class="span-one-third">
-							<?php dynamic_sidebar( 'foot-col-3' ); ?>
+							<?php dynamic_sidebar('foot-col-3'); ?>
 						</div>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 			<div class="row">
-				<?php if (is_active_sidebar( 'foot-row-2' ) ) : ?>			
-					<?php dynamic_sidebar( 'foot-row-2' ); ?>
+				<?php if (is_active_sidebar('foot-row-2')) : ?>
+					<?php dynamic_sidebar('foot-row-2'); ?>
 				<?php else : ?>
 					<p>
 						&copy; <a href="http://www.jubianchi.fr">jubianchi.fr</a> 2011

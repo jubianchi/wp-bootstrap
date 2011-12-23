@@ -7,7 +7,7 @@
             <div class="pull-left contenainer-fluid">
                 <div class="comment-meta commentmetadata">
                     <p>
-                        <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+                        <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID )); ?>">
                             <time datetime="<?php comment_time('c'); ?>">
                                 <?php
                                 printf(
@@ -38,7 +38,7 @@
 
                 <div class="comment-content"><?php comment_text(); ?></div>
 
-                <?php if ( $comment->comment_approved != '0' ) : ?>
+                <?php if($comment->comment_approved != '0') : ?>
                     <div class="reply">
                         <?php
                         comment_reply_link(array_merge(

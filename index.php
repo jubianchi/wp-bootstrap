@@ -25,8 +25,8 @@
 		);
 		$query = new WP_Query($args);
 		?>
-		<?php if( $query -> have_posts() ) : ?>
-			<?php while ( $query -> have_posts() ) : $query -> the_post(); ?>
+		<?php if( $query -> have_posts()) : ?>
+			<?php while ( $query -> have_posts()) : $query -> the_post(); ?>
 				<?php get_template_part('content', 'aside'); ?>
 			<?php endwhile; ?>
 		<?php endif; ?>
@@ -69,7 +69,7 @@
 		</header>
 	<?php endif; ?>
 	
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php while ( have_posts()) : the_post(); ?>
 		<?php if(is_singular()) : ?>
             <?php switch(get_post_format()) {
                 case 'gallery':
@@ -85,7 +85,7 @@
         <?php endif; ?>
 	<?php endwhile; ?>	
 		
-	<?php bootstrap_content_nav( 'nav-below', 'menu' ); ?>
+	<?php bootstrap_content_nav('nav-below', 'menu'); ?>
 </section>
 			
 <?php if(is_singular()) : ?>

@@ -32,9 +32,9 @@ $theme_config['formats'] = array(
 
 $theme_config['widget_areas'] = array(
 	array(
-        'name' => __( 'First Footer Column', 'wpbootstrap' ),
+        'name' => __('First Footer Column', 'wpbootstrap'),
         'id' => 'foot-col-1',
-        'description' => __( 'First Footer Column', 'wpbootstrap' ),
+        'description' => __('First Footer Column', 'wpbootstrap'),
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h2>',
@@ -61,7 +61,7 @@ $theme_config['widget_areas'] = array(
     array(
         'name' => __('Second Footer Row', 'wpbootstrap'),
         'id' => 'foot-row-2',
-        'description' => __( 'Second Footer Row', 'wpbootstrap' ),
+        'description' => __('Second Footer Row', 'wpbootstrap'),
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h2>',
@@ -70,7 +70,7 @@ $theme_config['widget_areas'] = array(
     array(
         'name' => __('404 Widget Area', 'wpbootstrap'),
         'id' => '404-war',
-        'description' => __( '404 Widget Area', 'wpbootstrap' ),
+        'description' => __('404 Widget Area', 'wpbootstrap'),
         'before_widget' => '<div id="%1$s" class="%2$s span4">',
         'after_widget' => '</div>',
         'before_title' => '<h2>',

@@ -1,9 +1,9 @@
 <?php
-if ( ! function_exists( 'bootstrap_content_nav' ) ) :
+if(! function_exists('bootstrap_content_nav')) :
 function bootstrap_content_nav($nav_id, $nav_class) {
 	global $wp_query;
 
-	if ( $wp_query->max_num_pages > 1 ) : ?>
+	if($wp_query->max_num_pages > 1 ) : ?>
 		<div class="pagination <?php echo $nav_class; ?>" id="<?php echo $nav_id; ?>">
 			<?php
 				$prev_link = get_previous_posts_link(__('&larr; Newer Posts', 'wpbootstrap'));
@@ -39,38 +39,38 @@ endif;
 /*
  * Print the <title> tag based on what is being viewed.
  */
-if ( ! function_exists( 'bootstrap_title' ) ) :
+if(! function_exists('bootstrap_title')) :
 function bootstrap_title() {
 	global $page, $paged;
-	wp_title( '|', true, 'right' );
+	wp_title('|', true, 'right');
 	// Add the blog name.
-	bloginfo( 'name' );
+	bloginfo('name');
 	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', 'wpbootstrap' ), max( $paged, $page ) );
+	if($paged >= 2 || $page >= 2 )
+		echo ' | ' . sprintf( __('Page %s', 'wpbootstrap'), max( $paged, $page ));
 }
 endif;
 
 /*
  * Print the <meta description> of the web page regarding the context
  */
-if ( ! function_exists( 'bootstrap_description' ) ) :
+if(! function_exists('bootstrap_description')) :
 function bootstrap_description() {
 	global $post, $wp_query;
-	if ( is_404() ) {
+	if(is_404()) {
 		$description = __('404 page not found: fish is gone, try again', 'wpbootstrap');
-	} else if ( is_search() && '' != $wp_query->found_posts ) {
+	} else if(is_search() && '' != $wp_query->found_posts ) {
 		$description = __('No result found: try again!', 'wpbootstrap');
-	} else if ( is_home() || is_front_page() ) {
-		$description = get_bloginfo( 'description', 'display' );
-	} else if ( '' !== $post->post_excerpt ) { 
+	} else if(is_home() || is_front_page()) {
+		$description = get_bloginfo('description', 'display');
+	} else if ('' !== $post->post_excerpt ) {
 		$description = strip_tags( $post->post_excerpt );
-	} else if ( is_category() ) {
-		$description = wptexturize( category_description() );
-	} else if ( is_tag() ) {
-		$description = wptexturize( tag_description() );
-	} else if ( is_author() ) {
-		$description = wptexturize( get_the_author_meta( 'description' ) );
+	} else if(is_category()) {
+		$description = wptexturize( category_description());
+	} else if(is_tag()) {
+		$description = wptexturize( tag_description());
+	} else if(is_author()) {
+		$description = wptexturize( get_the_author_meta('description'));
 	} else { 
 		$description = wp_html_excerpt( $post->post_content, 200 );
 	}
@@ -108,28 +108,28 @@ if(!function_exists('bootstrap_section_heading')) {
             if(isset($tag -> description)) {
                 $section['section_description'] = wptexturize($tag -> description);;
             }
-        } elseif(is_date() ) {
+        } elseif(is_date()) {
             if(is_day()) {
-                $section['section_title'] = __( 'Daily Archives:', 'wpbootstrap' );
+                $section['section_title'] = __('Daily Archives:', 'wpbootstrap');
                 $section['section_description'] = get_the_date();
             } elseif(is_month()) {
-                $section['section_title'] = __( 'Monthly Archives:', 'wpbootstrap' );
+                $section['section_title'] = __('Monthly Archives:', 'wpbootstrap');
                 $section['section_description'] = get_the_date('F Y');
             } elseif(is_year()) {
-                $section['section_title'] = __( 'Yearly Archives:', 'wpbootstrap' );
+                $section['section_title'] = __('Yearly Archives:', 'wpbootstrap');
                 $section['section_description'] = get_the_date('Y');
             } else {
-                $section['section_title'] = __( 'Blog Archives', 'wpbootstrap' );
-                $section['section_description'] = __( 'Blog Archives description', 'wpbootstrap' );
+                $section['section_title'] = __('Blog Archives', 'wpbootstrap');
+                $section['section_description'] = __('Blog Archives description', 'wpbootstrap');
             }
         } else {
             if(is_search()) {
-                $section['section_title'] = __('Search results for:', 'wpbootstrap' );
-                $section['section_description'] = sprintf( __( '%s', 'wpbootstrap' ), '<mark>' . get_search_query() . '</mark>' );
+                $section['section_title'] = __('Search results for:', 'wpbootstrap');
+                $section['section_description'] = sprintf( __('%s', 'wpbootstrap'), '<mark>' . get_search_query() . '</mark>');
             } else {
                 if(is_404()) {
-                    $section['section_title'] = __( 'Hi! This is somewhat embarrassing, isn&rsquo;t it?', 'wpbootstrap' );
-                    $section['section_description'] = __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'wpbootstrap' );
+                    $section['section_title'] = __('Hi! This is somewhat embarrassing, isn&rsquo;t it?', 'wpbootstrap');
+                    $section['section_description'] = __('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'wpbootstrap');
                 }
             }
         }
@@ -138,7 +138,7 @@ if(!function_exists('bootstrap_section_heading')) {
     }
 }
 
-if(!function_exists('bootstrap_posted_on' )) {
+if(!function_exists('bootstrap_posted_on')) {
     function bootstrap_posted_on() {
         printf(
             __('<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'wpbootstrap'),
@@ -176,7 +176,7 @@ if (!function_exists('bootstrap_posted_in')) {
 
         printf(
             $posted_in,
-            get_categories(),
+            get_the_category_list(', '),
             $tag_list,
             get_permalink(),
             the_title_attribute('echo=0')
@@ -191,7 +191,7 @@ if (!function_exists('bootstrap_posted_in')) {
                 __('Comments are off for this post', 'wpbootstrap')
             );
 
-            _e('<span class="meta-sep"> | </span>', 'wpbootstrap');
+            //_e('<span class="meta-sep"> | </span>', 'wpbootstrap');
         }
 
         edit_post_link(__('(Edit this post)', 'wpbootstrap'));
@@ -231,7 +231,7 @@ if(!function_exists('bootstrap_favicons')) :
     }
 endif;
 
-if(!function_exists( 'bootstrap_extra_head')) {
+if(!function_exists('bootstrap_extra_head')) {
     function bootstrap_extra_head() {
         global $theme_config;
 

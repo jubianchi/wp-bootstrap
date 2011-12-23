@@ -31,7 +31,7 @@
 
     element.addClass('active')
 
-    if ( element.parent('.dropdown-menu') ) {
+    if(element.parent('.dropdown-menu')) {
       element.closest('li.dropdown').addClass('active')
     }
   }
@@ -43,10 +43,10 @@
       , previous
       , $href
 
-    if ( /^#\w+/.test(href) ) {
+    if(/^#\w+/.test(href)) {
       e.preventDefault()
 
-      if ( $this.parent('li').hasClass('active') ) {
+      if($this.parent('li').hasClass('active')) {
         return
       }
 

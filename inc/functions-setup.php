@@ -3,8 +3,8 @@ define('HEADER_TEXTCOLOR', '404040');
 define('HEADER_IMAGE_WIDTH', $theme_config['content_width']);
 define('HEADER_IMAGE_HEIGHT', 240);
 
-add_action( 'after_setup_theme', 'bootstrap_setup' );
-if (!function_exists( 'bootstrap_setup')):
+add_action('after_setup_theme', 'bootstrap_setup');
+if (!function_exists('bootstrap_setup')):
 	function bootstrap_setup() {
 		global $theme_config;
 
@@ -14,8 +14,8 @@ if (!function_exists( 'bootstrap_setup')):
 		if(is_readable( $locale_file )) require_once($locale_file);
 
 		register_nav_menus(array(
-			'toolbar'	=> __( 'Toolbar navigation', 'wpbootstrap' ),
-			'home'		=> __( 'Home navigation', 'wpbootstrap' )
+			'toolbar'	=> __('Toolbar navigation', 'wpbootstrap'),
+			'home'		=> __('Home navigation', 'wpbootstrap')
 		));
 
 		add_theme_support('automatic-feed-links');
@@ -42,8 +42,8 @@ if (!function_exists( 'bootstrap_setup')):
 	}
 endif;
 
-add_action( 'widgets_init', 'bootstrap_widgets_init' );
-if (!function_exists( 'bootstrap_widgets_init' ) ) :
+add_action('widgets_init', 'bootstrap_widgets_init');
+if (!function_exists('bootstrap_widgets_init')) :
 	function bootstrap_widgets_init() {
 		global $theme_config;
 
