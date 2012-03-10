@@ -1,40 +1,36 @@
 ;require(['jquery/jquery'], function() {
     require(['bootstrap/bootstrap-dropdown'],function() {
-        $('.topbar ul.sub-menu').each(function() {
+        $('.navbar ul.sub-menu').each(function() {
             var e = $(this),
                 p = e.parent('li');
 
             e.addClass('dropdown-menu');
-            p.addClass('dropdown')
-                .attr('data-dropdown', 'dropdown')
-                .find('a:first').addClass('dropdown-toggle');
+            p.addClass('dropdown');
+
+            var toggle = p.find('a:first');
+            toggle.addClass('dropdown-toggle').attr('data-toggle', 'dropdown');
         });
     });
 
-    if(wpbootstrap.is_home || wpbootstrap.is_front) {
-        require(['helper/dotdotdot'], function() {
-            $('.ellipsis').dotdotdot();
-            $('article.aside div.content').css('height', '200px').dotdotdot({
-                after: "a.more-link"
-            });
-            $('article header h2').css('height', '40px').dotdotdot({
-                watch: "window",
-                after: ".label"
-            });
-        });
-    } else {
+    if(!wpbootstrap.is_home && !wpbootstrap.is_front) {
         $('[type=submit], [type=button], [type=reset], button').addClass('btn');
         $('[type=submit]').addClass('primary');
         $('[type=button], [type=reset], button').addClass('default');
     }
 
     require([
-        'bootstrap/bootstrap-twipsy',
-        'bootstrap/bootstrap-scrollspy',
-        'bootstrap/bootstrap-alerts',
+        'bootstrap/bootstrap-alert',
+        'bootstrap/bootstrap-button',
+        'bootstrap/bootstrap-carousel',
+        'bootstrap/bootstrap-collapse',
+        'bootstrap/bootstrap-dropdown',
         'bootstrap/bootstrap-modal',
+        'bootstrap/bootstrap-tooltip',
         'bootstrap/bootstrap-popover',
-        'bootstrap/bootstrap-tabs'
+        'bootstrap/bootstrap-scrollspy',
+        'bootstrap/bootstrap-tab',
+        'bootstrap/bootstrap-transition',
+        'bootstrap/bootstrap-typeahead'
     ]);
 
     if(wpbootstrap.post_format == 'gallery') {

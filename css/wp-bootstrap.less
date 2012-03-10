@@ -19,7 +19,6 @@
 }
 
 h1 {
-    font-size: (@basefont * 2);
 
     small { font-size: 0.7em; }
 }
@@ -31,7 +30,7 @@ article {
     header .label { min-width: 1em; text-align: center; }
 }
 
-.container > header {
+.container-fluid > header {
     background-color: @grayLighter;
     box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
     
@@ -176,3 +175,5 @@ form .required { color: @red; }
 textarea.xxlarge { min-width: 530px; max-width: 95%; }
 embed { display: block; margin: 0 auto;}
 body.tag p, body.tag footer { color: @grayDark; }
+
+ul, ol { margin-left: 0px!important; }
