@@ -6,4 +6,5 @@ require( dirname( __FILE__ ) . '/inc/functions-filter-action.php');
 require( dirname( __FILE__ ) . '/inc/functions-display.php');
 require( dirname( __FILE__ ) . '/inc/functions-comment.php');
 require( dirname( __FILE__ ) . '/inc/functions-breadcrumb.php');
+require( dirname( __FILE__ ) . '/inc/functions-shortcodes.php');
 ?>

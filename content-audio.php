@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('span16 clearfix'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('span12 clearfix'); ?>>
 	<?php if(!is_page()) : ?>
         <header class="page-header">
             <?php if(!is_singular()) : ?>

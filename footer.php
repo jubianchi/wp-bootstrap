@@ -3,29 +3,28 @@
 
 <footer class="footer">
 	<div class="container">
-		<div class="content">
 			<?php if(is_active_sidebar('foot-col-1') || is_active_sidebar('foot-col-2') || is_active_sidebar('foot-col-3')) : ?>
-				<div class="row">
+				<div class="row-fluid">
 					<?php if (is_active_sidebar('foot-col-1')) : ?>
-						<div id="foot-col-1" class="span-one-third">
+						<div id="foot-col-1" class="span4">
 							<?php dynamic_sidebar('foot-col-1'); ?>
 						</div>
 					<?php endif; ?>
 
 					<?php if (is_active_sidebar('foot-col-2')) : ?>
-						<div id="foot-col-2" class="span-one-third">
+						<div id="foot-col-2" class="span4">
 							<?php dynamic_sidebar('foot-col-2'); ?>
 						</div>
 					<?php endif; ?>
 
 					<?php if (is_active_sidebar('foot-col-3')) : ?>
-						<div id="foot-col-3" class="span-one-third">
+						<div id="foot-col-3" class="span4">
 							<?php dynamic_sidebar('foot-col-3'); ?>
 						</div>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
-			<div class="row">
+			<div class="row-fluid">
 				<?php if (is_active_sidebar('foot-row-2')) : ?>
 					<?php dynamic_sidebar('foot-row-2'); ?>
 				<?php else : ?>
@@ -36,7 +35,7 @@
 					</p>
 				<?php endif; ?>
 			</div>
-		</div>		
+
 	</div>
 </footer>
     

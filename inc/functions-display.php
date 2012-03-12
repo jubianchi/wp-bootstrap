@@ -1,38 +1,75 @@
 <?php
-if(! function_exists('bootstrap_content_nav')) :
-function bootstrap_content_nav($nav_id, $nav_class) {
-	global $wp_query;
+if(! function_exists('bootstrap_content_nav')) {
+    function bootstrap_content_nav($nav_id, $nav_class) {
+        global $wp_query;
 
-	if($wp_query->max_num_pages > 1 ) : ?>
-		<div class="pagination <?php echo $nav_class; ?>" id="<?php echo $nav_id; ?>">
-			<?php
-				$prev_link = get_previous_posts_link(__('&larr; Newer Posts', 'wpbootstrap'));
-				if($prev_link == '') {
-					$prev_class = 'class="disabled"';
-					$prev_link = '<a href="#" onclick="return false;">' . __('&larr; Newer Posts', 'wpbootstrap') . '</a>';
-				}
+        if($wp_query->max_num_pages > 1 ) : ?>
+            <div class="pagination pagination-centered <?php echo $nav_class; ?>" id="<?php echo $nav_id; ?>">
+                <?php
+                    $prev_link = get_previous_posts_link(__('&larr; Newer Posts', 'wpbootstrap'));
+                    if($prev_link == '') {
+                        $prev_class = 'class="disabled"';
+                        $prev_link = '<a href="#" onclick="return false;">' . __('&larr; Newer Posts', 'wpbootstrap') . '</a>';
+                    }
 
-				$next_link = get_next_posts_link(__('Older Posts &rarr;', 'wpbootstrap'));
-				if($next_link == '') {
-					$next_class = 'class="disabled"';
-					$next_link = '<a href="#" onclick="return false;">' . __('Older Posts &rarr;', 'wpbootstrap') . '</a>';
-				}
-			?>
-			<ul>
-				<li <?php echo $prev_class ?>><?php echo $prev_link ?></li>
-				<?php for($i=0; $i < $wp_query->max_num_pages; $i++) : ?>
-					<?php 
-					$page = $wp_query -> query_vars['paged'] <= 1 ? 0 : $wp_query -> query_vars['paged'] - 1;
-					$class = $page == $i ? 'class="active"' : ''; 
-					?>
-					<li <?php echo $class; ?>><a href="<?php echo home_url('/'); ?>?paged=<?php echo $i+1; ?>"><?php echo $i+1; ?></a></li>
-				<?php endfor; ?>
-				<li <?php echo $next_class ?>><?php echo $next_link ?></li>
-			</ul>
-		</div>
-	<?php endif;
+                    $next_link = get_next_posts_link(__('Older Posts &rarr;', 'wpbootstrap'));
+                    if($next_link == '') {
+                        $next_class = 'class="disabled"';
+                        $next_link = '<a href="#" onclick="return false;">' . __('Older Posts &rarr;', 'wpbootstrap') . '</a>';
+                    }
+                ?>
+                <ul>
+                    <li <?php echo $prev_class ?>><?php echo $prev_link ?></li>
+                    <?php for($i=0; $i < $wp_query->max_num_pages; $i++) : ?>
+                        <?php
+                        $page = $wp_query -> query_vars['paged'] <= 1 ? 0 : $wp_query -> query_vars['paged'] - 1;
+                        $class = $page == $i ? 'class="active"' : '';
+                        ?>
+                        <li <?php echo $class; ?>><a href="<?php echo home_url('/'); ?>?paged=<?php echo $i+1; ?>"><?php echo $i+1; ?></a></li>
+                    <?php endfor; ?>
+                    <li <?php echo $next_class ?>><?php echo $next_link ?></li>
+                </ul>
+            </div>
+        <?php endif;
+    }
 }
-endif;
+
+if(! function_exists('bootstrap_post_nav')) {
+    function bootstrap_post_nav($nav_id, $nav_class) {
+        global $page, $numpages;
+
+
+        if($numpages > 1 ) : ?>
+            <div class="pagination pagination-centered <?php echo $nav_class; ?>" id="<?php echo $nav_id; ?>">
+                <?php
+                if($page > 1) {
+                    $prev_class = '';
+                    $prev_link = _wp_link_page($page - 1) . __('&larr;', 'wpbootstrap') . '</a>';
+                } else {
+                    $prev_class = 'class="disabled"';
+                    $prev_link = '<a href="#" onclick="return false;">' . __('&larr;', 'wpbootstrap') . '</a>';
+                }
+
+                if($page < $numpages) {
+                    $next_class = '';
+                    $next_link = _wp_link_page($page + 1) . __('&rarr;', 'wpbootstrap') . '</a>';
+                } else {
+                    $next_class = 'class="disabled"';
+                    $next_link = '<a href="#" onclick="return false;">' . __('&rarr;', 'wpbootstrap') . '</a>';
+                }
+                ?>
+                <ul>
+                    <li <?php echo $prev_class ?>><?php echo $prev_link ?></li>
+                    <?php for($i = 1; $i <= $numpages; $i++) : ?>
+                        <?php $class = $page == $i ? 'class="active"' : ''; ?>
+                        <li <?php echo $class; ?>><?php echo _wp_link_page($i); ?><?php echo ($i); ?></a></li>
+                    <?php endfor; ?>
+                    <li <?php echo $next_class ?>><?php echo $next_link ?></li>
+                </ul>
+            </div>
+        <?php endif;
+    }
+}
 
 
 
@@ -144,7 +181,7 @@ if(!function_exists('bootstrap_posted_on')) {
             __('<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'wpbootstrap'),
             'meta-prep meta-prep-author',
             sprintf(
-                '<time title="%1$s published at %2$s" class="%3$s" datetime="%4$s" pubdate>%5$s</time>',
+                '<time title="%1$s published at %2$s" class="%3$s" datetime="%4$s">%5$s</time>',
                 '[ ' . get_permalink() . ' ]',
                 esc_attr(get_the_time()),
                 'entry-date',

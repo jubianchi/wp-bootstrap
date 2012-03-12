@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('gallery span16'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('gallery span12'); ?>>
 	<header class="page-header">		
 		<?php if(!is_singular()) : ?>
 			<h2>
@@ -39,7 +39,9 @@
 			<?php the_excerpt(__('Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap')); ?>
 		<?php endif; ?>		
 	</div>
-	<br style="clear: both"/>
+
+    <hr/>
+
 	<footer>
 		<?php echo bootstrap_posted_in(); ?>
 	</footer>

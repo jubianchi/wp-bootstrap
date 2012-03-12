@@ -9,7 +9,7 @@ $theme_config['show_login']         = get_option('wpbootstrap.show_login', true)
 $theme_config['show_breadcrumb']    = get_option('wpbootstrap.show_breadcrumb', 2);
 
 $theme_config['sticky_rows']        = get_option('wpbootstrap.sticky_rows', 2);
-$theme_config['sticky_formats']     = explode(',', get_option('wpbootstrap.sticky_formats', 'aside,quote'));
+$theme_config['sticky_formats']     = explode(',', get_option('wpbootstrap.sticky_formats', 'aside,quote,gallery'));
 array_walk($theme_config['sticky_formats'], create_function('&$item', '$item = \'post-format-\' . $item;'));
 $theme_config['sticky_enabled']     = (count($theme_config['sticky_formats']) > 0);
 
@@ -18,17 +18,19 @@ $theme_config['header_bgcolor']     = get_option('wpbootstrap.header_bgcolor', '
 $theme_config['content_width'] = 960;
 
 $theme_config['formats'] = array(
-    'aside',    //Goes into sticky
-    'quote',    //Goes into sticky
-
+    'aside',
+    'quote',
     'gallery',
-    'image',
+
+    /*'image',
     'link',
     'status',
     'video',
     'audio',
-    'chat'
+    'chat'*/
 );
+
+$theme_config['hide_hero_unit'] = false;
 
 $theme_config['widget_areas'] = array(
 	array(

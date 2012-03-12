@@ -2,8 +2,14 @@
 @import "wp-bootstrap-variables.less";
 @import "facebox.less";
 @import "prettify.less";
-@import "mplayer.less";
 
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+@import "responsive.less";
+@import "docs.less";
 
 @font-face {
 	font-family: @fontFaceName;
@@ -18,29 +24,52 @@
 	font-style: normal;
 }
 
-h1 {
+body {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    line-height: @baseLineHeight + 2;
+}
 
-    small { font-size: 0.7em; }
+@import "responsive.less";
+
+h1 {
+    small { font-size: 0.5em; }
 }
 
 article {
     margin-bottom: (@gridGutterHeight * 3);
 
     footer { margin-top: 0; }
-    header .label { min-width: 1em; text-align: center; }
+
+    header .label {
+        min-width: 1em;
+        text-align: center;
+    }
 }
 
-.container-fluid > header {
+.container > header {
+    .box-shadow(@blockShadow);
+
     background-color: @grayLighter;
-    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
-    
-    h1, p {
+
+    span.title {
+        font-size: 4em;
+    }
+
+    span.title, p {
         font-family: @fontFaceName, 'Arial Black', 'Arial';
 	    text-transform: uppercase;
 	    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     }
 
-    h1 a    { color: @orange; &:hover { text-decoration: none; }}
+    span.title a {
+        color: @orange;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
     p.sub   { font-size: 2em; }
 }
 
@@ -56,20 +85,6 @@ article {
         margin: 0;
 
         li { margin: 0 (@gridGutterWidth * 2) 0 0; display: inline; }
-    }
-}
-
-.media-grid {
-    margin-left: -(@gridGutterWidth / 2);
-    
-    &.pull-left { margin-right: (@gridGutterWidth / 6); }
-    
-    li {
-        a {
-            margin-left: (@gridGutterWidth * 0.5);
-
-            &:hover p { text-decoration: none; color: #404040; }
-        }
     }
 }
 
@@ -97,69 +112,25 @@ figure {
 }
 
 .footer {
-	background-color: @grayLighter;
-	min-width: (@gridColumns * @gridColumnWidth) - @gridGutterWidth;
+    #gradient > .vertical(@grayLighter, @white);
+    .box-shadow(@blockShadow);
+
 	padding: 30px 0;
-	text-shadow: 0 1px 0 @white;
 	border-top: 1px solid @grayLight;
-	-webkit-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
-	-moz-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
-	box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
 
-  p { color: @grayDark; }
+    p { color: @grayDark; }
 }
 
-.modal {
-  width: (@gridColumnWidth * 11);
-
-  .form-stacked .xxlarge { width: (@gridColumnWidth * 10); }
-}
-
-table {
-    -webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	border-collapse: collapse;
-	-webkit-box-shadow: inset 0 1px 0 @white;
-	-moz-box-shadow: inset 0 1px 0 @white;
-	box-shadow: inset 0 1px 0 @white;
-	zoom: 1;
-
-	thead tr, tfoot tr { background-color: @grayLighter; }
-    thead th, tfoot td { padding: 5px; text-align: center; }
-    th, td { border: 1px solid @grayLight; }
+.table {
+    th, td { padding: 5px; text-align: center; }
 
     caption {
         font-weight: bold;
         color: @grayDark;
         margin-bottom: (@gridGutterHeight / 4);
     }
-
-    tbody td {
-        background-color: @white;
-        padding: 5px;
-        text-align: center;
-    }
 }
 
-.clearfix:after {
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
-}
-
-html[xmlns] .clearfix {
-	display: block;
-}
-
-* html .clearfix {
-	height: 1%;
-}
-
-body > .container { margin-top: (@gridGutterHeight + 40px); }
 .label a:hover, h2 a:hover { text-decoration: none; }
 .label a { color: @white; }
 .form-stacked { padding-left: 0px; }
@@ -176,4 +147,53 @@ textarea.xxlarge { min-width: 530px; max-width: 95%; }
 embed { display: block; margin: 0 auto;}
 body.tag p, body.tag footer { color: @grayDark; }
 
-ul, ol { margin-left: 0px!important; }
+ol.commentlist { margin-left: 0px; margin-top: @gridGutterWidth / 2; }
+
+.children { padding-left: @gridGutterWidth; }
+
+.carousel .item {
+    overflow: hidden;
+    max-height: 600px;
+
+    img {
+        border: none;
+    }
+}
+
+@media (max-width: 979px) {
+    .navbar .brand + ul {
+        display: none!important;
+    }
+
+    .navbar .brand {
+        display: inline-block;
+    }
+}
+
+h1 .label {
+    font-size: 0.8em;
+}
+
+h2 .label {
+    font-size: 1em;
+    height: 1em;
+    line-height: 1;
+}
+
+.carousel { margin-top: @gridGutterWidth / 2; }
+
+ciute, cite a {
+    line-height: 18px;
+    color: #999999;
+}
+cite:before {
+    content: '\2014 \00A0';
+    color: #999999;
+}
+
+.pull-left .thumbnail { margin: 0 (@gridGutterWidth / 2) (@gridGutterWidth / 2) 0; }
+.pull-right .thumbnail { margin: 0 0 (@gridGutterWidth / 2) (@gridGutterWidth / 2); }
+
+.pagination { clear: both; }   
+
+blockquote p { font-size: @baseFontSize; }

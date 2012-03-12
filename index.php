@@ -18,17 +18,32 @@
 					'taxonomy'  => 'post_format',
 					'field'     => 'slug',
 					'terms'     => $theme_config['sticky_formats'],
-					'operator'  => 'IN'
+					'operator'  => 'IN',
 				)
 			),
-			'showposts' => 3 * $theme_config['sticky_rows']
+			'showposts' => 3 * $theme_config['sticky_rows'],
+
 		);
 		$query = new WP_Query($args);
 		?>
 		<?php if( $query -> have_posts()) : ?>
-			<?php while ( $query -> have_posts()) : $query -> the_post(); ?>
-				<?php get_template_part('content', 'aside'); ?>
-			<?php endwhile; ?>
+			<?php for ($i = 1; $query -> have_posts(); $i++, $query -> the_post()) : ?>
+                <?php switch(get_post_format()) {
+                    case 'gallery':
+                    case 'audio':
+                        get_template_part('sticky', get_post_format());
+                        break;
+                    case 'aside':
+                    case 'quote':
+                        get_template_part('sticky', 'aside');
+                        break;
+                    default:
+                        get_template_part('sticky');
+                        break;
+                } ?>
+
+                <?php if($i % 3 == 0) : ?><br style="clear: both"/><?php endif; ?>
+			<?php endfor; ?>
 		<?php endif; ?>
 
 		<?php               
@@ -50,7 +65,7 @@
 
 <section class="row">
 	<?php if (is_author() || is_search() || is_date() || is_category() || is_tag()) : ?>
-		<header class="span16">
+		<header class="span12">
             <?php $section = bootstrap_section_heading(); ?>
             <?php if (is_author()) : ?>
                 <hgroup>
@@ -69,7 +84,7 @@
 		</header>
 	<?php endif; ?>
 	
-	<?php while ( have_posts()) : the_post(); ?>
+	<?php while (have_posts()) : the_post(); ?>
 		<?php if(is_singular()) : ?>
             <?php switch(get_post_format()) {
                 case 'gallery':
@@ -83,11 +98,11 @@
         <?php else : ?>
             <?php get_template_part('content'); ?>
         <?php endif; ?>
-	<?php endwhile; ?>	
-		
-	<?php bootstrap_content_nav('nav-below', 'menu'); ?>
+	<?php endwhile; ?>
 </section>
-			
+
+<?php bootstrap_content_nav('content-nav', 'menu'); ?>
+
 <?php if(is_singular()) : ?>
 	<section>
 		<?php comments_template(); ?>

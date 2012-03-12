@@ -1,0 +1,21 @@
+<article id="post-<?php the_ID(); ?>" <?php post_class('sticky span4'); ?>>
+	<header class="page-header">
+        <h2>
+            <a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'wpbootstrap'), the_title_attribute('echo=0')); ?>" rel="bookmark">
+                <?php the_title(); ?>
+            </a>
+        </h2>
+	</header>
+	
+	<div class="content">
+        <?php the_excerpt(__('Continue reading <span class="meta-nav">&rarr;</span>', 'wpbootstrap')); ?>
+	</div>
+
+    <hr/>
+
+	<footer>
+		<?php if ('post' == $post->post_type) : ?>
+			<small><?php echo bootstrap_posted_on(); ?></small>
+		<?php endif; ?>
+	</footer>
+</article>

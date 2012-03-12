@@ -1,16 +1,15 @@
-;require(['jquery/jquery'], function() {
-    require(['bootstrap/bootstrap-dropdown'],function() {
-        $('.navbar ul.sub-menu').each(function() {
-            var e = $(this),
-                p = e.parent('li');
+;$(function() {
+    $('.navbar ul.sub-menu').each(function() {
+        var e = $(this),
+            p = e.parent('li');
 
-            e.addClass('dropdown-menu');
-            p.addClass('dropdown');
+        e.addClass('dropdown-menu');
+        p.addClass('dropdown');
 
-            var toggle = p.find('a:first');
-            toggle.addClass('dropdown-toggle').attr('data-toggle', 'dropdown');
-        });
+        var toggle = p.find('a:first');
+        toggle.addClass('dropdown-toggle').attr('data-toggle', 'dropdown');
     });
+
 
     if(!wpbootstrap.is_home && !wpbootstrap.is_front) {
         $('[type=submit], [type=button], [type=reset], button').addClass('btn');
@@ -18,79 +17,80 @@
         $('[type=button], [type=reset], button').addClass('default');
     }
 
-    require([
-        'bootstrap/bootstrap-alert',
-        'bootstrap/bootstrap-button',
-        'bootstrap/bootstrap-carousel',
-        'bootstrap/bootstrap-collapse',
-        'bootstrap/bootstrap-dropdown',
-        'bootstrap/bootstrap-modal',
-        'bootstrap/bootstrap-tooltip',
-        'bootstrap/bootstrap-popover',
-        'bootstrap/bootstrap-scrollspy',
-        'bootstrap/bootstrap-tab',
-        'bootstrap/bootstrap-transition',
-        'bootstrap/bootstrap-typeahead'
-    ]);
+    $('article .gallery').each(function(i, e) {
+        e = $(e);
+        var carousel = $('<div class="carousel slide"/>');
+            carouselInner = $('<div class="carousel-inner"/>').appendTo(carousel);
 
-    if(wpbootstrap.post_format == 'gallery') {
-        var ul = $('<ul class="media-grid"/>');
-        $('article img').each(function() {
-            var a   = $(this).parent(),
-                li  = $('<li/>').appendTo(ul),
-                nxt = a.next(),
-                p   = a.parent('p'),
-                img = $('img:first', a),
-                str = nxt.text();
+        $('dt a img', e).each(function(i, f) {
+            f = $(f);
+            var item = $('<div class="item"/>').appendTo(carouselInner);
 
-            nxt.parent('.wp-caption').remove();
-            if(nxt.hasClass('wp-caption-text')) {
-                a.attr('data-content', str)
-                 .attr('data-original-title', img.attr('alt'))
-                 .attr('data-controls-modal', 'modal')
-                 .attr('rel', 'popover')
-                 .popover({placement: 'below'})
-                 .facebox({
-                    loadingImage : wpbootstrap.template_dir + '/img/loading.gif',
-                    closeImage   : wpbootstrap.template_dir + '/img/closelabel.png'
-                 });
+            if(i == 0) item.addClass('active');
 
+            f.attr('width', null).attr('height', null).clone().appendTo(item);
+
+            var caption = f.parents('dt').next('dd');
+            if(caption.size()) {
+                var capt = $('<div class="carousel-caption"/>').html('<h4>' + f.attr('alt') + '</h4><p>' + caption.text() + '</p>').appendTo(item);
             }
-            a.appendTo(li);
-            p.remove();
         });
 
-        ul.appendTo('article.gallery .content');
+        var parent = e.parents('.content');
+        e.prev('style').remove();
+        e.remove();
+
+
+        $('<a class="carousel-control left" href="#' + e.attr('id') + '" data-slide="prev">&lsaquo;</a><a class="carousel-control right" href="#' + e.attr('id') + '" data-slide="next">&rsaquo;</a>').appendTo(carousel);
+
+        carousel.attr('id', e.attr('id')).appendTo(parent);
+        carousel.carousel();
+    });
+
+    // fix sub nav on scroll
+    var $win = $(window)
+        , $nav = $('.subnav')
+        , navTop = $('.subnav').length && $('.subnav').offset().top - 40
+        , isFixed = 0
+    processScroll()
+    $win.on('scroll', processScroll)
+    function processScroll() {
+        var i, scrollTop = $win.scrollTop()
+        if (scrollTop >= navTop && !isFixed) {
+            isFixed = 1
+            $nav.addClass('subnav-fixed')
+        } else if (scrollTop <= navTop && isFixed) {
+            isFixed = 0
+            $nav.removeClass('subnav-fixed')
+        }
     }
 
     if(wpbootstrap.post_format == 'audio') {
-        require(['helper/jplayer', 'helper/mplayer'], function() {
-            var cont = $('.jplayer');
+        var cont = $('.jplayer');
 
-            cont.each(function() {
-                var playlist = [],
-                    cont = $(this),
-                    links = $('a[href*=mp3]', cont);
+        cont.each(function() {
+            var playlist = [],
+                cont = $(this),
+                links = $('a[href*=mp3]', cont);
 
-                links.each(function() {
-                    var link  = $(this),
-                        attrs = ['oga', 'title', 'cover', 'buy', 'price', 'rating', 'duration', 'artist'],
-                        track = { mp3: link.attr('href') };
+            links.each(function() {
+                var link  = $(this),
+                    attrs = ['oga', 'title', 'cover', 'buy', 'price', 'rating', 'duration', 'artist'],
+                    track = { mp3: link.attr('href') };
 
-                    for(var i = 0; i < attrs.length; i++) {
-                        var attr  = attrs[i],
-                            value = link.attr('data-' + attr);
+                for(var i = 0; i < attrs.length; i++) {
+                    var attr  = attrs[i],
+                        value = link.attr('data-' + attr);
 
-                        if(value) track[attr] = value;
-                    }
+                    if(value) track[attr] = value;
+                }
 
-                    playlist.push(track);
-                    link.remove()
-                });
+                playlist.push(track);
+                link.remove()
+            });
 
-                $('p, div, br', cont).remove();
-                cont.ttwMusicPlayer(playlist)
-            })
+            $('p, div, br', cont).remove();
+            cont.ttwMusicPlayer(playlist)
         })
     }
 
@@ -101,17 +101,14 @@
         if(form && target) form.appendTo(target)
     }
 
-    if($('img, figure').size() > 0) {
-        require(['helper/facebox'], function() {
-            $('a:has(img), figure a').facebox({
-                loadingImage : wpbootstrap.template_dir + '/img/loading.gif',
-                closeImage   : wpbootstrap.template_dir + '/img/closelabel.png'
-            })
+    /*if($('img, figure').size() > 0) {
+        $('a:has(img), figure a').facebox({
+            loadingImage : wpbootstrap.template_dir + '/img/loading.gif',
+            closeImage   : wpbootstrap.template_dir + '/img/closelabel.png'
         })
-    }
+    }*/
 
-    require(['helper/prettify'], function() {
-        prettyPrint()
-    })
+    $('#wp-calendar').addClass('table table-bordered table-striped table-condensed');
+
+    prettyPrint();
 });
-

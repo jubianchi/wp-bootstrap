@@ -20,6 +20,7 @@ if (!function_exists('bootstrap_setup')):
 
 		add_theme_support('automatic-feed-links');
 		add_theme_support('post-formats', $theme_config['formats']);
+        add_theme_support('post-thumbnails');
 
         add_custom_image_header('bootstrap_header_style', 'bootstrap_admin_header_style', 'bootstrap_admin_image_div');
         register_default_headers(array(
@@ -39,6 +40,9 @@ if (!function_exists('bootstrap_setup')):
               'description' => __('Transparent textured header')
             )
         ));
+
+        add_editor_style('css/editor-style.css');
+        remove_filter ('the_content', 'wpautop');
 	}
 endif;
 
@@ -66,4 +70,55 @@ function bootstrap_header_style() {
         }
     </style><?php
 }
+
+add_action('wp_enqueue_scripts', 'bootstrap_scripts_init');
+if (!function_exists('bootstrap_scripts_init')) {
+    function bootstrap_scripts_init() {
+        $jsdir = get_template_directory_uri() . '/js';
+        $scripts = array(
+            'jquery' => $jsdir . '/jquery/jquery.js',
+            'alert'  => $jsdir . '/bootstrap/bootstrap-alert.js',
+            'button'  => $jsdir . '/bootstrap/bootstrap-button.js',
+            'carousel'  => $jsdir . '/bootstrap/bootstrap-carousel.js',
+            'collapse'  => $jsdir . '/bootstrap/bootstrap-collapse.js',
+            'dropdown'  => $jsdir . '/bootstrap/bootstrap-dropdown.js',
+            'modal'  => $jsdir . '/bootstrap/bootstrap-modal.js',
+            'tooltip'  => $jsdir . '/bootstrap/bootstrap-tooltip.js',
+            'popover'  => $jsdir . '/bootstrap/bootstrap-popover.js',
+            'scrollspy'  => $jsdir . '/bootstrap/bootstrap-scrollspy.js',
+            'tab'  => $jsdir . '/bootstrap/bootstrap-tab.js',
+            'transition'  => $jsdir . '/bootstrap/bootstrap-transition.js',
+            'typeahead'  => $jsdir . '/bootstrap/bootstrap-typeahead.js',
+            'facebox'  => $jsdir . '/helper/facebox.js',
+            'prettify'  => $jsdir . '/helper/prettify.js',
+            'main'  => $jsdir . '/main.js',
+        );
+
+        foreach($scripts as $name => $uri) {
+            wp_deregister_script($name);
+            wp_register_script($name, $uri);
+            wp_enqueue_script($name);
+        }
+    }
+}
+
+add_action('wp_enqueue_scripts', 'bootstrap_styles_init');
+if (!function_exists('bootstrap_styles_init')) {
+    function bootstrap_styles_init() {
+        $themedir = get_template_directory_uri();
+        $cssdir = $themedir . '/css';
+        $styles = array(
+            'main'  => $cssdir . '/wp-bootstrap.css',
+            'style' => $themedir . '/style.css',
+        );
+
+        foreach($styles as $name => $uri) {
+            wp_deregister_style($name);
+            wp_register_style($name, $uri);
+            wp_enqueue_style($name);
+        }
+    }
+}
+
+
 

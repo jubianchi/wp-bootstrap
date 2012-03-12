@@ -1,5 +1,17 @@
 <?php global $theme_config; ?>
 
+<?php
+if(is_single() || is_page() && isset($posts[0])) {
+    foreach($theme_config as $key => $v) {
+        $meta = get_post_meta($posts[0]->ID, $key, null);
+
+        if(isset($meta[0])) {
+            $theme_config[$key] = $meta[0];
+        }
+    }
+}
+?>
+
 <!DOCTYPE HTML>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
@@ -11,15 +23,13 @@
 	
 	<title><?php echo bootstrap_title(); ?></title>
 
-    <?php if($theme_config['debug']) : ?>
-        <link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/wp-bootstrap.less">
-        <script type="text/javascript">
-            less = { env: 'development' };
-        </script>
-        <script src="<?php echo get_template_directory_uri(); ?>/js/less.js" type="text/javascript"></script>
-    <?php else : ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/wp-bootstrap.min.css">
-    <?php endif; ?>
+	<?php echo bootstrap_favicons(); ?>
+	<link rel="profile" href="http://gmpg.org/xfn/11"/>
+	<link rel="alternate" type="application/rss+xml" title="<?php printf( __('Subscribe to %1$s via RSS', 'wpbootstrap'), get_bloginfo('name')); ?>" href="<?php echo home_url('/feed/'); ?>"/>
+	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
+
+	<?php wp_head(); ?>
+
     <script type="text/javascript">
         var wpbootstrap = {
             template_dir: '<?php echo get_template_directory_uri(); ?>',
@@ -29,28 +39,22 @@
             is_front:  <?php echo (int)is_front_page(); ?>
         };
     </script>
-    <script data-main="<?php echo get_template_directory_uri(); ?>/js/main" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script>
-
-	<?php echo bootstrap_favicons(); ?>
-	<link rel="profile" href="http://gmpg.org/xfn/11"/>
-	<link rel="alternate" type="application/rss+xml" title="<?php printf( __('Subscribe to %1$s via RSS', 'wpbootstrap'), get_bloginfo('name')); ?>" href="<?php echo home_url('/feed/'); ?>"/>
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
-
-	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-spy="scroll" data-target=".subnav" data-offset="50">
 
 <?php get_template_part('header', 'topbar'); ?>
 	
-<div class="container" role="document">		
-	<header class="hero-unit" style="position: relative">
-		<?php if($theme_config['github_support']) : ?>
-            <a href="<?php echo $theme_config['github_url']; ?>">
-                <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
-            </a>
-		<?php endif; ?>
-		<h1><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
-		<p class="sub"><?php bloginfo('description'); ?></p>
-	</header>
+<div class="container">
+	<?php if(!$theme_config['hide_hero_unit']) : ?>
+        <header class="hero-unit" style="position: relative">
+            <?php if($theme_config['github_support']) : ?>
+                <a href="<?php echo $theme_config['github_url']; ?>">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
+                </a>
+            <?php endif; ?>
+            <span class="title"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></span>
+            <p class="sub"><?php bloginfo('description'); ?></p>
+        </header>
+    <?php endif; ?>
 
     <?php echo bootstrap_breadcrumb(); ?>
