@@ -149,29 +149,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </tr>
             </tbody>
         </table>
-
-        <h3>Développement</h3>
-
-        <table class="form-table">
-            <tbody>
-                <tr>
-                    <th scope="row">Debug</th>
-                    <td>
-                        <fieldset>
-                            <label title="Activer sur toutes les pages">
-                                <input type="radio" name="debug" value="1" <?php if($theme_config['debug'] == 1) : ?>checked="checked"<?php endif; ?>/>
-                                <span>Activer le mode debug</span>
-                            </label>
-                            <br/>
-                            <label title="Activer sur toutes les pages sauf la page d'accueil">
-                                <input type="radio" name="debug" value="0" <?php if($theme_config['debug'] == 0) : ?>checked="checked"<?php endif; ?>/>
-                                <span>Désactiver le mode debug</span>
-                            </label>
-                        </fieldset>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
         
         <p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="Enregistrer les modifications"></p>
     </form>

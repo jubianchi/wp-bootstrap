@@ -11,15 +11,6 @@
 	
 	<title><?php echo bootstrap_title(); ?></title>
 	
-    <?php if($theme_config['debug']) : ?>
-        <link rel="stylesheet/less" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/wp-bootstrap.less">
-        <script type="text/javascript">
-            less = { env: 'development' };
-        </script>
-        <script src="<?php echo get_template_directory_uri(); ?>/js/less.js" type="text/javascript"></script>
-    <?php else : ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/wp-bootstrap.min.css">
-    <?php endif; ?>
     <script type="text/javascript">
         var wpbootstrap = {
             template_dir: '<?php echo get_template_directory_uri(); ?>',

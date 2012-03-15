@@ -1,5 +1,4 @@
 <?php
-$theme_config['debug']              = get_option('wpbootstrap.debug', false);
 $theme_config['github_support']     = get_option('wpbootstrap.github_support', false);
 $theme_config['github_url']         = get_option('wpbootstrap.github_url', 'https://github.com/jubianchi/wp-bootstrap');
 
