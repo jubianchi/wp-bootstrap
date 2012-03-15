@@ -17,9 +17,11 @@ if(! function_exists('bootstrap_content_nav')) {
                         $next_class = 'class="disabled"';
                         $next_link = '<a href="#" onclick="return false;">' . __('Older Posts &rarr;', 'wpbootstrap') . '</a>';
                     }
+
                 ?>
                 <ul>
                     <li <?php echo $prev_class ?>><?php echo $prev_link ?></li>
+                    <li <?php echo $prev_class ?>><a title="<?php _e('First page (Most recent)', 'wpbootstrap'); ?>" href="<?php echo home_url('/'); ?>?paged=1">«</a></li>
                     <?php for($i=0; $i < $wp_query->max_num_pages; $i++) : ?>
                         <?php
                         $page = $wp_query -> query_vars['paged'] <= 1 ? 0 : $wp_query -> query_vars['paged'] - 1;
@@ -27,6 +29,7 @@ if(! function_exists('bootstrap_content_nav')) {
                         ?>
                         <li <?php echo $class; ?>><a href="<?php echo home_url('/'); ?>?paged=<?php echo $i+1; ?>"><?php echo $i+1; ?></a></li>
                     <?php endfor; ?>
+                    <li><a title="<?php _e('Last page (Oldest)', 'wpbootstrap'); ?>" href="<?php echo home_url('/'); ?>?paged=<?php echo $i; ?>">»</a></li>
                     <li <?php echo $next_class ?>><?php echo $next_link ?></li>
                 </ul>
             </div>
