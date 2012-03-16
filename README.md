@@ -9,18 +9,22 @@ WordPress and Bootstrap, from Twitter
 
 ## Features
 
+* Widgets support
+* Custom menus support
+* Custom header support
+* Options to customize wp-bootstrap directly in the Wordpress admin panel
+* Posts format support (quote, gallery, aside, ...)
+* All the Bootstrap magic inside a Wordpress theme (CSS framework & Javascript plugins)
+
 ## Contributing
 
-If you like this project and want to make it better, please fork it and create patch and if you can't help us find
-bugs and new features and fill some issues
+If you like this project and want to make it better, please fork it and create patch. If you don't know how, simply open issues to let me know more about the bugs you found or the new features you want.
 
 ## Credits
 
 * [Bootstrap](http://twitter.github.com/bootstrap/ "Bootstrap") [http://www.apache.org/licenses/LICENSE-2.0]
 * [Basics](http://wp4design.com/ "Basics")
 * [jQuery](http://jquery.com/ "jQuery") [http://jquery.org/license/]
-* [jPlayer](http://jplayer.org/ "jPlayer") [http://www.opensource.org/licenses/mit-license.php, http://www.gnu.org/copyleft/gpl.html]
-* [dotdotdot](http://dotdotdot.frebsite.nl/ "dotdotdot") [http://www.opensource.org/licenses/mit-license.php, http://www.gnu.org/copyleft/gpl.html]
 * [facebox](http://defunkt.io/facebox/ "dotdotdot") [http://www.opensource.org/licenses/mit-license.php]
 
 ## License
