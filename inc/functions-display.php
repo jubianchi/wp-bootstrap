@@ -1,4 +1,12 @@
 <?php
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
+
 if(! function_exists('bootstrap_content_nav')) {
     function bootstrap_content_nav($nav_id, $nav_class) {
         global $wp_query;

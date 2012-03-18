@@ -42,7 +42,6 @@ if (!function_exists('bootstrap_setup')):
         ));
 
         add_editor_style('css/editor-style.css');
-        remove_filter ('the_content', 'wpautop');
 	}
 endif;
 

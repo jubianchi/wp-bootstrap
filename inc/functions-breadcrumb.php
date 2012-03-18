@@ -1,4 +1,12 @@
 <?php
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
+
 //http://dimox.net/wordpress-breadcrumbs-without-a-plugin/
 function bootstrap_show_breadcrumb() {
     global $theme_config;

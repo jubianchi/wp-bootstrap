@@ -1,3 +1,12 @@
+/*!
+ * wp-bootstrap 2.0
+ *
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Wordpress and Bootstrap, from Twitter
+ */
+
 @import "bootstrap.less";
 @import "wp-bootstrap-variables.less";
 @import "facebox.less";
@@ -153,6 +162,11 @@ ol.commentlist { margin-left: 0px; margin-top: @gridGutterWidth / 2; }
 
 .carousel .item {
     overflow: hidden;
+
+    img { margin: 0 auto; }
+}
+
+article .carousel .item {
     max-height: 600px;
 
     img {
@@ -180,9 +194,43 @@ h2 .label {
     line-height: 1;
 }
 
-.carousel { margin-top: @gridGutterWidth / 2; }
+.carousel {
+    margin-top: @gridGutterWidth / 2;
+    .border-radius(5px);
+    .box-shadow(@blockShadow);
+    .transition(all .2s linear);
 
-ciute, cite a {
+    &.full {
+        background-color: @white;
+        position: fixed!important;
+        top: 50%;
+        left: 50%;
+        max-width: 90%;
+        max-height: 90%;
+        margin-left: -45%;
+        margin-top: -45%;
+        z-index: 1050;
+
+        .img {
+            max-height: 100%;
+            .transition(all .2s linear);
+        }
+
+        .carousel-inner {
+            .transition(all .2s linear);
+        }
+    }
+
+    .carousel-inner, img{
+        .border-radius(5px);
+    }
+
+    .carousel-caption {
+        .border-radius(0 0 5px 5px);
+    }
+}
+
+cite, cite a {
     line-height: 18px;
     color: #999999;
 }
@@ -197,3 +245,15 @@ cite:before {
 .pagination { clear: both; }   
 
 blockquote p { font-size: @baseFontSize; }
+
+.table-bordered {
+    border-collapse: collapse;
+}
+
+.btn-navbar {
+    z-index: 10000;
+}
+
+article .gallery, .navbar ul.sub-menu { display: none; }
+
+

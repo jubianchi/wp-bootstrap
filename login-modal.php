@@ -1,3 +1,12 @@
+<?php
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
+?>
 <?php if(!is_user_logged_in()) : ?>
 	<div id="modal-login" class="modal hide fade">
 		<form class="form-stacked" action="<?php echo wp_login_url(get_permalink()); ?>" method="post" style="margin: 0px">

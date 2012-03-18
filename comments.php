@@ -1,3 +1,12 @@
+<?php
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
+?>
 <div id="comments">
 	<?php if(post_password_required()) : ?>
 		<div class="alert alert-error">

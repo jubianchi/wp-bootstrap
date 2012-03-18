@@ -1,13 +1,14 @@
 <?php
-/*
-@package WordPress
-@subpackage wp-bootstrap
-@author jubianchi <contact@jubianchi.fr>
-@version 0.1
-*/
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
 ?>
-<?php get_header(); ?>
 <?php global $theme_config; ?>
+<?php get_header(); ?>
 
 <?php if($theme_config['sticky_enabled'] && (is_home() || is_front_page())) : ?>
 	<section class="row">
@@ -27,7 +28,7 @@
 		$query = new WP_Query($args);
 		?>
 		<?php if( $query -> have_posts()) : ?>
-			<?php for ($i = 1; $query -> have_posts(); $i++, $query -> the_post()) : ?>
+			<?php $i = 0; while ($query -> have_posts()) : $i++; $query -> the_post(); ?>
                 <?php switch(get_post_format()) {
                     case 'gallery':
                     case 'audio':
@@ -43,7 +44,7 @@
                 } ?>
 
                 <?php if($i % 3 == 0) : ?><br style="clear: both"/><?php endif; ?>
-			<?php endfor; ?>
+			<?php endwhile; ?>
 		<?php endif; ?>
 
 		<?php               

@@ -1,10 +1,18 @@
 <?php
 /**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
+
+/**
  * Disable the wpautop function so that WordPress makes no attempt to correct your markup.
  * http://nicolasgallagher.com/using-html5-elements-in-wordpress-post-content/
  */
 //remove_filter('the_excerpt', 'wpautop');
-//remove_filter('the_content', 'wpautop');
+remove_filter('the_content', 'wpautop');
 
 /* Remove <p> in category or tag description */
 remove_filter('term_description','wpautop');
@@ -179,6 +187,7 @@ HTML;
 	}    
 endif;
 
+/*
 add_filter('the_content', 'bootstrap_the_content');
 if (!function_exists('bootstrap_the_content')) :
 	function bootstrap_the_content($content) {
@@ -187,4 +196,5 @@ if (!function_exists('bootstrap_the_content')) :
         return $content;
 	}
 endif;
+*/
 ?>

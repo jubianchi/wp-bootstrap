@@ -1,6 +1,10 @@
 <?php
 /**
- * @var array $entries
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
  */
 ?>
 <ul class="breadcrumb">

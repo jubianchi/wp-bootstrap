@@ -1,4 +1,12 @@
 <?php
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
+
 add_action('admin_menu', 'bootstrap_admin_menu');
 if (!function_exists('bootstrap_admin_menu')) {
 	function bootstrap_admin_menu() {

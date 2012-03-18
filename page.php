@@ -1,9 +1,9 @@
 <?php
-/*
-@package WordPress
-@subpackage wp-bootstrap
-@author jubianchi <contact@jubianchi.fr>
-@version 0.1
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 0.1
 */
 ?>
 <?php global $theme_config; ?>

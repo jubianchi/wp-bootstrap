@@ -1,4 +1,12 @@
 <?php
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
+
 $theme_config['github_support']     = get_option('wpbootstrap.github_support', false);
 $theme_config['github_url']         = get_option('wpbootstrap.github_url', 'https://github.com/jubianchi/wp-bootstrap');
 

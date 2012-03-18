@@ -29,6 +29,7 @@
             if(i == 0) item.addClass('active');
 
             f.attr('width', null).attr('height', null).clone().appendTo(item);
+            f.attr('rel', 'facebox');
 
             var caption = f.parents('dt').next('dd');
             if(caption.size()) {
@@ -65,34 +66,49 @@
         }
     }
 
-    if(wpbootstrap.post_format == 'audio') {
-        var cont = $('.jplayer');
+    $('.carousel').click(function(e) {
+        if($(e.target).is('.carousel-control') || $(e.target).hasClass('full')) return;
 
-        cont.each(function() {
-            var playlist = [],
-                cont = $(this),
-                links = $('a[href*=mp3]', cont);
+        var original = $(this),
+            carousel = original.clone().attr('id', original.attr('id') + '-full'),
+            pos = original.position(),
+            size = {width: original.width(), height: original.height()},
+            resize = function() {
+                carousel.animate({
+                    'margin-left': '-' + carousel.width() / 2 + 'px',
+                    'margin-top': '-' + carousel.height() / 2 + 'px'
+                });
+            };
 
-            links.each(function() {
-                var link  = $(this),
-                    attrs = ['oga', 'title', 'cover', 'buy', 'price', 'rating', 'duration', 'artist'],
-                    track = { mp3: link.attr('href') };
+        $('img', carousel).css('max-height', $(window).height() * 0.9);
+        $('.carousel-control', carousel).attr('href', '#' + carousel.attr('id'));
 
-                for(var i = 0; i < attrs.length; i++) {
-                    var attr  = attrs[i],
-                        value = link.attr('data-' + attr);
+        carousel
+            .css('display', 'none')
+            .appendTo($('body'))
+            .addClass('full')
+            .css({
+                'margin-left': '-' + carousel.width() / 2 + 'px',
+                'margin-top': '-' + carousel.height() / 2 + 'px'
+            })
+            .fadeIn()
+            .on('slid', resize);
 
-                    if(value) track[attr] = value;
-                }
+        $(window).on('resize', resize);
 
-                playlist.push(track);
-                link.remove()
+        $('<div class="modal-backdrop fade in"/>')
+            .css('display', 'none')
+            .appendTo($('body'))
+            .fadeIn()
+            .click(function() {
+                var mb = $(this);
+                carousel
+                    .fadeOut(function() {
+                        carousel.remove();
+                        mb.remove();
+                    });
             });
-
-            $('p, div, br', cont).remove();
-            cont.ttwMusicPlayer(playlist)
-        })
-    }
+    });
 
     if(wpbootstrap.reply_to) {
         var form   = $('#commentform').parent().parent(),
@@ -107,6 +123,8 @@
             closeImage   : wpbootstrap.template_dir + '/img/closelabel.png'
         })
     }*/
+
+    $('[rel=facebox]').facebox();
 
     $('#wp-calendar').addClass('table table-bordered table-striped table-condensed');
 

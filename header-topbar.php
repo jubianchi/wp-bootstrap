@@ -1,9 +1,23 @@
+<?php
+/**
+ * @package WordPress
+ * @subpackage wp-bootstrap
+ * @author jubianchi <contact@jubianchi.fr>
+ * @version 2.0
+ * @link http://wpbootstrap.jubianchi.fr
+ */
+?>
 <?php global $theme_config; ?>
 
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<ul class="nav">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav.collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <ul class="nav">
 				<?php 
 				$menu = wp_nav_menu( 
 					array( 
@@ -21,7 +35,7 @@
                     </a>
 					<?php echo $menu ?>
 				</li>
-			</ul>			
+			</ul>
 			<?php wp_nav_menu( 
 				array( 
 					'theme_location'    => 'toolbar',
