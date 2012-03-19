@@ -22,12 +22,12 @@ body {
 
 @font-face {
 	font-family: @fontFaceName;
-	src: url("../fonts/@{fontFaceName}.otf") format("opentype");
-	src: url("../fonts/@{fontFaceName}.eot");
-	src: url("../fonts/@{fontFaceName}.eot") format('embedded-opentype'),
-		 url("../fonts/@{fontFaceName}.woff") format('woff'),
-		 url("../fonts/@{fontFaceName}.ttf") format('truetype'),
-		 url("../fonts/@{fontFaceName}.svg") format('svg');
+	src: url("../font/@{fontFaceName}.otf") format("opentype");
+	src: url("../font/@{fontFaceName}.eot");
+	src: url("../font/@{fontFaceName}.eot") format('embedded-opentype'),
+		 url("../font/@{fontFaceName}.woff") format('woff'),
+		 url("../font/@{fontFaceName}.ttf") format('truetype'),
+		 url("../font/@{fontFaceName}.svg") format('svg');
 
 	font-weight: normal;
 	font-style: normal;
@@ -256,4 +256,13 @@ blockquote p { font-size: @baseFontSize; }
 
 article .gallery, .navbar ul.sub-menu { display: none; }
 
+[class^="icon-"]::before {
+    padding-right: 5px;
+}
+
+.icon-large::before {
+    font-size: 1.5em;
+}
+
+.masthead { padding-top: 0; }
 
