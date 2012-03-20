@@ -1,5 +1,4 @@
-.DS_Store
-Thumbs.db
-thumbs.db
 .idea
-scripts
+.DS_Store
+
+*.db
