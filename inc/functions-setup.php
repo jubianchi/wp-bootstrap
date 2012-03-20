@@ -75,22 +75,7 @@ if (!function_exists('bootstrap_scripts_init')) {
     function bootstrap_scripts_init() {
         $jsdir = get_template_directory_uri() . '/js';
         $scripts = array(
-            'jquery' => $jsdir . '/jquery/jquery.js',
-            'alert'  => $jsdir . '/bootstrap/bootstrap-alert.js',
-            'button'  => $jsdir . '/bootstrap/bootstrap-button.js',
-            'carousel'  => $jsdir . '/bootstrap/bootstrap-carousel.js',
-            'collapse'  => $jsdir . '/bootstrap/bootstrap-collapse.js',
-            'dropdown'  => $jsdir . '/bootstrap/bootstrap-dropdown.js',
-            'modal'  => $jsdir . '/bootstrap/bootstrap-modal.js',
-            'tooltip'  => $jsdir . '/bootstrap/bootstrap-tooltip.js',
-            'popover'  => $jsdir . '/bootstrap/bootstrap-popover.js',
-            'scrollspy'  => $jsdir . '/bootstrap/bootstrap-scrollspy.js',
-            'tab'  => $jsdir . '/bootstrap/bootstrap-tab.js',
-            'transition'  => $jsdir . '/bootstrap/bootstrap-transition.js',
-            'typeahead'  => $jsdir . '/bootstrap/bootstrap-typeahead.js',
-            'facebox'  => $jsdir . '/helper/facebox.js',
-            'prettify'  => $jsdir . '/helper/prettify.js',
-            'main'  => $jsdir . '/main.js',
+            'main'  => $jsdir . '/wp-bootstrap.min.js',
         );
 
         foreach($scripts as $name => $uri) {

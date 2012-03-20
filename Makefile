@@ -1,6 +1,8 @@
 default: all
 
 all: styles.css scripts.js
+css: styles.css
+js: scripts.js
 
 styles.css:
 	cd ./css && make
