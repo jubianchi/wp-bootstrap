@@ -64,7 +64,7 @@
 <?php endif; ?>
 
 
-<section class="row">
+<?php if(!is_single()) : ?><section class="row"><?php else : ?><div class="row"><?php endif; ?>
 	<?php if (is_author() || is_search() || is_date() || is_category() || is_tag()) : ?>
 		<header class="span12">
             <?php $section = bootstrap_section_heading(); ?>
@@ -100,7 +100,7 @@
             <?php get_template_part('content'); ?>
         <?php endif; ?>
 	<?php endwhile; ?>
-</section>
+<?php if(!is_single()) : ?></section><?php else : ?></div><?php endif; ?>
 
 <?php bootstrap_content_nav('content-nav', 'menu'); ?>
 
