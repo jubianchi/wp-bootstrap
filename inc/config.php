@@ -7,22 +7,27 @@
  * @link http://wpbootstrap.jubianchi.fr
  */
 
-$theme_config['github_support']     = get_option('wpbootstrap.github_support', false);
-$theme_config['github_url']         = get_option('wpbootstrap.github_url', 'https://github.com/jubianchi/wp-bootstrap');
+const DISABLED  = 0;
+const HOME_PAGE = 1;
+const ALL_PAGES = 2;
 
-$theme_config['show_search']        = get_option('wpbootstrap.show_search', true);
-$theme_config['show_login']         = get_option('wpbootstrap.show_login', true);
-//1 = All pages / 2 = All pages except home / 0 = Disabled
-$theme_config['show_breadcrumb']    = get_option('wpbootstrap.show_breadcrumb', 2);
+$theme_config['github_support']     = get_option('wpbootstrap.github_support',  false);
+$theme_config['github_url']         = get_option('wpbootstrap.github_url',      'https://github.com/jubianchi/wp-bootstrap');
 
-$theme_config['sticky_rows']        = get_option('wpbootstrap.sticky_rows', 2);
+$theme_config['show_search']        = get_option('wpbootstrap.show_search',     ALL_PAGES);
+$theme_config['show_login']         = get_option('wpbootstrap.show_login',      ALL_PAGES);
+$theme_config['show_breadcrumb']    = get_option('wpbootstrap.show_breadcrumb', ALL_PAGES);
+$theme_config['hide_hero_unit']     = DISABLED;
+
+$theme_config['sticky_rows']        = get_option('wpbootstrap.sticky_rows',     2);
 $theme_config['sticky_formats']     = explode(',', get_option('wpbootstrap.sticky_formats', 'aside,quote,gallery'));
 array_walk($theme_config['sticky_formats'], create_function('&$item', '$item = \'post-format-\' . $item;'));
+
 $theme_config['sticky_enabled']     = (count($theme_config['sticky_formats']) > 0);
 
-$theme_config['header_bgcolor']     = get_option('wpbootstrap.header_bgcolor', '#C7EEFE');
+$theme_config['header_bgcolor']     = get_option('wpbootstrap.header_bgcolor', '#F5F5F5');
 
-$theme_config['content_width'] = 960;
+$theme_config['content_width'] = 1170;
 
 $theme_config['formats'] = array(
     'aside',
@@ -37,10 +42,8 @@ $theme_config['formats'] = array(
     'chat'*/
 );
 
-$theme_config['hide_hero_unit'] = false;
-
 $theme_config['widget_areas'] = array(
-	array(
+    'foot-col-1' => array(
         'name' => __('First Footer Column', 'wpbootstrap'),
         'id' => 'foot-col-1',
         'description' => __('First Footer Column', 'wpbootstrap'),
@@ -49,7 +52,7 @@ $theme_config['widget_areas'] = array(
         'before_title' => '<h2>',
         'after_title' => '</h2>',
     ),
-	array(
+    'foot-col-2' => array(
         'name' => __('Second Footer Column', 'wpbootstrap'),
         'id' => 'foot-col-2',
         'description' => __('Second Footer Column', 'wpbootstrap'),
@@ -58,7 +61,7 @@ $theme_config['widget_areas'] = array(
         'before_title' => '<h2>',
         'after_title' => '</h2>',
     ),
-	array(
+    'foot-col-3' => array(
         'name' => __('Third Footer Column', 'wpbootstrap'),
         'id' => 'foot-col-3',
         'description' => __('Third Footer Column', 'wpbootstrap'),
@@ -67,7 +70,7 @@ $theme_config['widget_areas'] = array(
         'before_title' => '<h2>',
         'after_title' => '</h2>',
     ),
-    array(
+    'foot-row-2' => array(
         'name' => __('Second Footer Row', 'wpbootstrap'),
         'id' => 'foot-row-2',
         'description' => __('Second Footer Row', 'wpbootstrap'),
@@ -76,7 +79,7 @@ $theme_config['widget_areas'] = array(
         'before_title' => '<h2>',
         'after_title' => '</h2>',
     ),
-    array(
+    '404-war' => array(
         'name' => __('404 Widget Area', 'wpbootstrap'),
         'id' => '404-war',
         'description' => __('404 Widget Area', 'wpbootstrap'),
