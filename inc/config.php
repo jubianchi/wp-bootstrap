@@ -26,6 +26,8 @@ $theme_config[HEADER_BGCOLOR_KEY]       = get_option(wp_option_key(HEADER_BGCOLO
 
 $theme_config[CONTENT_WIDTH_KEY]        = 1170;
 
+$theme_config[SHOW_PAGE_TITLE_KEY]      = get_option(wp_option_key(SHOW_PAGE_TITLE_KEY),        true);
+
 $theme_config[POST_FORMATS_KEY]         = array(
     'aside',
     'quote',

@@ -12,7 +12,13 @@
 
 <section class="row">
     <article id="page-<?php the_ID(); ?>" <?php post_class('span12 clearfix'); ?>>
-
+        <?php if($theme_config[SHOW_PAGE_TITLE_KEY] == true) : ?>
+            <header class="page-header">
+                <h1>
+                    <?php the_title(); ?>
+                </h1>
+            </header>
+        <?php endif; ?>
 
         <div class="row-fluid">
             <?php the_content(); ?>

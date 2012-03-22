@@ -7,8 +7,8 @@
  */
 
 const DISABLED              = 0;
-const HOME_PAGE             = 1;
-const ALL_PAGES             = 2;
+const HOME_PAGE             = 2;
+const ALL_PAGES             = 1;
 const ALL_PAGES_BUT_HOME    = 3;
 
 const SHOW_BREADCRUMB_KEY   = 'show_breadcrumb';
@@ -32,4 +32,6 @@ const CONTENT_WIDTH_KEY     = 'content_width';
 const POST_FORMATS_KEY      = 'post_formats';
 
 const WIDGET_AREAS_KEY      = 'widget_areas';
+
+const SHOW_PAGE_TITLE_KEY   = 'show_page_title';
 ?>
