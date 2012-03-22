@@ -12,12 +12,15 @@ function bootstrap_show_breadcrumb() {
     global $theme_config;
 
     return (
-        $theme_config['show_breadcrumb'] > 0 && (
-            $theme_config['show_breadcrumb'] == 1 || (
-                $theme_config['show_breadcrumb'] == 2 &&
-                !is_home() &&
-                !is_front_page() ||
-                is_paged()
+        $theme_config[SHOW_BREADCRUMB_KEY] != DISABLED &&
+        (
+            $theme_config[SHOW_BREADCRUMB_KEY] == ALL_PAGES ||
+            (
+                $theme_config[SHOW_BREADCRUMB_KEY] == ALL_PAGES_BUT_HOME &&
+                (
+                    (!is_home() && !is_front_page()) ||
+                    is_paged()
+                )
             )
         )
     );

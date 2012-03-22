@@ -1,6 +1,6 @@
 <?php
 define('HEADER_TEXTCOLOR', '404040');
-define('HEADER_IMAGE_WIDTH', $theme_config['content_width']);
+define('HEADER_IMAGE_WIDTH', $theme_config[CONTENT_WIDTH_KEY]);
 define('HEADER_IMAGE_HEIGHT', 240);
 
 add_action('after_setup_theme', 'bootstrap_setup');
@@ -19,7 +19,7 @@ if (!function_exists('bootstrap_setup')):
 		));
 
 		add_theme_support('automatic-feed-links');
-		add_theme_support('post-formats', $theme_config['formats']);
+		add_theme_support('post-formats', $theme_config[POST_FORMATS_KEY]);
         add_theme_support('post-thumbnails');
 
         add_custom_image_header('bootstrap_header_style', 'bootstrap_admin_header_style', 'bootstrap_admin_image_div');
@@ -50,7 +50,7 @@ if (!function_exists('bootstrap_widgets_init')) :
 	function bootstrap_widgets_init() {
 		global $theme_config;
 
-        foreach($theme_config['widget_areas'] as $area) {
+        foreach($theme_config[WIDGET_AREAS_KEY] as $area) {
             register_sidebar($area);
         }
 	}
@@ -62,7 +62,7 @@ function bootstrap_header_style() {
     ?><style type="text/css">
         header.hero-unit {
             background-image: url(<?php header_image(); ?>);
-            background-color: <?php echo $theme_config['header_bgcolor']; ?>
+            background-color: <?php echo $theme_config[HEADER_BGCOLOR_KEY]; ?>
         }
         header.hero-unit p.sub {
             color: #<?php echo get_header_textcolor(); ?>;
@@ -103,6 +103,3 @@ if (!function_exists('bootstrap_styles_init')) {
         }
     }
 }
-
-
-

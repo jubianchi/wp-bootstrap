@@ -10,7 +10,7 @@
 <?php global $theme_config; ?>
 <?php get_header(); ?>
 
-<?php if($theme_config['sticky_enabled'] && (is_home() || is_front_page())) : ?>
+<?php if($theme_config[STICKY_ENABLED_KEY] && (is_home() || is_front_page())) : ?>
 	<section class="row">
 		<?php 
 		$args = array(
@@ -18,11 +18,11 @@
 				array(
 					'taxonomy'  => 'post_format',
 					'field'     => 'slug',
-					'terms'     => $theme_config['sticky_formats'],
+					'terms'     => $theme_config[STICKY_FORMATS_KEY],
 					'operator'  => 'IN',
 				)
 			),
-			'showposts' => 3 * $theme_config['sticky_rows'],
+			'showposts' => 3 * $theme_config[STICKY_ROWS_KEY],
 
 		);
 		$query = new WP_Query($args);
@@ -53,7 +53,7 @@
 				array(
 					'taxonomy'  => 'post_format',
 					'field'     => 'slug',
-					'terms'     => $theme_config['sticky_formats'],
+					'terms'     => $theme_config[STICKY_FORMATS_KEY],
 					'operator'  => 'NOT IN'
 				)
 			)
@@ -64,7 +64,7 @@
 <?php endif; ?>
 
 
-<?php if(!is_single()) : ?><section class="row"><?php else : ?><div class="row"><?php endif; ?>
+<section class="row">
 	<?php if (is_author() || is_search() || is_date() || is_category() || is_tag()) : ?>
 		<header class="span12">
             <?php $section = bootstrap_section_heading(); ?>
@@ -100,7 +100,7 @@
             <?php get_template_part('content'); ?>
         <?php endif; ?>
 	<?php endwhile; ?>
-<?php if(!is_single()) : ?></section><?php else : ?></div><?php endif; ?>
+</section>
 
 <?php bootstrap_content_nav('content-nav', 'menu'); ?>
 

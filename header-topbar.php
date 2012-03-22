@@ -44,7 +44,7 @@
 				) 
 			); ?>
 
-            <?php if($theme_config['show_login']) : ?>
+            <?php if($theme_config[SHOW_LOGIN_KEY]) : ?>
                 <?php if(!is_user_logged_in()) : ?>
                     <ul class="nav pull-right">
                         <li>
@@ -73,7 +73,7 @@
                     </ul>
                 <?php endif; ?>
             <?php endif; ?>
-            <?php if($theme_config['show_search']) : ?>
+            <?php if($theme_config[SHOW_SEARCH_KEY]) : ?>
                 <form action="#" method="get" class="navbar-search pull-left">
                     <input type="text" placeholder="<?php _e('Search in (hit Enter)', 'wpbootstrap'); ?>" class="search-query span3" required="" name="s">
                 </form>

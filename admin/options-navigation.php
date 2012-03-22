@@ -4,53 +4,58 @@ $base = get_bloginfo('template_url');
 ?>
 
 <form method="post" action="#">
-    <h3>Navigation</h3>
+    <h3><?php _e('Navigation', 'wpbootstrap'); ?></h3>
 
     <table class="form-table">
         <tbody>
             <tr>
-                <th scope="row">Chemin de fer</th>
+                <th scope="row"><?php _e('Breadcrumb', 'wpbootstrap'); ?></th>
                 <td>
                     <fieldset>
-                        <legend class="screen-reader-text"><span>Options du chemin de fer</span></legend>
+                        <legend class="screen-reader-text"><span><?php _e('Breadcrumb options', 'wpbootstrap'); ?></span></legend>
 
-                        <label title="Activer sur toutes les pages sauf la page d'accueil">
-                            <input type="radio" name="show_breadcrumb" value="2" <?php if($theme_config['show_breadcrumb'] == 2) : ?>checked="checked"<?php endif; ?>/>
-                            <span>Activer sur toutes les pages sauf la page d'accueil</span>
+                        <label>
+                            <input type="radio" name="<?php echo SHOW_BREADCRUMB_KEY; ?>" value="<?php echo ALL_PAGES; ?>" <?php if($theme_config[SHOW_BREADCRUMB_KEY] == ALL_PAGES) : ?>checked="checked"<?php endif; ?>/>
+                            <span><?php _e('Enable on all pages', 'wpbootstrap'); ?></span>
                         </label>
                         <br/>
-                        <label title="Désactiver">
-                            <input type="radio" name="show_breadcrumb" value="0" <?php if($theme_config['show_breadcrumb'] == 0) : ?>checked="checked"<?php endif; ?>/>
-                            <span>Désactiver</span>
+                        <label>
+                            <input type="radio" name="<?php echo SHOW_BREADCRUMB_KEY; ?>" value="<?php echo ALL_PAGES_BUT_HOME; ?>" <?php if($theme_config[SHOW_BREADCRUMB_KEY] == ALL_PAGES_BUT_HOME) : ?>checked="checked"<?php endif; ?>/>
+                            <span><?php _e('Enable on all pages except home', 'wpbootstrap'); ?></span>
+                        </label>
+                        <br/>
+                        <label>
+                            <input type="radio" name="<?php echo SHOW_BREADCRUMB_KEY; ?>" value="<?php echo DISABLED; ?>" <?php if($theme_config[SHOW_BREADCRUMB_KEY] == DISABLED) : ?>checked="checked"<?php endif; ?>/>
+                            <span><?php _e('Disable', 'wpbootstrap'); ?></span>
                         </label>
                     </fieldset>
                 </td>
             </tr>
 
             <tr>
-                <th scope="row">Topbar</th>
+                <th scope="row"><?php _e('Topbar', 'wpbootstrap'); ?></th>
                 <td>
                     <fieldset>
-                        <legend class="screen-reader-text"><span>Options de la Topbar</span></legend>
+                        <legend class="screen-reader-text"><span><?php _e('Topbar options', 'wpbootstrap'); ?></span></legend>
 
-                        <label title="Activer sur toutes les pages">
-                            <input type="radio" name="show_search" value="1" <?php if($theme_config['show_search'] == 1) : ?>checked="checked"<?php endif; ?>/>
-                            <span>Afficher le champ de recherche</span>
+                        <label>
+                            <input type="radio" name="<?php echo SHOW_SEARCH_KEY; ?>" value="1" <?php if($theme_config[SHOW_SEARCH_KEY] == true) : ?>checked="checked"<?php endif; ?>/>
+                            <span><?php _e('Show search field', 'wpbootstrap'); ?></span>
                         </label>
                         <br/>
-                        <label title="Activer sur toutes les pages sauf la page d'accueil">
-                            <input type="radio" name="show_search" value="0" <?php if($theme_config['show_search'] == 0) : ?>checked="checked"<?php endif; ?>/>
-                            <span>Masquer le champ de recherche</span>
+                        <label>
+                            <input type="radio" name="<?php echo SHOW_SEARCH_KEY; ?>" value="0" <?php if($theme_config[SHOW_SEARCH_KEY] != true) : ?>checked="checked"<?php endif; ?>/>
+                            <span><?php _e('Hide search field', 'wpbootstrap'); ?></span>
                         </label>
                         <br/><br/>
-                        <label title="Activer sur toutes les pages">
-                            <input type="radio" name="show_login" value="1" <?php if($theme_config['show_login'] == 1) : ?>checked="checked"<?php endif; ?>/>
-                            <span>Afficher le bouton de connexion</span>
+                        <label>
+                            <input type="radio" name="<?php echo SHOW_LOGIN; ?>" value="1" <?php if($theme_config[SHOW_LOGIN] == true) : ?>checked="checked"<?php endif; ?>/>
+                            <span><?php _e('Show login link', 'wpbootstrap'); ?></span>
                         </label>
                         <br/>
-                        <label title="Activer sur toutes les pages sauf la page d'accueil">
-                            <input type="radio" name="show_login" value="0" <?php if($theme_config['show_login'] == 0) : ?>checked="checked"<?php endif; ?>/>
-                            <span>Masquer le bouton de connexion</span>
+                        <label>
+                            <input type="radio" name="<?php echo SHOW_LOGIN; ?>" value="0" <?php if($theme_config[SHOW_LOGIN] != true) : ?>checked="checked"<?php endif; ?>/>
+                            <span><?php _e('Hide login link', 'wpbootstrap'); ?></span>
                         </label>
                     </fieldset>
                 </td>
@@ -58,5 +63,5 @@ $base = get_bloginfo('template_url');
         </tbody>
     </table>
 
-    <p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="Enregistrer les modifications"></p>
+    <p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="<?php _e('Apply changes', 'wpbootstrap'); ?>"/></p>
 </form>

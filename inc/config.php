@@ -7,29 +7,26 @@
  * @link http://wpbootstrap.jubianchi.fr
  */
 
-const DISABLED  = 0;
-const HOME_PAGE = 1;
-const ALL_PAGES = 2;
+$theme_config[SHOW_BREADCRUMB_KEY]      = get_option(wp_option_key(SHOW_BREADCRUMB_KEY),    ALL_PAGES_BUT_HOME);
+$theme_config[SHOW_HERO_UNIT_KEY]       = get_option(wp_option_key(SHOW_HERO_UNIT_KEY),     ALL_PAGES);
+$theme_config[SHOW_LOGIN_KEY]           = get_option(wp_option_key(SHOW_LOGIN_KEY),         ALL_PAGES);
+$theme_config[SHOW_RIBBON_KEY]          = get_option(wp_option_key(SHOW_RIBBON_KEY),        false);
+$theme_config[SHOW_SEARCH_KEY]          = get_option(wp_option_key(SHOW_SEARCH_KEY),        ALL_PAGES);
 
-$theme_config['github_support']     = get_option('wpbootstrap.github_support',  false);
-$theme_config['github_url']         = get_option('wpbootstrap.github_url',      'https://github.com/jubianchi/wp-bootstrap');
+$theme_config[RIBBON_URL_KEY]           = get_option(wp_option_key(RIBBON_URL_KEY),         'https://github.com/jubianchi/wp-bootstrap');
+$theme_config[RIBBON_IMAGE_URL_KEY]     = get_option(wp_option_key(RIBBON_IMAGE_URL_KEY),   'https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67');
+$theme_config[RIBBON_IMAGE_ALT_KEY]     = get_option(wp_option_key(RIBBON_IMAGE_ALT_KEY),   'Fork me on GitHub');
 
-$theme_config['show_search']        = get_option('wpbootstrap.show_search',     ALL_PAGES);
-$theme_config['show_login']         = get_option('wpbootstrap.show_login',      ALL_PAGES);
-$theme_config['show_breadcrumb']    = get_option('wpbootstrap.show_breadcrumb', ALL_PAGES);
-$theme_config['hide_hero_unit']     = DISABLED;
+$theme_config[STICKY_ROWS_KEY]          = get_option(wp_option_key(STICKY_ROWS_KEY),        2);
+$theme_config[STICKY_FORMATS_KEY]       = explode(',', get_option(wp_option_key(STICKY_FORMATS_KEY), 'aside,quote,gallery'));
+array_walk($theme_config[STICKY_FORMATS_KEY], create_function('&$item', '$item = \'post-format-\' . $item;'));
+$theme_config[STICKY_ENABLED_KEY]       = (count($theme_config[STICKY_FORMATS_KEY]) > 0);
 
-$theme_config['sticky_rows']        = get_option('wpbootstrap.sticky_rows',     2);
-$theme_config['sticky_formats']     = explode(',', get_option('wpbootstrap.sticky_formats', 'aside,quote,gallery'));
-array_walk($theme_config['sticky_formats'], create_function('&$item', '$item = \'post-format-\' . $item;'));
+$theme_config[HEADER_BGCOLOR_KEY]       = get_option(wp_option_key(HEADER_BGCOLOR_KEY),     '#F5F5F5');
 
-$theme_config['sticky_enabled']     = (count($theme_config['sticky_formats']) > 0);
+$theme_config[CONTENT_WIDTH_KEY]        = 1170;
 
-$theme_config['header_bgcolor']     = get_option('wpbootstrap.header_bgcolor', '#F5F5F5');
-
-$theme_config['content_width'] = 1170;
-
-$theme_config['formats'] = array(
+$theme_config[POST_FORMATS_KEY]         = array(
     'aside',
     'quote',
     'gallery',
@@ -42,7 +39,7 @@ $theme_config['formats'] = array(
     'chat'*/
 );
 
-$theme_config['widget_areas'] = array(
+$theme_config[WIDGET_AREAS_KEY]         = array(
     'foot-col-1' => array(
         'name' => __('First Footer Column', 'wpbootstrap'),
         'id' => 'foot-col-1',

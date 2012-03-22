@@ -50,7 +50,7 @@
     
 <?php wp_footer(); ?>
 
-<?php if($theme_config['show_login']) : ?>
+<?php if($theme_config[SHOW_LOGIN_KEY]) : ?>
     <?php get_template_part('login', 'modal'); ?>
 <?php endif; ?>
 </body>

@@ -78,7 +78,7 @@ function bootstrap_admin_header_style() {
             -moz-border-radius: 6px;
             border-radius: 6px;
             background-image: url(<?php header_image(); ?>);
-            background-color: <?php echo $theme_config['header_bgcolor']; ?>
+            background-color: <?php echo $theme_config[HEADER_BGCOLOR_KEY]; ?>
         }
 
         header.hero-unit h1, header.hero-unit div#desc {

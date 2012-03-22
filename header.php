@@ -54,11 +54,11 @@ if(is_single() || is_page() && isset($posts[0])) {
 <?php get_template_part('header', 'topbar'); ?>
 	
 <div class="container">
-	<?php if(!$theme_config['hide_hero_unit']) : ?>
+	<?php if(bootstrap_show_herounit()) : ?>
         <header class="hero-unit" style="position: relative">
-            <?php if($theme_config['github_support']) : ?>
-                <a href="<?php echo $theme_config['github_url']; ?>">
-                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
+            <?php if($theme_config[SHOW_RIBBON_KEY]) : ?>
+                <a href="<?php echo $theme_config[RIBBON_URL_KEY]; ?>">
+                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="<?php echo $theme_config[RIBBON_IMAGE_URL_KEY]; ?>" alt="<?php echo $theme_config[RIBBON_IMAGE_ALT_KEY]; ?>">
                 </a>
             <?php endif; ?>
             <span class="title"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></span>
