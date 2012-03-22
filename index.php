@@ -11,56 +11,59 @@
 <?php get_header(); ?>
 
 <?php if($theme_config[STICKY_ENABLED_KEY] && (is_home() || is_front_page())) : ?>
-	<section class="row">
-		<?php 
-		$args = array(
-			'tax_query' => array(
-				array(
-					'taxonomy'  => 'post_format',
-					'field'     => 'slug',
-					'terms'     => $theme_config[STICKY_FORMATS_KEY],
-					'operator'  => 'IN',
-				)
-			),
-			'showposts' => 3 * $theme_config[STICKY_ROWS_KEY],
+    <?php
+    $args = array(
+        'tax_query' => array(
+            array(
+                'taxonomy'  => 'post_format',
+                'field'     => 'slug',
+                'terms'     => $theme_config[STICKY_FORMATS_KEY],
+                'operator'  => 'IN',
+            )
+        ),
+        'showposts' => 3 * $theme_config[STICKY_ROWS_KEY],
 
-		);
-		$query = new WP_Query($args);
-		?>
-		<?php if( $query -> have_posts()) : ?>
-			<?php $i = 0; while ($query -> have_posts()) : $i++; $query -> the_post(); ?>
-                <?php switch(get_post_format()) {
-                    case 'gallery':
-                    case 'audio':
-                        get_template_part('sticky', get_post_format());
-                        break;
-                    case 'aside':
-                    case 'quote':
-                        get_template_part('sticky', 'aside');
-                        break;
-                    default:
-                        get_template_part('sticky');
-                        break;
-                } ?>
+    );
+    $query = new WP_Query($args);
+    ?>
 
-                <?php if($i % 3 == 0) : ?><br style="clear: both"/><?php endif; ?>
-			<?php endwhile; ?>
-		<?php endif; ?>
+    <?php if($query -> have_posts()) : ?>
+        <section class="row">
+            <?php if( $query -> have_posts()) : ?>
+                <?php $i = 0; while ($query -> have_posts()) : $i++; $query -> the_post(); ?>
+                    <?php switch(get_post_format()) {
+                        case 'gallery':
+                        case 'audio':
+                            get_template_part('sticky', get_post_format());
+                            break;
+                        case 'aside':
+                        case 'quote':
+                            get_template_part('sticky', 'aside');
+                            break;
+                        default:
+                            get_template_part('sticky');
+                            break;
+                    } ?>
 
-		<?php               
-		$args = array(
-			'tax_query' => array(
-				array(
-					'taxonomy'  => 'post_format',
-					'field'     => 'slug',
-					'terms'     => $theme_config[STICKY_FORMATS_KEY],
-					'operator'  => 'NOT IN'
-				)
-			)
-		);
-		query_posts(array_merge($wp_query -> query, $args));
-		?>
-	</section>
+                    <?php if($i % 3 == 0) : ?><br style="clear: both"/><?php endif; ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
+
+            <?php
+            $args = array(
+                'tax_query' => array(
+                    array(
+                        'taxonomy'  => 'post_format',
+                        'field'     => 'slug',
+                        'terms'     => $theme_config[STICKY_FORMATS_KEY],
+                        'operator'  => 'NOT IN'
+                    )
+                )
+            );
+            query_posts(array_merge($wp_query -> query, $args));
+            ?>
+        </section>
+    <?php endif; ?>
 <?php endif; ?>
 
 
