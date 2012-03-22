@@ -2,7 +2,7 @@
 global $theme_config;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    bootstrap_admin_save();
+    wpbootstrap_admin_save();
 }
 
 function active_class($tab) {

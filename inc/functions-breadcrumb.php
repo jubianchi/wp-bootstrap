@@ -8,7 +8,7 @@
  */
 
 //http://dimox.net/wordpress-breadcrumbs-without-a-plugin/
-function bootstrap_show_breadcrumb() {
+function wpbootstrap_show_breadcrumb() {
     global $theme_config;
 
     return (
@@ -26,10 +26,10 @@ function bootstrap_show_breadcrumb() {
     );
 }
 
-function bootstrap_breadcrumb() {
+function wpbootstrap_breadcrumb() {
 	global $post;
 
-	if (bootstrap_show_breadcrumb()) {
+	if (wpbootstrap_show_breadcrumb()) {
         $entries = array(
             array(
                 'title' => __('Home'),

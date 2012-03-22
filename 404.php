@@ -13,12 +13,12 @@
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php echo strtolower(get_bloginfo('charset')); ?>" />
-	<meta name="description" content="<?php echo bootstrap_description(); ?>" />
+	<meta name="description" content="<?php echo wpbootstrap_description(); ?>" />
 	<meta name="author" content="<?php the_author_meta('display_name', 1); ?>" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<?php echo bootstrap_extra_head(); ?>
+	<?php echo wpbootstrap_extra_head(); ?>
 	
-	<title><?php echo bootstrap_title(); ?></title>
+	<title><?php echo wpbootstrap_title(); ?></title>
 	
     <script type="text/javascript">
         var wpbootstrap = {
@@ -29,7 +29,7 @@
     </script>
     <script data-main="<?php echo get_template_directory_uri(); ?>/js/main" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script>
 
-	<?php echo bootstrap_favicons(); ?>
+	<?php echo wpbootstrap_favicons(); ?>
 	<link rel="profile" href="http://gmpg.org/xfn/11"/>
 	<link rel="alternate" type="application/rss+xml" title="<?php printf( __('Subscribe to %1$s via RSS', 'wpbootstrap'), get_bloginfo('name')); ?>" href="<?php echo home_url('/feed/'); ?>"/>
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>

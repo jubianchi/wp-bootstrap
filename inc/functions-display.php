@@ -7,8 +7,8 @@
  * @link http://wpbootstrap.jubianchi.fr
  */
 
-if(! function_exists('bootstrap_content_nav')) {
-    function bootstrap_content_nav($nav_id, $nav_class) {
+if(! function_exists('wpbootstrap_content_nav')) {
+    function wpbootstrap_content_nav($nav_id, $nav_class) {
         global $wp_query;
 
         if($wp_query->max_num_pages > 1 ) : ?>
@@ -45,8 +45,8 @@ if(! function_exists('bootstrap_content_nav')) {
     }
 }
 
-if(! function_exists('bootstrap_post_nav')) {
-    function bootstrap_post_nav($nav_id, $nav_class) {
+if(! function_exists('wpbootstrap_post_nav')) {
+    function wpbootstrap_post_nav($nav_id, $nav_class) {
         global $page, $numpages;
 
 
@@ -87,8 +87,8 @@ if(! function_exists('bootstrap_post_nav')) {
 /*
  * Print the <title> tag based on what is being viewed.
  */
-if(! function_exists('bootstrap_title')) :
-function bootstrap_title() {
+if(! function_exists('wpbootstrap_title')) :
+function wpbootstrap_title() {
 	global $page, $paged;
 	wp_title('|', true, 'right');
 	// Add the blog name.
@@ -102,8 +102,8 @@ endif;
 /*
  * Print the <meta description> of the web page regarding the context
  */
-if(! function_exists('bootstrap_description')) :
-function bootstrap_description() {
+if(! function_exists('wpbootstrap_description')) :
+function wpbootstrap_description() {
 	global $post, $wp_query;
 	if(is_404()) {
 		$description = __('404 page not found: fish is gone, try again', 'wpbootstrap');
@@ -129,8 +129,8 @@ function bootstrap_description() {
 endif;
 
 
-if(!function_exists('bootstrap_section_heading')) {
-    function bootstrap_section_heading() {
+if(!function_exists('wpbootstrap_section_heading')) {
+    function wpbootstrap_section_heading() {
         global $post;
 
         $section = array('section_title' => '', 'section_description' => '');
@@ -186,8 +186,8 @@ if(!function_exists('bootstrap_section_heading')) {
     }
 }
 
-if(!function_exists('bootstrap_posted_on')) {
-    function bootstrap_posted_on() {
+if(!function_exists('wpbootstrap_posted_on')) {
+    function wpbootstrap_posted_on() {
         printf(
             __('<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'wpbootstrap'),
             'meta-prep meta-prep-author',
@@ -209,8 +209,8 @@ if(!function_exists('bootstrap_posted_on')) {
     }
 }
 
-if (!function_exists('bootstrap_posted_in')) {
-    function bootstrap_posted_in() {
+if (!function_exists('wpbootstrap_posted_in')) {
+    function wpbootstrap_posted_in() {
         global $post;
 
         $tag_list = get_the_tag_list('',', ');
@@ -246,8 +246,8 @@ if (!function_exists('bootstrap_posted_in')) {
     }
 }
 
-if(!function_exists('bootstrap_favicons')) :
-    function bootstrap_favicons() {
+if(!function_exists('wpbootstrap_favicons')) :
+    function wpbootstrap_favicons() {
         $dir = get_stylesheet_directory();
         $uri = get_stylesheet_directory_uri();
 
@@ -279,8 +279,8 @@ if(!function_exists('bootstrap_favicons')) :
     }
 endif;
 
-if(!function_exists('bootstrap_extra_head')) {
-    function bootstrap_extra_head() {
+if(!function_exists('wpbootstrap_extra_head')) {
+    function wpbootstrap_extra_head() {
         global $theme_config;
 
         return '';

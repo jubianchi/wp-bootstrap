@@ -3,9 +3,9 @@ define('HEADER_TEXTCOLOR', '404040');
 define('HEADER_IMAGE_WIDTH', $theme_config[CONTENT_WIDTH_KEY]);
 define('HEADER_IMAGE_HEIGHT', 240);
 
-add_action('after_setup_theme', 'bootstrap_setup');
-if (!function_exists('bootstrap_setup')):
-	function bootstrap_setup() {
+add_action('after_setup_theme', 'wpbootstrap_setup');
+if (!function_exists('wpbootstrap_setup')):
+	function wpbootstrap_setup() {
 		global $theme_config;
 
         load_theme_textdomain('wpbootstrap', TEMPLATEPATH . '/languages');
@@ -22,7 +22,7 @@ if (!function_exists('bootstrap_setup')):
 		add_theme_support('post-formats', $theme_config[POST_FORMATS_KEY]);
         add_theme_support('post-thumbnails');
 
-        add_custom_image_header('bootstrap_header_style', 'bootstrap_admin_header_style', 'bootstrap_admin_image_div');
+        add_custom_image_header('wpbootstrap_header_style', 'wpbootstrap_admin_header_style', 'wpbootstrap_admin_image_div');
         register_default_headers(array(
             'gray' => array(
               'url' => get_template_directory_uri() . '/img/header/header_gray.png',
@@ -45,9 +45,9 @@ if (!function_exists('bootstrap_setup')):
 	}
 endif;
 
-add_action('widgets_init', 'bootstrap_widgets_init');
-if (!function_exists('bootstrap_widgets_init')) :
-	function bootstrap_widgets_init() {
+add_action('widgets_init', 'wpbootstrap_widgets_init');
+if (!function_exists('wpbootstrap_widgets_init')) :
+	function wpbootstrap_widgets_init() {
 		global $theme_config;
 
         foreach($theme_config[WIDGET_AREAS_KEY] as $area) {
@@ -56,7 +56,7 @@ if (!function_exists('bootstrap_widgets_init')) :
 	}
 endif;
 
-function bootstrap_header_style() {
+function wpbootstrap_header_style() {
     global $theme_config;
     
     ?><style type="text/css">
@@ -70,9 +70,9 @@ function bootstrap_header_style() {
     </style><?php
 }
 
-add_action('wp_enqueue_scripts', 'bootstrap_scripts_init');
-if (!function_exists('bootstrap_scripts_init')) {
-    function bootstrap_scripts_init() {
+add_action('wp_enqueue_scripts', 'wpbootstrap_scripts_init');
+if (!function_exists('wpbootstrap_scripts_init')) {
+    function wpbootstrap_scripts_init() {
         $jsdir = get_template_directory_uri() . '/js';
         $scripts = array(
             'main'  => $jsdir . '/wp-bootstrap.min.js',
@@ -86,9 +86,9 @@ if (!function_exists('bootstrap_scripts_init')) {
     }
 }
 
-add_action('wp_enqueue_scripts', 'bootstrap_styles_init');
-if (!function_exists('bootstrap_styles_init')) {
-    function bootstrap_styles_init() {
+add_action('wp_enqueue_scripts', 'wpbootstrap_styles_init');
+if (!function_exists('wpbootstrap_styles_init')) {
+    function wpbootstrap_styles_init() {
         $themedir = get_template_directory_uri();
         $cssdir = $themedir . '/css';
         $styles = array(

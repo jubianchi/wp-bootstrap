@@ -15,7 +15,7 @@
 					<?php the_title(); ?>
 				</a>
 				<?php if ('post' == $post->post_type) : ?>
-					<small><?php echo bootstrap_posted_on(); ?></small>
+					<small><?php echo wpbootstrap_posted_on(); ?></small>
 				<?php endif; ?>
 				
 				<?php if(comments_open() || (!comments_open() && get_comments_number() > 0)) : ?>
@@ -28,7 +28,7 @@
 			<h1>
 				<?php the_title(); ?>
 				<?php if ('post' == $post->post_type) : ?>
-					<small><?php echo bootstrap_posted_on(); ?></small>
+					<small><?php echo wpbootstrap_posted_on(); ?></small>
 				<?php endif; ?>
 					
 				<?php if(comments_open() || (!comments_open() && get_comments_number() > 0)) : ?>
@@ -52,6 +52,6 @@
     <hr/>
 
 	<footer>
-		<?php echo bootstrap_posted_in(); ?>
+		<?php echo wpbootstrap_posted_in(); ?>
 	</footer>
 </article>

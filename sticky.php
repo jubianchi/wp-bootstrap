@@ -24,7 +24,7 @@
 
 	<footer>
 		<?php if ('post' == $post->post_type) : ?>
-			<small><?php echo bootstrap_posted_on(); ?></small>
+			<small><?php echo wpbootstrap_posted_on(); ?></small>
 		<?php endif; ?>
 	</footer>
 </article>

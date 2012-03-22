@@ -7,7 +7,7 @@
  * @link http://wpbootstrap.jubianchi.fr
  */
 
-function bootstrap_show_herounit() {
+function wpbootstrap_show_herounit() {
     global $theme_config;
 
     return (

@@ -70,7 +70,7 @@
 <section class="row">
 	<?php if (is_author() || is_search() || is_date() || is_category() || is_tag()) : ?>
 		<header class="span12">
-            <?php $section = bootstrap_section_heading(); ?>
+            <?php $section = wpbootstrap_section_heading(); ?>
             <?php if (is_author()) : ?>
                 <hgroup>
                     <h1 class="section-title"><?php echo $section['section_title']; ?></h1>
@@ -105,7 +105,7 @@
 	<?php endwhile; ?>
 </section>
 
-<?php bootstrap_content_nav('content-nav', 'menu'); ?>
+<?php wpbootstrap_content_nav('content-nav', 'menu'); ?>
 
 <?php if(is_singular()) : ?>
 	<section>

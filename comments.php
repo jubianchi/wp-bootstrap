@@ -39,7 +39,7 @@
 
 		<?php if(have_comments()) : ?>
 			<ol class="commentlist">
-				<?php wp_list_comments(array('callback' => 'bootstrap_comments')); ?>
+				<?php wp_list_comments(array('callback' => 'wpbootstrap_comments')); ?>
 			</ol>
 
 			<?php if(get_comment_pages_count() > 1 && get_option('page_comments')) : ?>

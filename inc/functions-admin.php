@@ -7,17 +7,17 @@
  * @link http://wpbootstrap.jubianchi.fr
  */
 
-add_action('admin_menu', 'bootstrap_admin_menu');
-if (!function_exists('bootstrap_admin_menu')) {
-	function bootstrap_admin_menu() {
-        add_theme_page('wp-bootstrap', 'wp-bootstrap', 'edit_themes', 'wp-bootstrap', 'bootstrap_admin_render');
+add_action('admin_menu', 'wpbootstrap_admin_menu');
+if (!function_exists('wpbootstrap_admin_menu')) {
+	function wpbootstrap_admin_menu() {
+        add_theme_page('wp-bootstrap', 'wp-bootstrap', 'edit_themes', 'wp-bootstrap', 'wpbootstrap_admin_render');
     }
 
-    function bootstrap_admin_render() {
+    function wpbootstrap_admin_render() {
         include __DIR__ . '/../admin/options.php';
     }
 
-    function bootstrap_admin_save() {
+    function wpbootstrap_admin_save() {
         global $theme_config;
 
         foreach($_POST as $key => $value) {
@@ -38,7 +38,7 @@ if (!function_exists('bootstrap_admin_menu')) {
     }
 }
 
-function bootstrap_admin_image_div() {
+function wpbootstrap_admin_image_div() {
     ?>
     <header id="headimg" style="position: relative" class="hero-unit">
         <h1><a href="http://www.local.jubianchi.fr/">wp-bootstrap</a></h1>
@@ -47,7 +47,7 @@ function bootstrap_admin_image_div() {
     <?php
 }
 
-function bootstrap_admin_header_style() {
+function wpbootstrap_admin_header_style() {
     global $theme_config;
 
     ?><style type="text/css">

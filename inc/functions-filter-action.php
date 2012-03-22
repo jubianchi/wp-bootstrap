@@ -20,9 +20,9 @@ remove_filter('term_description','wpautop');
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
-add_filter('wp_page_menu_args', 'bootstrap_page_menu_args');
-if(! function_exists('bootstrap_page_menu_args')) :
-function bootstrap_page_menu_args($args) {
+add_filter('wp_page_menu_args', 'wpbootstrap_page_menu_args');
+if(! function_exists('wpbootstrap_page_menu_args')) :
+function wpbootstrap_page_menu_args($args) {
 	$args['show_home'] = true;
 	return $args;
 }
@@ -32,9 +32,9 @@ endif;
  * Sets the post excerpt length to 52 characters.
  */
 /*
-add_filter('excerpt_length', 'bootstrap_excerpt_length');
-if(!function_exists('bootstrap_excerpt_length')) {
-function bootstrap_excerpt_length($length) {
+add_filter('excerpt_length', 'wpbootstrap_excerpt_length');
+if(!function_exists('wpbootstrap_excerpt_length')) {
+function wpbootstrap_excerpt_length($length) {
 	return 52;
 }
 endif;
@@ -43,8 +43,8 @@ endif;
 /**
  * Returns a "Continue Reading" link for excerpts
  */
-if (!function_exists('bootstrap_continue_reading_link')) {
-    function bootstrap_continue_reading_link() {
+if (!function_exists('wpbootstrap_continue_reading_link')) {
+    function wpbootstrap_continue_reading_link() {
         return sprintf(
             ' <a href="%s" rel="nofollow">%s</a>',
             get_permalink(),
@@ -53,18 +53,18 @@ if (!function_exists('bootstrap_continue_reading_link')) {
     }
 }
 
-add_filter('excerpt_more', 'bootstrap_auto_excerpt_more');
-if (!function_exists('bootstrap_auto_excerpt_more')) {
-    function bootstrap_auto_excerpt_more( $more ) {
-        return sprintf(' &hellip;%s', bootstrap_continue_reading_link());
+add_filter('excerpt_more', 'wpbootstrap_auto_excerpt_more');
+if (!function_exists('wpbootstrap_auto_excerpt_more')) {
+    function wpbootstrap_auto_excerpt_more( $more ) {
+        return sprintf(' &hellip;%s', wpbootstrap_continue_reading_link());
     }
 }
 
-add_filter('get_the_excerpt', 'bootstrap_custom_excerpt_more');
-if (!function_exists('bootstrap_custom_excerpt_more')) :
-function bootstrap_custom_excerpt_more( $output ) {
+add_filter('get_the_excerpt', 'wpbootstrap_custom_excerpt_more');
+if (!function_exists('wpbootstrap_custom_excerpt_more')) :
+function wpbootstrap_custom_excerpt_more( $output ) {
 	if(has_excerpt() && ! is_attachment()) {
-		$output .= bootstrap_continue_reading_link();
+		$output .= wpbootstrap_continue_reading_link();
 	}
 	return $output;
 }
@@ -74,9 +74,9 @@ endif;
 /**
  * Add custom body classes
  */
-add_filter('body_class', 'bootstrap_body_class');
-if (!function_exists('bootstrap_body_class')) :
-	function bootstrap_body_class($classes) {
+add_filter('body_class', 'wpbootstrap_body_class');
+if (!function_exists('wpbootstrap_body_class')) :
+	function wpbootstrap_body_class($classes) {
 		if(is_singular()) $classes[] = 'singular';
 		return $classes;
 	}
@@ -85,8 +85,8 @@ endif;
 /**
  * The Caption shortcode with figure and figcaption.
  */
-if(! function_exists('bootstrap_img_caption_shortcode')) :
-	function bootstrap_img_caption_shortcode($attr, $content = null) {
+if(! function_exists('wpbootstrap_img_caption_shortcode')) :
+	function wpbootstrap_img_caption_shortcode($attr, $content = null) {
 		// Allow plugins/themes to override the default caption template.
 		$output = apply_filters('img_caption_shortcode', '', $attr, $content);
 		if($output != '')
@@ -108,16 +108,16 @@ if(! function_exists('bootstrap_img_caption_shortcode')) :
 		. do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $caption . '</figcaption></figure>';
 	}
 endif;
-add_shortcode('wp_caption', 'bootstrap_img_caption_shortcode');
-add_shortcode('caption', 'bootstrap_img_caption_shortcode');
+add_shortcode('wp_caption', 'wpbootstrap_img_caption_shortcode');
+add_shortcode('caption', 'wpbootstrap_img_caption_shortcode');
 
 /**
  * Add support for iframe element in wysiwyg editor 
  * http://wpengineer.com/1963/customize-wordpress-wysiwyg-editor/
  */
-add_filter('tiny_mce_before_init', 'bootstrap_change_mce_options');
-if(! function_exists('bootstrap_change_mce_options')) :
-	function bootstrap_change_mce_options( $initArray ) {
+add_filter('tiny_mce_before_init', 'wpbootstrap_change_mce_options');
+if(! function_exists('wpbootstrap_change_mce_options')) :
+	function wpbootstrap_change_mce_options( $initArray ) {
 		// Comma separated string od extendes tags
 		// Command separated string of extended elements
 		$ext = 'pre[id|name|class|style],iframe[align|longdesc|name|width|height|frameborder|scrolling|marginheight|marginwidth|src]';
@@ -169,9 +169,9 @@ if (!function_exists('remove_more_jump_link')) :
 	}
 endif;
 
-add_filter('get_search_form', 'bootstrap_searchform');
-if (!function_exists('bootstrap_searchform')) :
-	function bootstrap_searchform() {
+add_filter('get_search_form', 'wpbootstrap_searchform');
+if (!function_exists('wpbootstrap_searchform')) :
+	function wpbootstrap_searchform() {
 		$home_url = home_url('/');
         $placeholder = __('Search in (hit Enter)', 'wpbootstrap');
         
@@ -188,9 +188,9 @@ HTML;
 endif;
 
 /*
-add_filter('the_content', 'bootstrap_the_content');
-if (!function_exists('bootstrap_the_content')) :
-	function bootstrap_the_content($content) {
+add_filter('the_content', 'wpbootstrap_the_content');
+if (!function_exists('wpbootstrap_the_content')) :
+	function wpbootstrap_the_content($content) {
         //$content = preg_replace('/(\<p[ ]?(class="([\.|\#]?\w+)")?\>)/', '<p class="$2 clearfix">', $content);
 
         return $content;

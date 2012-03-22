@@ -23,6 +23,6 @@
     <hr/>
 
 	<footer>
-		<?php echo bootstrap_posted_on(); ?>
+		<?php echo wpbootstrap_posted_on(); ?>
 	</footer>
 </article>

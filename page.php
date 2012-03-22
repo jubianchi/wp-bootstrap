@@ -27,7 +27,7 @@
 
         <hr/>
 
-        <?php bootstrap_post_nav('post-nav', 'menu'); ?>
+        <?php wpbootstrap_post_nav('post-nav', 'menu'); ?>
     </article>
 </section>
 

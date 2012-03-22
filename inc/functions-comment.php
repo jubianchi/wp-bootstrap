@@ -7,8 +7,8 @@
  * @link http://wpbootstrap.jubianchi.fr
  */
 
-if(!function_exists('bootstrap_comments')) {
-	function bootstrap_comments($comment, $args, $depth) {
+if(!function_exists('wpbootstrap_comments')) {
+	function wpbootstrap_comments($comment, $args, $depth) {
 		$GLOBALS['comment'] = $comment;
 		
 		switch($comment->comment_type) {
@@ -23,8 +23,8 @@ if(!function_exists('bootstrap_comments')) {
 	}
 }
 
-add_filter('comment_reply_link', 'bootstrap_comment_reply_link');
-function bootstrap_comment_reply_link($link) {
+add_filter('comment_reply_link', 'wpbootstrap_comment_reply_link');
+function wpbootstrap_comment_reply_link($link) {
 	global $user_ID;	
 
 	$comment = get_comment($comment);
@@ -41,8 +41,8 @@ function bootstrap_comment_reply_link($link) {
 	return $link;
 }
 
-add_filter('edit_comment_link', 'bootstrap_comment_edit_link');
-function bootstrap_comment_edit_link($link) {
+add_filter('edit_comment_link', 'wpbootstrap_comment_edit_link');
+function wpbootstrap_comment_edit_link($link) {
 	global $user_ID;	
 	
 	$comment = get_comment($comment);
@@ -59,8 +59,8 @@ function bootstrap_comment_edit_link($link) {
 }
 
 
-add_filter('comment_form_field_comment', 'bootstrap_comment_form_field_comment');
-function bootstrap_comment_form_field_comment($args) {
+add_filter('comment_form_field_comment', 'wpbootstrap_comment_form_field_comment');
+function wpbootstrap_comment_form_field_comment($args) {
     return '<div class="clearfix">
             <label for="textarea">' .  __('Comment', 'wpbootstrap') . ' <span class="required">*</span></label>
             <div class="input">
@@ -72,9 +72,9 @@ function bootstrap_comment_form_field_comment($args) {
 /*
  * Customise the comments fields with HTML5 form elements
  */
-add_filter('comment_form_defaults', 'bootstrap_respond');
-if (!function_exists('bootstrap_respond')) {
-	function bootstrap_respond($post_id = null) {
+add_filter('comment_form_defaults', 'wpbootstrap_respond');
+if (!function_exists('wpbootstrap_respond')) {
+	function wpbootstrap_respond($post_id = null) {
 		global $user_identity, $id;
 
         $post_id   = $post_id ? $post_id : $id;
