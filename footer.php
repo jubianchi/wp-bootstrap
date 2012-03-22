@@ -38,9 +38,7 @@
 					<?php dynamic_sidebar('foot-row-2'); ?>
 				<?php else : ?>
 					<p>
-						&copy; <a href="http://www.jubianchi.fr">jubianchi.fr</a> 2011
-						<br/>
-						Built using <a href="http://twitter.github.com/bootstrap/">Bootstrap, from Twitter</a>
+						Built with <a href="http://www.wordpress.org">Wordpress</a> and <a href="http://twitter.github.com/jubianchi/wp-bootstrap/">wp-bootstrap</a> theme from <a href="http://www.twitter.com/jubianchi">@jubianchi</a>
 					</p>
 				<?php endif; ?>
 			</div>
