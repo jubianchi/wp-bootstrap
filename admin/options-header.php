@@ -83,6 +83,22 @@ global $theme_config;
         </tbody>
     </table>
 
+	<table class="form-table">
+		<tbody>
+		<tr>
+			<th scope="row"><?php _e('Custom HTML', 'wpbootstrap'); ?></th>
+			<td>
+				<fieldset>
+					<legend class="screen-reader-text"><span><?php _e('Custom HTML', 'wpbootstrap'); ?></span></legend>
+					<label>
+						<textarea style="min-width: 800px; min-height: 200px" name="<?php echo CUSTOM_HEADER_HTML_KEY; ?>"><?php echo stripslashes($theme_config[CUSTOM_HEADER_HTML_KEY]); ?></textarea>
+					</label>
+				</fieldset>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
     <p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="<?php _e('Apply changes', 'wpbootstrap'); ?>"/></p>
 </form>
 

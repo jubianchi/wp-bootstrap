@@ -55,15 +55,19 @@ if(is_single() || is_page() && isset($posts[0])) {
 	
 <div class="container">
 	<?php if(wpbootstrap_show_herounit()) : ?>
-        <header class="hero-unit" style="position: relative">
-            <?php if($theme_config[SHOW_RIBBON_KEY]) : ?>
-                <a href="<?php echo $theme_config[RIBBON_URL_KEY]; ?>">
-                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="<?php echo $theme_config[RIBBON_IMAGE_URL_KEY]; ?>" alt="<?php echo $theme_config[RIBBON_IMAGE_ALT_KEY]; ?>">
-                </a>
-            <?php endif; ?>
-            <span class="title"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></span>
-            <p class="sub"><?php bloginfo('description'); ?></p>
-        </header>
+		<?php if($theme_config[CUSTOM_HEADER_HTML_KEY] != '') : ?>
+			<?php echo stripslashes($theme_config[CUSTOM_HEADER_HTML_KEY]); ?>
+		<?php else : ?>
+			<header class="hero-unit" style="position: relative">
+				<?php if($theme_config[SHOW_RIBBON_KEY]) : ?>
+				<a href="<?php echo $theme_config[RIBBON_URL_KEY]; ?>">
+					<img style="position: absolute; top: 0; right: 0; border: 0;" src="<?php echo $theme_config[RIBBON_IMAGE_URL_KEY]; ?>" alt="<?php echo $theme_config[RIBBON_IMAGE_ALT_KEY]; ?>">
+				</a>
+				<?php endif; ?>
+				<span class="title"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></span>
+				<p class="sub"><?php bloginfo('description'); ?></p>
+			</header>
+		<?php endif; ?>
     <?php endif; ?>
 
     <?php echo wpbootstrap_breadcrumb(); ?>

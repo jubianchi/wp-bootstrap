@@ -17,6 +17,8 @@ $theme_config[RIBBON_URL_KEY]           = get_option(wp_option_key(RIBBON_URL_KE
 $theme_config[RIBBON_IMAGE_URL_KEY]     = get_option(wp_option_key(RIBBON_IMAGE_URL_KEY),   'https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67');
 $theme_config[RIBBON_IMAGE_ALT_KEY]     = get_option(wp_option_key(RIBBON_IMAGE_ALT_KEY),   'Fork me on GitHub');
 
+$theme_config[RIBBON_IMAGE_ALT_KEY]     = get_option(wp_option_key(RIBBON_IMAGE_ALT_KEY),   'Fork me on GitHub');
+
 $theme_config[STICKY_ROWS_KEY]          = get_option(wp_option_key(STICKY_ROWS_KEY),        2);
 $theme_config[STICKY_FORMATS_KEY]       = explode(',', get_option(wp_option_key(STICKY_FORMATS_KEY), 'aside,quote,gallery'));
 array_walk($theme_config[STICKY_FORMATS_KEY], create_function('&$item', '$item = \'post-format-\' . $item;'));
@@ -27,6 +29,8 @@ $theme_config[HEADER_BGCOLOR_KEY]       = get_option(wp_option_key(HEADER_BGCOLO
 $theme_config[CONTENT_WIDTH_KEY]        = 1170;
 
 $theme_config[SHOW_PAGE_TITLE_KEY]      = get_option(wp_option_key(SHOW_PAGE_TITLE_KEY),        true);
+
+$theme_config[CUSTOM_HEADER_HTML_KEY]     = get_option(wp_option_key(CUSTOM_HEADER_HTML_KEY),   '');
 
 $theme_config[POST_FORMATS_KEY]         = array(
     'aside',

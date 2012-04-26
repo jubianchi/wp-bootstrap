@@ -34,4 +34,6 @@ const POST_FORMATS_KEY      = 'post_formats';
 const WIDGET_AREAS_KEY      = 'widget_areas';
 
 const SHOW_PAGE_TITLE_KEY   = 'show_page_title';
+
+const CUSTOM_HEADER_HTML_KEY = 'custom_header_html';
 ?>
